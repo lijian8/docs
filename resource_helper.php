@@ -19,10 +19,11 @@ function get_max_resource_id($dbc) {
 
 function init_resource($dbc, $type) {
     $file_id = get_max_resource_id($dbc) + 1;
-    $user_id = $_SESSION['id'];
+    //$user_id = $_SESSION['id'];
+    $user_id = 2;
 
     $query = "INSERT INTO resource (id, create_time, user_id, type) VALUES ('$file_id',NOW(), '$user_id', '$type')";
-    //echo $query;
+    echo $query;
     mysqli_query($dbc, $query);
     return $file_id;
 }
@@ -79,6 +80,23 @@ function render_resource_list($dbc, $biblio) {
             }
         }
         echo '</ol>';
+    }
+}
+
+function upload_file($file_id) {
+    if ($_FILES["file"]["error"] > 0) {
+        echo "Error: " . $_FILES["file"]["error"] . "<br />";
+    } else {
+        $file_name = $file_id . '.' . pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+        if (file_exists(GW_UPLOADPATH . $file_name)) {
+            unlink(GW_UPLOADPATH . $file_name);
+        }
+
+        $name = iconv('utf-8', 'gb2312', $file_name);
+//move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $_FILES["file"]["name"]);
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], GW_UPLOADPATH . $name)) {
+            return $file_name;
+        }
     }
 }
 

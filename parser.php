@@ -7,49 +7,25 @@ require_once('appvars.php');
 echo '<p></p>';
 
 //require_once('connectvars.php');
-
-
 //$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+//尝试上传原文，若原文上传成功，则调用文件解析服务获取文献元数据，将它们显示出来以供用户检查。
 
-if (isset($_GET['action'])) {
-    if ($_GET['action'] == 'create') {
-        //echo 'create new resource!';
+if (isset($_POST['submit']) && (is_uploaded_file($_FILES['file']['tmp_name']))) {
+    echo '准备上传文件...';
+    $type = '期刊';
+    $file_id = init_resource($dbc, $type);
+    $file_name = upload_file($file_id);
 
-        $type = isset($_GET['type']) ? $_GET['type'] : '其他资源';
+    $title = 'title' . $file_id;
+    $creator = 'creator' . $file_id;
+    $publisher = 'publisher' . $file_id;
+    $description = 'description' . $file_id;
+    $identifier = 'identifier' . $file_id;
 
-        $file_id = init_resource($dbc, $type);
-    } elseif ($_GET['action'] == 'update') {
-        $file_id = $_GET['file_id'];
-        $query = "SELECT * FROM resource WHERE id = '$file_id'";
-        $result = mysqli_query($dbc, $query) or die('Error querying database.');
-        if ($row = mysqli_fetch_array($result)) {
-            $title = $row['title'];
-            $creator = $row['creator'];
-            $publisher = $row['publisher'];
-            $source = $row['source'];
-            $description = $row['description'];
-            $type = $row['type'];
-            $subject = $row['subject'];
-            $identifier = $row['identifier'];
-        }
-    }
-} elseif (isset($_POST['submit'])) {
-    $file_id = $_POST['file_id'];
+    $source = 'source' . $file_id;
 
-    if (is_uploaded_file($_FILES['file']['tmp_name'])) {
-        $file_name = upload_file($file_id);
-    }
-
-    $title = $_POST['title'];
-    $creator = $_POST['creator'];
-    $publisher = $_POST['publisher'];
-    $description = $_POST['description'];
-    $identifier = $_POST['identifier'];
-
-    $source = $_POST['source'];
-
-    $type = $_POST['type'];
-    $subject = $_POST['subject'];
+    $type = 'type' . $file_id;
+    $subject = 'subject' . $file_id;
 
     $query = "update resource set ";
 
@@ -80,20 +56,22 @@ if (isset($_GET['action'])) {
     echo '<dl class="dl-horizontal">';
     echo "<dt>文献题目:</dt><dd>" . $title . '</dd>';
     echo "<dt>文献类型:</dt><dd>" . $type . '</dd>';
-    if ('' != $file_name) {
-        echo "<dt>文件名称:</dt><dd>" . $file_name . "</dd>";
-        echo "<dt>文件类型:</dt><dd>" . $_FILES["file"]["type"] . "</dd>";
-        echo "<dt>文件尺寸:<dt><dd>" . ($_FILES["file"]["size"] / 1024) . "Kb</dd>";
-    } else {
-        echo '您没有上传原文！';
-    }
+
+    echo "<dt>文件名称:</dt><dd>" . $file_name . "</dd>";
+    echo "<dt>文件类型:</dt><dd>" . $_FILES["file"]["type"] . "</dd>";
+    echo "<dt>文件尺寸:<dt><dd>" . ($_FILES["file"]["size"] / 1024) . "Kb</dd>";
+
+
+
     echo '</dl></div>';
+} else {
+    echo '您没有上传原文！';
 }
 //echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
 ?>
 
 <div class="container">
-  
+
 
     <form role="form" action="upload_file.php" method="post" class="form-horizontal"
           enctype="multipart/form-data">

@@ -34,7 +34,7 @@ if (isset($_GET['deleted_file'])) {
             <ul class="nav navbar-nav">
 
                 <li><a href="upload_file.php?action=create&type=期刊文献"><span class="glyphicon glyphicon-list"></span>&nbsp;录入</a></li>               
-                <li><a href="upload_file.php?action=create&type=期刊文献"><span class="glyphicon glyphicon-cloud-upload"></span>&nbsp;上传</a></li>               
+                <li><a href="upload.php"><span class="glyphicon glyphicon-cloud-upload"></span>&nbsp;上传</a></li>               
 
             </ul>
 
@@ -51,7 +51,7 @@ if (isset($_GET['deleted_file'])) {
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
-<a href="#" data-toggle="tooltip" title="Another tooltip">have a</a>
+
     <table class="table table-hover">
         <tbody>
             <tr class="info">
