@@ -14,6 +14,8 @@ function render_graph($dbc, $name, $edit) {
         $value = $row[value];
         //if (!$edit)  $value = tcmks_substr($value);
         $id = $row[id];
+        $description = $row[description];
+
 
         //echo '<form class="form-horizontal" role = "form">';
         echo '<form action="' . $_SERVER['PHP_SELF'] . '" role = "form" method="post" class="form-horizontal"
@@ -22,41 +24,43 @@ function render_graph($dbc, $name, $edit) {
         echo '<input  type="hidden" id="property" name="property" value = "' . $property . '" >';
         echo '<input  type="hidden" id="id" name="id" value = "' . $id . '" >';
 
+        echo '<div class="panel panel-default">';
+        echo '<div class="panel-heading">';
+        echo '<strong>' . $property . '</strong>';
+        echo '<a class="btn btn-link pull-right" href="' . $_SERVER['PHP_SELF'] . '?id=' . $name . '&delete_triple_id=' . $id . '">删除</a>';
+
+        echo '<input  type = "submit" name="update" value="更新" class = "btn btn-link pull-right">';
+
+        echo '</div>';
+        echo '<div class="panel-body">';
+        
+         
+        
         echo '<div class = "form-group">';
-        echo '<label class = "col-sm-2 control-label" for = "value">' . $property . '</label>';
-
-        echo '<div class = "col-sm-9">';
-
-        echo '<div class="input-group">';
-        echo '<input type = "text" class = "form-control" id = "value" name="value" value = "' . $value . '">';
-        echo '<span class="input-group-btn">';
-        echo '<input type = "submit" name="update" value="确定" class = "btn btn-success">';
+        echo '<label class = "col-sm-1 control-label" for = "value">取值</label>';
+        echo '<div class = "col-sm-11">';
+        echo '<textarea type = "text" class = "form-control" id = "value" name="value">'. $value .'</textarea>';
+        echo '</div>';
+        echo '</div>';
         
-        echo '</span>';
-       
+        echo '<div class = "form-group">';
+        echo '<label class = "col-sm-1 control-label" for = "description">注释</label>';
+        echo '<div class = "col-sm-11">';
+        echo '<textarea type = "text" class = "form-control" id = "description" name="description">'. $description .'</textarea>';
         echo '</div>';
         echo '</div>';
-        echo '<div class = "col-sm-1">';
         
-        echo '<a class="btn btn-danger active" href="' . $_SERVER['PHP_SELF'] . '?id=' . $name . '&delete_triple_id=' . $id . '">删除</a>';
-
+        
+        
+        
+        
         echo '</div>';
         echo '</div>';
-
-
-
-
-
-
-
-
-
+        
         echo '</form>';
 
 
         //echo "<p><strong>$property</strong>:&nbsp;$value";
-
-        echo "</p>";
     }
 }
 

@@ -2,24 +2,13 @@
 include_once ("./header.php");
 
 function render_content($row) {
-    $name = $row[name];
+    $title = $row[title];
     $id = $row[id];
-    $def = $row[def];
-    echo "<p><a href=\"entity.php?id=$id\">$name</a></p>";
+    $def = $row[description];
+    echo "<p><a href=\"resource_viewer.php?id=$id\">$title</a></p>";
 
     echo $def;
-    echo '<br>';
-
-    echo '<a class="btn btn-link" href="#" role="button">功效&nbsp; &raquo;</a>';
-    echo '&nbsp;';
-    echo '<a class="btn btn-link" href="#" role="button">化学成分&nbsp; &raquo;</a>';
-    echo '&nbsp;';
-    echo '<a class="btn btn-link" href="#" role="button">药理作用&nbsp; &raquo;</a>';
-    echo '&nbsp;';
-    echo '<a class="btn btn-link" href="#" role="button">化学实验&nbsp; &raquo;</a>';
-    echo '&nbsp;';
-    echo '<a class="btn btn-link" href="#" role="button">来源处方&nbsp; &raquo;</a>';
-
+  
     echo "<hr>";
 }
 
@@ -48,28 +37,28 @@ if (isset($_GET['keywords'])) {
 
             <div class="container" >
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <img width="100%" class="media-object" src="img/logo.jpg" >                    
                     </div>   
-                    <div class="col-md-9">
-                        <br>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox1" value="option1"> 单味药
+
+                    <div class="col-md-10">
+                        <label class="checkbox-inline input-lg">
+                            <input type="checkbox" id="inlineCheckbox1" value="option1"> 古籍
                         </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox2" value="option2"> 化学成分
+                        <label class="checkbox-inline input-lg">
+                            <input type="checkbox" id="inlineCheckbox2" value="option2"> 期刊
                         </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox3" value="option3"> 实验方法
+                        <label class="checkbox-inline input-lg">
+                            <input type="checkbox" id="inlineCheckbox3" value="option3"> 学位
                         </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox3" value="option3"> 药理作用
+                        <label class="checkbox-inline input-lg">
+                            <input type="checkbox" id="inlineCheckbox3" value="option3"> 会议
                         </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox3" value="option3"> 方剂
+                        <label class="checkbox-inline input-lg">
+                            <input type="checkbox" id="inlineCheckbox3" value="option3"> 图书
                         </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox3" value="option3"> 学者 
+                        <label class="checkbox-inline input-lg">
+                            <input type="checkbox" id="inlineCheckbox3" value="option3"> 标准 
                         </label>
                     </div>
                 </div>
@@ -79,7 +68,7 @@ if (isset($_GET['keywords'])) {
                     <span class="input-group-btn">
                         <button name ="submit" type="submit" class="btn btn-primary  btn-lg"><span class="glyphicon glyphicon-search"></span></button>
                     </span> 
-                   
+
                 </div> 
                 <p></p>
 
@@ -91,14 +80,7 @@ if (isset($_GET['keywords'])) {
 
 
                         <?php
-//$keywords = '四君子汤';
-                        render_entity($dbc, $keywords);
-
-
-
-
-                        $query = "SELECT * FROM def where name like '%$keywords%' or def like '%$keywords%' ORDER BY name ASC LIMIT 0,10";
-
+                        $query = "SELECT * FROM resource where title like '%$keywords%' or description like '%$keywords%' ORDER BY title ASC LIMIT 0,10";
 
                         $result = mysqli_query($dbc, $query) or die('Error querying database.');
                         while ($row = mysqli_fetch_array($result)) {

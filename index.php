@@ -7,7 +7,7 @@ include_once ("./header.php");
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6" align="center" >
-            <img width="60%" class="media-object" src="img/logo_large_wide.jpg" >
+            <img width="60%" class="media-object" src="img/logo_wide.jpg" >
             <p></p> 
             <div class="input-group">
                 <input type="text" id ="keywords" name ="keywords" class="form-control input-lg" placeholder="搜索......">
@@ -16,26 +16,26 @@ include_once ("./header.php");
                 </span> 
             </div> 
             <br>
-            <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox1" value="option1"> 单味药
+            <label class="checkbox-inline input-lg">
+                <input type="checkbox" id="inlineCheckbox1" value="option1"> 古籍
             </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox2" value="option2"> 化学成分
+            <label class="checkbox-inline input-lg">
+                <input type="checkbox" id="inlineCheckbox2" value="option2"> 期刊
             </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox3" value="option3"> 实验方法
+            <label class="checkbox-inline input-lg">
+                <input type="checkbox" id="inlineCheckbox3" value="option3"> 学位
             </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox3" value="option3"> 药理作用
+            <label class="checkbox-inline input-lg">
+                <input type="checkbox" id="inlineCheckbox3" value="option3"> 会议
             </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox3" value="option3"> 方剂
+            <label class="checkbox-inline input-lg">
+                <input type="checkbox" id="inlineCheckbox3" value="option3"> 图书
             </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox3" value="option3"> 学者 
+            <label class="checkbox-inline input-lg">
+                <input type="checkbox" id="inlineCheckbox3" value="option3"> 标准 
             </label>
             <br><br>
-            
+
         </div>
     </div>
 </form>

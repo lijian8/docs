@@ -33,7 +33,7 @@ if (isset($_GET['deleted_file'])) {
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
 
-                <li><a href="upload_file.php?action=create&type=期刊文献"><span class="glyphicon glyphicon-list"></span>&nbsp;录入</a></li>               
+                <li><a href="basic.php?action=create&type=期刊文献"><span class="glyphicon glyphicon-list"></span>&nbsp;录入</a></li>               
                 <li><a href="upload.php"><span class="glyphicon glyphicon-cloud-upload"></span>&nbsp;上传</a></li>               
 
             </ul>
@@ -85,7 +85,9 @@ if (isset($_GET['deleted_file'])) {
                 echo '<td width = "15%">' . $row['creator'] . '</td>';
 
                 echo '<td width = "32%">';
-                echo '<a class="btn-link" href="upload_file.php?action=update&file_id=' . $row[id] . '">' . $row['title'] . '</a>';
+                //echo '<a class="btn-link" href="basic.php?action=update&file_id=' . $row[id] . '">' . $row['title'] . '</a>';
+                echo '<a class="btn-link" href="resource_editor.php?id=' . $row[id] . '">' . $row['title'] . '</a>';
+
 
                 if ($row['file'] != '') {
                     $file_name = iconv('utf-8', 'gb2312', $row['file']);

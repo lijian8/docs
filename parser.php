@@ -8,7 +8,7 @@ echo '<p></p>';
 
 //require_once('connectvars.php');
 //$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-//尝试上传原文，若原文上传成功，则调用文件解析服务获取文献元数据，将它们显示出来以供用户检查。
+//尝试上传原文，若原文上传成功，则调用文件解析服务获取文献元数据，存入数据库，再将它们显示出来以供用户检查；若未解析成功，则将文件名作为原文题目，存入数据库，供用户检查。
 
 if (isset($_POST['submit']) && (is_uploaded_file($_FILES['file']['tmp_name']))) {
     echo '准备上传文件...';
@@ -73,7 +73,7 @@ if (isset($_POST['submit']) && (is_uploaded_file($_FILES['file']['tmp_name']))) 
 <div class="container">
 
 
-    <form role="form" action="upload_file.php" method="post" class="form-horizontal"
+    <form role="form" action="basic.php" method="post" class="form-horizontal"
           enctype="multipart/form-data">
         <legend>请录入<?php echo isset($type) ? $type : '文献'; ?>的信息：</legend>
         <input  type="hidden" id="file_id" name="file_id" value = "<?php if (isset($file_id)) echo $file_id; ?>" >

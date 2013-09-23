@@ -90,12 +90,12 @@ and open the template in the editor.
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Herbnet</a>
+                    <a class="navbar-brand" href="#">TCMLM</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.php">首页</a></li>
-                        <li><a href="index.php">高级搜索</a></li>
+                        <li><a href="resource_manager.php">文献管理</a></li>
                         <li><a href="#about">关于本站</a></li>
                         <li><a href="#contact">联系我们</a></li>
                     </ul>

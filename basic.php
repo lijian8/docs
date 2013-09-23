@@ -95,7 +95,7 @@ if (isset($_GET['action'])) {
 <div class="container">
   
 
-    <form role="form" action="upload_file.php" method="post" class="form-horizontal"
+    <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form-horizontal"
           enctype="multipart/form-data">
         <legend>请录入<?php echo isset($type) ? $type : '文献'; ?>的信息：</legend>
         <input  type="hidden" id="file_id" name="file_id" value = "<?php if (isset($file_id)) echo $file_id; ?>" >
