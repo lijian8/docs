@@ -22,7 +22,8 @@ function send_mail($from,$to,$subject,$body)
 }
 
 function tcmks_substr($str, $word_count=100){
-    $t = strip_tags($str);     
-    return mb_substr($t, 0, $word_count, 'utf-8');
+    $t = strip_tags($str);   
+    //echo $str. "strlen: " . mb_strlen($str, 'utf-8');
+    return (mb_strlen($str, 'utf-8') > $word_count) ? mb_substr($t, 0, $word_count, 'utf-8').'...' : $t;
 }
 ?>

@@ -140,12 +140,10 @@ function get_total($keywords, $dbc) {
     return $total;
 }
 
-if (isset($_POST['submit'])) {
-    $keywords = $_POST['keywords'];
-}
-
-if (isset($_GET['keywords'])) {
-    $keywords = $_GET['keywords'];
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+} else {
+    render_warning('无相关实体信息');
 }
 
 // Calculate pagination information
@@ -157,44 +155,65 @@ $num_pages = ceil($total / $results_per_page);
 ?>
 <div class="container">
 
-    <form class="form-search" action="search.php" method="post" class="form-horizontal"
-          enctype="multipart/form-data">
+    <?php
+    $query = "SELECT * FROM relation where id ='$id'";
+    $data = mysqli_query($dbc, $query);
+    
+    if ($row = mysqli_fetch_array($data)) {
+        
+        echo  '<div class="row">';
+        echo  '<div class="col-md-3">';
+        echo  '<img width="100%" class="media-object" src="img/logo.jpg" >';                    
+        echo  '</div>';   
 
-        <div class="container" >
-            <div class="row">
-                <div class="col-md-3">
-                    <img width="100%" class="media-object" src="img/logo.jpg" >                    
-                </div>   
+        echo  '<div class="col-md-9">';
+        echo  '<h1>潜在语义关系:&nbsp;';
+        echo $row['SUBJECT'] . '&nbsp;-&nbsp;' . $row['OBJECT'];                 
+        echo  '</h1>';                   
+        echo  '</div>';
+        echo  '</div>';
 
-                <div class="col-md-9">
-                    <div class="input-group">
-                        <input type="text" id ="keywords" name ="keywords" class="form-control input-lg" placeholder="搜索......"  value ="<?php if (isset($keywords)) echo $keywords; ?>">
-                        <span class="input-group-btn">
-                            <button name ="submit" type="submit" class="btn btn-primary  btn-lg"><span class="glyphicon glyphicon-search"></span></button>
-                        </span> 
 
-                    </div> 
-                    &nbsp;&nbsp;
-                    <label class="checkbox-inline input-sm">
-                        <input type="checkbox" id="inlineCheckbox1" value="option1"> 古籍
-                    </label>
-                    <label class="checkbox-inline input-sm">
-                        <input type="checkbox" id="inlineCheckbox2" value="option2"> 期刊
-                    </label>
-                    <label class="checkbox-inline input-sm">
-                        <input type="checkbox" id="inlineCheckbox3" value="option3"> 学位
-                    </label>
-                    <label class="checkbox-inline input-sm">
-                        <input type="checkbox" id="inlineCheckbox3" value="option3"> 会议
-                    </label>
-                    <label class="checkbox-inline input-sm">
-                        <input type="checkbox" id="inlineCheckbox3" value="option3"> 图书
-                    </label>
-                    <label class="checkbox-inline input-sm">
-                        <input type="checkbox" id="inlineCheckbox3" value="option3"> 标准 
-                    </label>
-                </div>
-            </div>
+        echo '<div class = "panel panel-default">';
+        echo '<div class = "panel-heading">';
+        echo '<strong>基本信息</strong>';
+        echo '</div>';
+        echo '<div class = "panel-body">';
+        echo '<div class = "row">';
+
+        echo '<div class = "col-md-1"><strong>主体:</strong></div>';
+        echo '<div class = "col-md-11">' . $row['SUBJECT'] . '</div>';
+
+        echo '<div class = "col-md-1"><strong>谓词:</strong></div>';
+        echo '<div class = "col-md-11">' . $row['PREDICATE'] . '</div>';
+
+
+        echo '<div class = "col-md-1"><strong>客体:</strong></div>';
+        echo '<div class = "col-md-11">' . $row['OBJECT'] . '</div>';
+
+
+        echo '<div class = "col-md-1"><strong>赋值:</strong></div>';
+        echo '<div class = "col-md-11">' . $row['VALUE'] . '</div>';
+
+        echo '<div class = "col-md-1"><strong>距离:</strong></div>';
+        echo '<div class = "col-md-11">' . $row['DISTANCE'] . '</div>';
+
+        echo '<div class = "col-md-1"><strong>频数:</strong></div>';
+        echo '<div class = "col-md-11">' . $row['FREQUENCY'] . '</div>';
+
+
+
+        echo '</div>';
+
+        echo '</div>';
+        echo '</div>';
+    }
+    ?>
+
+    
+
+       
+          
 
 
 
@@ -248,8 +267,7 @@ echo '<p><a  href=\"#\">牛黄</a></p>';
             -->
 
 
-        </div>
-    </form>   
+        
 </div>
 
 
