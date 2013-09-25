@@ -23,7 +23,7 @@ function init_resource($dbc, $type) {
     $user_id = 2;
 
     $query = "INSERT INTO resource (id, create_time, user_id, type) VALUES ('$file_id',NOW(), '$user_id', '$type')";
-    echo $query;
+   
     mysqli_query($dbc, $query);
     return $file_id;
 }

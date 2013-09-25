@@ -155,8 +155,8 @@ $num_pages = ceil($total / $results_per_page);
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
 
-                <li><a href="basic.php?action=create&type=期刊文献"><span class="glyphicon glyphicon-list"></span>&nbsp;录入</a></li>               
-                <li><a href="upload.php"><span class="glyphicon glyphicon-cloud-upload"></span>&nbsp;上传</a></li>               
+                <li><a href="basic.php?action=create&type=期刊文献"><span class="glyphicon glyphicon-list"></span>&nbsp;导出Excel</a></li>               
+                <li><a href="upload.php"><span class="glyphicon glyphicon-cloud-download"></span>&nbsp;导出RDF</a></li>               
 
             </ul>
             <form class="navbar-form navbar-left" role="search" action="<?php echo $_SERVER['PHP_SELF']; ?>"  enctype="multipart/form-data">

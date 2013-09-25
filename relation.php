@@ -5,7 +5,7 @@ include_once ("./messages.php");
 include_once ("./functions.php");
 require_once('appvars.php');
 
-function build_query($user_search, $count_only = false) {
+function build_query($docs, $count_only = false) {
 
     if ($count_only) {
         $search_query = "SELECT count(*) as count FROM resource";
@@ -13,48 +13,26 @@ function build_query($user_search, $count_only = false) {
         $search_query = "SELECT * FROM resource";
     }
 
-    //$search_query = "SELECT * FROM resource";
-    // Extract the search keywords into an array
-    $clean_search = str_replace(',', ' ', $user_search);
-    $search_words = explode(' ', $clean_search);
-    $final_search_words = array();
-    if (count($search_words) > 0) {
-        foreach ($search_words as $word) {
-            if (!empty($word)) {
-                $final_search_words[] = $word;
+    $final_docs = explode('|', $docs);
+
+    $first = true;
+    foreach ($final_docs as $final_doc) {
+        if ($final_doc != '') {
+            if ($first) {
+                $search_query .= " WHERE id=" . $final_doc;
+                $first = false;
+            } else {
+                $search_query .= " OR id=" . $final_doc;
             }
         }
     }
 
-    if (count($final_search_words) > 0) {
-        $title = generate_where_clause($final_search_words, 'title');
-        $creator = generate_where_clause($final_search_words, 'creator');
-        $description = generate_where_clause($final_search_words, 'description');
-        $subject = generate_where_clause($final_search_words, 'subject');
-
-        $where_clause = $title . ' OR ' . $creator . ' OR ' . $description . ' OR ' . $subject;
-
-        // Add the keyword WHERE clause to the search query
-        if (!empty($where_clause)) {
-            $search_query .= " WHERE $where_clause";
-        }
-    }
 
 
     $search_query .= " ORDER BY title";
 
+    //echo $search_query;
     return $search_query;
-}
-
-function generate_where_clause($final_search_words, $column) {
-    // Generate a WHERE clause using all of the search keywords
-    $where_list = array();
-    if (count($final_search_words) > 0) {
-        foreach ($final_search_words as $word) {
-            $where_list[] = "$column LIKE '%$word%'";
-        }
-    }
-    return implode(' OR ', $where_list);
 }
 
 function render_content($row) {
@@ -78,16 +56,16 @@ function render_entity($dbc, $keywords) {
 }
 
 // This function builds navigational page links based on the current page and the number of pages
-function generate_page_links($user_search, $cur_page, $num_pages) {
+function generate_page_links($id, $cur_page, $num_pages) {
     $page_links = '';
 
     echo '<ul class="pagination">';
 
-    echo '<li><a href="' . $_SERVER['PHP_SELF'] . '?keywords=' . $user_search . '&sort=' . $sort . '&page=' . (1) . '">首页</a></li>';
+    echo '<li><a href="' . $_SERVER['PHP_SELF'] . '?id=' . $id . '&page=' . (1) . '">首页</a></li>';
 
     // If this page is not the first page, generate the "previous" link
     if ($cur_page > 1) {
-        $page_links .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?keywords=' . $user_search . '&sort=' . $sort . '&page=' . ($cur_page - 1) . '">上一页</a></li>';
+        $page_links .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?id=' . $id . '&page=' . ($cur_page - 1) . '">上一页</a></li>';
     } else {
         $page_links .= '<li class="disabled"><a>上一页</a></li> ';
     }
@@ -115,7 +93,7 @@ function generate_page_links($user_search, $cur_page, $num_pages) {
         if ($cur_page == $i) {
             $page_links .= ' <li class="active"><a>' . $i . '</a></li>';
         } else {
-            $page_links .= ' <li><a href="' . $_SERVER['PHP_SELF'] . '?keywords=' . $user_search . '&sort=' . $sort . '&page=' . $i . '"> ' . $i . '</a></li>';
+            $page_links .= ' <li><a href="' . $_SERVER['PHP_SELF'] . '?id=' . $id . '&page=' . $i . '"> ' . $i . '</a></li>';
         }
     }
 
@@ -132,8 +110,8 @@ function generate_page_links($user_search, $cur_page, $num_pages) {
     echo '</ul>';
 }
 
-function get_total($keywords, $dbc) {
-    $query = build_query($keywords, true);
+function get_total($docs, $dbc) {
+    $query = build_query($docs, true);
     $result = mysqli_query($dbc, $query);
     $row = mysqli_fetch_array($result);
     $total = $row['count'];
@@ -145,129 +123,144 @@ if (isset($_GET['id'])) {
 } else {
     render_warning('无相关实体信息');
 }
-
-// Calculate pagination information
-$cur_page = isset($_GET['page']) ? $_GET['page'] : 1;
-$results_per_page = 10;  // number of results per page
-$skip = (($cur_page - 1) * $results_per_page);
-$total = get_total($keywords, $dbc);
-$num_pages = ceil($total / $results_per_page);
 ?>
 <div class="container">
+
+
 
     <?php
     $query = "SELECT * FROM relation where id ='$id'";
     $data = mysqli_query($dbc, $query);
-    
+
+
     if ($row = mysqli_fetch_array($data)) {
-        
-        echo  '<div class="row">';
-        echo  '<div class="col-md-3">';
-        echo  '<img width="100%" class="media-object" src="img/logo.jpg" >';                    
-        echo  '</div>';   
-
-        echo  '<div class="col-md-9">';
-        echo  '<h1>潜在语义关系:&nbsp;';
-        echo $row['SUBJECT'] . '&nbsp;-&nbsp;' . $row['OBJECT'];                 
-        echo  '</h1>';                   
-        echo  '</div>';
-        echo  '</div>';
-
-
-        echo '<div class = "panel panel-default">';
-        echo '<div class = "panel-heading">';
-        echo '<strong>基本信息</strong>';
-        echo '</div>';
-        echo '<div class = "panel-body">';
-        echo '<div class = "row">';
-
-        echo '<div class = "col-md-1"><strong>主体:</strong></div>';
-        echo '<div class = "col-md-11">' . $row['SUBJECT'] . '</div>';
-
-        echo '<div class = "col-md-1"><strong>谓词:</strong></div>';
-        echo '<div class = "col-md-11">' . $row['PREDICATE'] . '</div>';
-
-
-        echo '<div class = "col-md-1"><strong>客体:</strong></div>';
-        echo '<div class = "col-md-11">' . $row['OBJECT'] . '</div>';
-
-
-        echo '<div class = "col-md-1"><strong>赋值:</strong></div>';
-        echo '<div class = "col-md-11">' . $row['VALUE'] . '</div>';
-
-        echo '<div class = "col-md-1"><strong>距离:</strong></div>';
-        echo '<div class = "col-md-11">' . $row['DISTANCE'] . '</div>';
-
-        echo '<div class = "col-md-1"><strong>频数:</strong></div>';
-        echo '<div class = "col-md-11">' . $row['FREQUENCY'] . '</div>';
-
-
-
-        echo '</div>';
-
-        echo '</div>';
-        echo '</div>';
+        $docs = $row['DOCS'];
+        $subject = $row['SUBJECT'];
+        $predicate = $row['PREDICATE'];
+        $object = $row['OBJECT'];
+        $value = $row['VALUE'];
+        $distance = $row['DISTANCE'];
+        $frequency = $row['FREQUENCY'];
     }
     ?>
+    <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">潜在语义关系:&nbsp;<?php echo $subject . '&nbsp;-&nbsp;' . $object; ?></a>
+        </div>
 
-    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li><a class href="basic.php?action=create&type=期刊文献"><span class="glyphicon glyphicon-list"></span>&nbsp;录入TCMLS</a></li>               
+                <li><a href="upload.php"><span class="glyphicon glyphicon-cloud-download"></span>&nbsp;下载RDF文件</a></li>               
+            </ul>
 
-       
-          
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" >返回首页</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+    <?php
+    echo '<div class = "panel panel-default">';
+    echo '<div class = "panel-heading">';
+    echo '<strong>基本信息</strong>';
+    echo '</div>';
+    echo '<div class = "panel-body">';
+    echo '<div class = "row">';
+
+    echo '<div class = "col-md-1"><strong>主体:</strong></div>';
+    echo '<div class = "col-md-11">' . $subject . '</div>';
+
+    echo '<div class = "col-md-1"><strong>谓词:</strong></div>';
+    echo '<div class = "col-md-11">' . $predicate . '</div>';
+
+    echo '<div class = "col-md-1"><strong>客体:</strong></div>';
+    echo '<div class = "col-md-11">' . $object . '</div>';
+
+    echo '<div class = "col-md-1"><strong>赋值:</strong></div>';
+    echo '<div class = "col-md-11">' . $value . '</div>';
+
+    echo '<div class = "col-md-1"><strong>距离:</strong></div>';
+    echo '<div class = "col-md-11">' . $distance . '</div>';
+
+    echo '<div class = "col-md-1"><strong>频数:</strong></div>';
+    echo '<div class = "col-md-11">' . $frequency . '</div>';
+
+    echo '</div>';
+
+    echo '</div>';
+    echo '</div>';
+    ?>
+    <div class="tabbable">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#docs" data-toggle="tab">文献来源</a></li>
+            <li><a href="#baidu" data-toggle="tab">百度搜索</a></li>   
+            <li><a href="#tcmls" data-toggle="tab">TCMLS</a></li>   
+
+            
+        </ul>
+
+
+        <div class="tab-content">
 
 
 
-
-
-            <hr> 
-
-
-
-            <?php
+            <div class="tab-pane fade in active" id="docs">
+                <?php
 //$query = "SELECT * FROM resource where title like '%$keywords%' or description like '%$keywords%' ORDER BY title ASC LIMIT 0,10";
+// Calculate pagination information
+                $cur_page = isset($_GET['page']) ? $_GET['page'] : 1;
+                $results_per_page = 10;  // number of results per page
+                $skip = (($cur_page - 1) * $results_per_page);
+                $total = get_total($docs, $dbc);
+                $num_pages = ceil($total / $results_per_page);
 
-            $query = build_query($keywords) . " LIMIT $skip, $results_per_page";
+                echo '<p></p>';
 
-
-            $result = mysqli_query($dbc, $query) or die('Error querying database.');
-            while ($row = mysqli_fetch_array($result)) {
-                render_content($row);
-            }
-
-            if ($num_pages > 1) {
-                generate_page_links($keywords, $cur_page, $num_pages);
-            }
-            ?>
-
+                echo '<p><font color="gray">出现于如下' . $total . '篇文献之中:</font></p>';
+                echo '<hr>';
+                $query = build_query($docs) . " LIMIT $skip, $results_per_page";
 
 
+                $result = mysqli_query($dbc, $query) or die('Error querying database.');
+                while ($row = mysqli_fetch_array($result)) {
+                    render_content($row);
+                }
 
-
-
-
-            <p><font color="gray">获得约 <?php echo $total; ?> 条结果。</font></p>
-            <hr>
-
-            <!--
-            <div class="col-md-1">
-
-echo '<p><font color="red">' . $keywords . '</font>的相关搜索:</p>';
-echo '<p><a  href=\"#\">四君子汤</a></p>';
-echo '<p><a  href=\"#\">人参</a></p>';
-echo '<p><a  href=\"#\">补阳</a></p>';
-echo '<p><a  href=\"#\">石杉碱甲</a></p>';
-echo '<p><a  href=\"#\">大黄</a></p>';
-echo '<p><a  href=\"#\">肾</a></p>';
-echo '<p><a  href=\"#\">李时珍</a></p>';
-echo '<p><a  href=\"#\">孙思邈</a></p>';
-echo '<p><a  href=\"#\">汤剂</a></p>';
-echo '<p><a  href=\"#\">牛黄</a></p>';
-
+                if ($num_pages > 1) {
+                    generate_page_links($id, $cur_page, $num_pages);
+                }
+                ?>
             </div>
-            -->
+            <div class="tab-pane fade" id="baidu">
+                <br>百度搜索，未完成...
+            </div>
+
+            <div class="tab-pane fade" id="tcmls">
+                <br>语言系统，未完成...
+            </div>
+
+        </div>
+    </div>
 
 
-        
+
+
+
+
+
+
+
+
+
+
 </div>
 
 
