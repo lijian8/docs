@@ -299,8 +299,10 @@ if ($_SESSION['msg']) {
 
         <div class="pageContent">
             <div id="main">
-                <div class="container">
-                    <img width ="100%" src ="img/logo.jpg"></img>                    
+
+
+                <div align="center" class="container">
+                    <img width ="50%" src ="img/logo.jpg"></img>    
                 </div>
 
                 <div class="container">
@@ -311,16 +313,13 @@ if ($_SESSION['msg']) {
                         if ($row['content'] != '') {
                             echo $row['content'];
                         } else {
-                            echo "目前，我国中医药界尚未出现类似于UpToDate的知识服务平台。循证知识服务平台在中医药领域中尚处于空白状态。
-                        需要借鉴UpToDate等系统的成功经验，开发面向中医药领域的循证知识服务平台。
-                        该项目针对乙型肝炎，总结出10个针对临床科研人员的专业临床问题、2个针对普通大众的普通问题以及1个针对医药机构的问题，
-                        进行系统全面的证据检索和的收集，撰写并发布系统综述。为此，需要进行中医药循证医学证据知识服务平台的构建，实现综述知识的发布与管理，
-                        并实现综述与结构性知识的关联、综述内容检索、全文链接等功能。";
+                            echo "中国中医科学院中医药信息研究所长期致力于中医文献的保护与利用工作，成功研制了64个的结构性文献数据库(方剂数据库,医案数据库)，并于2012年代表我国向国际标准化组织（ISO）申请了为期两年的“中医文献元数据（简称TCM-LM）”标准项目。这是我国中医药信息标准项目在ISO中首次成功立项，具有突破性意义。
+本系统为TCM-LM的示范应用，旨在促进该标准的研制、维护和推广工作。";
                         }
                         ?>
                     </p>
                     <div align="center"><div class="container_button">
-                            <a href="main.php"><font face="微软雅黑" color="white">进入系统</font></a>
+                            <a href="index.php"><font face="微软雅黑" color="white">进入系统</font></a>
                         </div></div>
 
                     <div class="clear"></div>

@@ -6,9 +6,9 @@ if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file dire
 /* Database config */
 
 $db_host		= 'localhost';
-$db_user		= 'tcmks';
-$db_pass		= 'tcmks';
-$db_database	= 'tcmks'; 
+$db_user		= 'root';
+$db_pass		= 'yutong';
+$db_database	= 'docs'; 
 
 /* End config */
 
