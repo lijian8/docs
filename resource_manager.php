@@ -67,8 +67,8 @@ if (isset($_GET['deleted_file'])) {
             </tr>
 
             <?php
-            //$user_id = $_SESSION[id];
-            $user_id = 2;
+            $user_id = $_SESSION[id];
+            //$user_id = 2;
             $query = "SELECT * FROM resource where user_id ='$user_id' ORDER BY title ASC LIMIT 0,100";
             $data = mysqli_query($dbc, $query);
 

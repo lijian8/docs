@@ -19,8 +19,8 @@ function get_max_resource_id($dbc) {
 
 function init_resource($dbc, $type) {
     $file_id = get_max_resource_id($dbc) + 1;
-    //$user_id = $_SESSION['id'];
-    $user_id = 2;
+    $user_id = $_SESSION['id'];
+    //$user_id = 2;
 
     $query = "INSERT INTO resource (id, create_time, user_id, type) VALUES ('$file_id',NOW(), '$user_id', '$type')";
    

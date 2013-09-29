@@ -60,8 +60,7 @@ if (isset($_GET['id'])) {
 
 
     if (($name != '') && ($property != '') && ($value != '')) {
-        //$user_id = $_SESSION[id];
-        $user_id = 2;
+        $user_id = $_SESSION[id];
         $property_escape = mysql_escape_string($property);
         $value_escape = mysql_escape_string($value);
         $description_escape = mysql_escape_string($description);

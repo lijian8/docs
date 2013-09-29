@@ -7,7 +7,7 @@ $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die('Error conn
 session_name('tzLogin');
 // Starting the session
 session_start();
-/*
+
   if (isset($_GET['logoff'])) {
   $_SESSION = array();
   session_destroy();
@@ -21,8 +21,7 @@ session_start();
   header("Location: demo.php");
   exit;
   }
- * 
- */
+
 ?>
 <!--
 To change this template, choose Tools | Templates
@@ -101,6 +100,12 @@ and open the template in the editor.
                         <li><a href="#about">关于本站</a></li>
                         <li><a href="#contact">联系我们</a></li>
                     </ul>
+                    
+                     <?php
+                        if ($_SESSION['real_name']) {
+                           echo "<p class=\"navbar-text pull-right\">您好," . $_SESSION['real_name'] . "&nbsp;|&nbsp;" . "<a href=\"?logoff\" class=\"navbar-link\">退出</a></p>";
+                        } else {
+                            ?>
 
                     <form class="navbar-form navbar-right">
                         <div class="form-group">
@@ -111,6 +116,9 @@ and open the template in the editor.
                         </div>
                         <button type="submit" class="btn btn-success">登录</button>
                     </form>
+                        <?php
+                        }
+                        ?>
                 </div><!--/.navbar-collapse -->
             </div>
         </div>
