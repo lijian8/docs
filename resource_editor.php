@@ -98,45 +98,25 @@ if (isset($name) && $name != '') {
             }
             $link_for_delete = $_SERVER['PHP_SELF'] . '?deleted_file=' . $row['id'];
             echo '&nbsp;';
-            echo '<a class="btn btn-primary  btn-xs" href="' . $link_for_delete . '"><span class="glyphicon glyphicon-trash"></span>&nbsp;删除</a>';
+            echo '<a class="btn btn-primary btn-xs" href="basic.php?action=update&file_id=' . $row[id] . '"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑基本信息</a>';
+            echo '&nbsp;';
+            echo '<a class="btn btn-danger  btn-xs" href="' . $link_for_delete . '"><span class="glyphicon glyphicon-trash"></span>&nbsp;删除本文</a>';
+
             echo '&nbsp;';
             echo '<a class="btn btn-success  btn-xs" href="#"><span class="glyphicon glyphicon-home"></span>&nbsp;返回</a>';
             echo '<p></p><strong>录入时间:&nbsp;</strong>' . $row['create_time'];
             echo '<p>';
             echo '<strong>摘要:&nbsp;</strong>' . $row['description'];
             echo '</p>';
+            echo '<p><strong>作者:</strong>' . $row['creator'] . '</p>';
+            echo '<p><strong>类型:</strong>' . $row['type'] . '</p>';
+            echo '<p><strong>来源:</strong>' . $row['source'] . '</p>';
+            echo '<p><strong>主题:</strong>' . $row['subject'] . '</p>';
             echo '</div>';
             echo '<p></p>';
 
 
-            echo '<div class = "panel panel-default">';
-            echo '<div class = "panel-heading">';
-            echo '<strong>文献基本信息</strong>';
-            echo '<a class="btn btn-link pull-right" href="basic.php?action=update&file_id=' . $row[id] . '">&nbsp;' . 编辑 . '</a>';
-            echo '</div>';
-            echo '<div class = "panel-body">';
-            echo '<div class = "row">';
-
-            echo '<div class = "col-md-1"><strong>作者:</strong></div>';
-            echo '<div class = "col-md-11">' . $row['creator'] . '</div>';
-
-            echo '<div class = "col-md-1"><strong>类型:</strong></div>';
-            echo '<div class = "col-md-11">' . $row['type'] . '</div>';
-
-
-            echo '<div class = "col-md-1"><strong>来源:</strong></div>';
-            echo '<div class = "col-md-11">' . $row['source'] . '</div>';
-
-
-            echo '<div class = "col-md-1"><strong>主题:</strong></div>';
-            echo '<div class = "col-md-11">' . $row['subject'] . '</div>';
-
-
-
-            echo '</div>';
-
-            echo '</div>';
-            echo '</div>';
+       
         }
 
         render_entity($dbc, $name, true);

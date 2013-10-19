@@ -173,27 +173,19 @@ if (isset($_GET['id'])) {
     echo '<strong>基本信息</strong>';
     echo '</div>';
     echo '<div class = "panel-body">';
-    echo '<div class = "row">';
+    echo '<p><strong>主体:</strong>'. $subject . '</p>';
 
-    echo '<div class = "col-md-1"><strong>主体:</strong></div>';
-    echo '<div class = "col-md-11">' . $subject . '</div>';
+    echo '<p><strong>谓词:</strong>'. $predicate . '</p>';
 
-    echo '<div class = "col-md-1"><strong>谓词:</strong></div>';
-    echo '<div class = "col-md-11">' . $predicate . '</div>';
+    echo '<p><strong>客体:</strong>'. $object . '</p>';
 
-    echo '<div class = "col-md-1"><strong>客体:</strong></div>';
-    echo '<div class = "col-md-11">' . $object . '</div>';
+    echo '<p><strong>赋值:</strong>' . $value . '</p>';
 
-    echo '<div class = "col-md-1"><strong>赋值:</strong></div>';
-    echo '<div class = "col-md-11">' . $value . '</div>';
+    echo '<p><strong>距离:</strong>' . $distance . '</p>';
 
-    echo '<div class = "col-md-1"><strong>距离:</strong></div>';
-    echo '<div class = "col-md-11">' . $distance . '</div>';
+    echo '<p><strong>频数:</strong>' . $frequency . '</p>';
 
-    echo '<div class = "col-md-1"><strong>频数:</strong></div>';
-    echo '<div class = "col-md-11">' . $frequency . '</div>';
-
-    echo '</div>';
+   
 
     echo '</div>';
     echo '</div>';

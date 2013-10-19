@@ -219,7 +219,7 @@ $num_pages = ceil($total / $results_per_page);
 
 
                 echo '<td width = "12%">';
-                echo '<a class="btn btn-primary btn-xs" href="relation.php?id=' . $row['ID'] . '"><span class="glyphicon glyphicon-search"></span>&nbsp;查看</a>';
+                echo '<a class="btn btn-primary btn-xs" href="relation.php?id=' . $row['id'] . '"><span class="glyphicon glyphicon-search"></span>&nbsp;查看</a>';
                 echo '&nbsp;';
 
                 $link_for_delete = $_SERVER['PHP_SELF'] . '?deleted_file=' . $row['id'];

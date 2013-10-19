@@ -15,13 +15,21 @@ if (!isset($_GET['id']) || ($_GET['id'] == '')) {
 $name = $_GET['id'];
 ?>
 <div class="container">
+      <form class="form-search" action="search.php" method="post" class="form-horizontal"
+            enctype="multipart/form-data">
+         <?php  include_once ("./search_form.php"); ?>
+      </form>
+    
     <?php
-    $user_id = 2;
+   
+
+   
+
     $query = "SELECT * FROM resource where id ='$name'";
     $data = mysqli_query($dbc, $query);
 
     if ($row = mysqli_fetch_array($data)) {
-        echo '<div class="well">';
+        echo '<div class="container">';
         echo '<h1>' . $row['title'] . '</h1>';
 
         if ($row['file'] != '') {
@@ -30,44 +38,20 @@ $name = $_GET['id'];
                 echo '&nbsp;<a class="btn btn-primary btn-xs" href="' . GW_UPLOADPATH . $row['file'] . '"><span class="glyphicon glyphicon-cloud-download"></span>下载</a>';
         }
         echo '&nbsp;';
-        echo '<a class="btn btn-primary btn-xs" href="resource_editor.php?id=' . $name .'"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑</a>';
+        echo '<a class="btn btn-primary btn-xs" href="resource_editor.php?id=' . $name . '"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑</a>';
         echo '&nbsp;';
         echo '<a class="btn btn-success  btn-xs" href="index.php"><span class="glyphicon glyphicon-home"></span>&nbsp;返回</a>';
-        echo '<p></p><strong>录入时间:&nbsp;</strong>' . $row['create_time'];
-        echo '<p>';
-        echo '<strong>摘要:&nbsp;</strong>' . $row['description'];
-        echo '</p>';
         echo '</div>';
         echo '<p></p>';
-
-
-        echo '<div class = "panel panel-default">';
-        echo '<div class = "panel-heading">';
-        echo '<strong>文献基本信息</strong>';
+        echo '<div class="container">';
+        echo '<strong>录入时间:&nbsp;</strong>' . $row['create_time'];
+        echo '<p><strong>摘要:&nbsp;</strong>' . $row['description'] . '</p>';
+        echo '<p><strong>作者:</strong>' . $row['creator'] . '</p>';
+        echo '<p><strong>类型:</strong>' . $row['type'] . '</p>';
+        echo '<p><strong>来源:</strong>' . $row['source'] . '</p>';
+        echo '<p><strong>主题:</strong>' . $row['subject'] . '</p>';
         echo '</div>';
-        echo '<div class = "panel-body">';
-        echo '<div class = "row">';
-
-        echo '<div class = "col-md-1"><strong>作者:</strong></div>';
-        echo '<div class = "col-md-11">' . $row['creator'] . '</div>';
-
-        echo '<div class = "col-md-1"><strong>类型:</strong></div>';
-        echo '<div class = "col-md-11">' . $row['type'] . '</div>';
-
-
-        echo '<div class = "col-md-1"><strong>来源:</strong></div>';
-        echo '<div class = "col-md-11">' . $row['source'] . '</div>';
-
-
-        echo '<div class = "col-md-1"><strong>主题:</strong></div>';
-        echo '<div class = "col-md-11">' . $row['subject'] . '</div>';
-
-
-
-        echo '</div>';
-
-        echo '</div>';
-        echo '</div>';
+        echo '<p></p>';
     }
 
 //render_entity($dbc, $name, false);
@@ -92,7 +76,7 @@ $name = $_GET['id'];
         echo '<div class="panel-body">';
         echo $value . '&nbsp;(注释:&nbsp;' . $description . ')';
 
-    
+
         echo '</div>';
         echo '</div>';
     }
