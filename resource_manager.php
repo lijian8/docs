@@ -3,6 +3,7 @@ include_once ("./header.php");
 include_once ("./resource_helper.php");
 include_once ("./messages.php");
 require_once('appvars.php');
+include_once ("./db_helper.php");
 
 if (isset($_GET['deleted_file'])) {
 

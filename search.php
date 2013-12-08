@@ -4,6 +4,7 @@ include_once ("./resource_helper.php");
 include_once ("./messages.php");
 include_once ("./functions.php");
 require_once('appvars.php');
+include_once ("./db_helper.php");
 
 function build_query($user_search, $count_only = false) {
 
@@ -55,26 +56,6 @@ function generate_where_clause($final_search_words, $column) {
         }
     }
     return implode(' OR ', $where_list);
-}
-
-function render_content($row) {
-    $title = $row[title];
-    $id = $row[id];
-    $def = $row[description];
-    echo "<p><a href=\"resource_viewer.php?id=$id\">$title</a></p>";
-
-    echo tcmks_substr($def);
-
-    echo "<hr>";
-}
-
-function render_entity($dbc, $keywords) {
-    $query = "SELECT * FROM def where name = '$keywords'";
-    $result = mysqli_query($dbc, $query) or die('Error querying database.');
-    if ($row = mysqli_fetch_array($result)) {
-
-        render_content($row);
-    }
 }
 
 // This function builds navigational page links based on the current page and the number of pages
@@ -157,7 +138,7 @@ $num_pages = ceil($total / $results_per_page);
 ?>
 <div class="container">
 
-    <form class="form-search" action="search.php" method="post" class="form-horizontal"
+    <form class="form-search" action="search.php" method="get" class="form-horizontal"
           enctype="multipart/form-data">
 
         <div class="container" >
@@ -174,7 +155,14 @@ $num_pages = ceil($total / $results_per_page);
 
             $result = mysqli_query($dbc, $query) or die('Error querying database.');
             while ($row = mysqli_fetch_array($result)) {
-                render_content($row);
+                $title = $row[title];
+                $id = $row[id];
+                $def = $row[description];
+                echo "<p><a href=\"resource_viewer.php?db_name=$db_name&id=$id\">$title</a></p>";
+
+                echo tcmks_substr($def);
+
+                echo "<hr>";
             }
 
             if ($num_pages > 1) {
@@ -211,6 +199,7 @@ echo '<p><a  href=\"#\">牛黄</a></p>';
 
 
         </div>
+
     </form>   
 </div>
 

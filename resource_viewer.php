@@ -5,8 +5,9 @@ include_once ("./messages.php");
 //include_once ("./image_helper.php");
 include_once ("./entity_helper.php");
 include_once ("./functions.php");
+include_once ("./db_helper.php");
 
-
+echo $db_name;
 
 if (!isset($_GET['id']) || ($_GET['id'] == '')) {
     render_warning('无相关实体信息！');
@@ -58,7 +59,7 @@ $name = $_GET['id'];
 
     $query = "select * from graph where subject ='$name'";
     //if (!$edit) $query .= " limit 10";
-    $result = mysqli_query($dbc, $query) or die('Error querying database2.');
+    $result = mysqli_query($dbc, $query) or die('Error querying database:' . $query);
     while ($row = mysqli_fetch_array($result)) {
         $property = $row[property];
         $value = $row[value];

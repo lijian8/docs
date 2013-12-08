@@ -4,6 +4,7 @@ include_once ("./resource_helper.php");
 include_once ("./messages.php");
 include_once ("./functions.php");
 require_once('appvars.php');
+include_once ("./db_helper.php");
 
 function generate_where_clause($final_search_words, $column) {
     // Generate a WHERE clause using all of the search keywords
