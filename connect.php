@@ -8,7 +8,7 @@ if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file dire
 $db_host		= 'localhost';
 $db_user		= 'root';
 $db_pass		= 'yutong';
-$db_database	= 'docs'; 
+$db_database	= 'hamster1'; 
 
 /* End config */
 

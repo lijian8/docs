@@ -4,6 +4,7 @@ include_once ("./resource_helper.php");
 include_once ("./messages.php");
 include_once ("./functions.php");
 require_once('appvars.php');
+include_once ("./db_helper.php");
 
 function build_query($docs, $count_only = false) {
 
@@ -41,7 +42,8 @@ function render_content($row) {
     $def = $row[description];
     echo "<p><a href=\"resource_viewer.php?id=$id\">$title</a></p>";
 
-    echo tcmks_substr($def);
+    //echo tcmks_substr($def);
+    echo $def;
 
     echo "<hr>";
 }
@@ -137,6 +139,16 @@ if (isset($_GET['id'])) {
         $docs = $row['DOCS'];
         $subject = $row['SUBJECT'];
         $predicate = $row['PREDICATE'];
+        $predicates = array();
+        $can_preds = explode('|', $predicate);
+
+        foreach ($can_preds as $can_pred) {
+            if ($can_pred != '') {
+                $predicates[] = $can_pred;
+            }
+        }
+
+
         $object = $row['OBJECT'];
         $value = $row['VALUE'];
         $distance = $row['DISTANCE'];
@@ -152,51 +164,39 @@ if (isset($_GET['id'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">潜在语义关系:&nbsp;<?php echo $subject . '&nbsp;-&nbsp;' . $object; ?></a>
+            <a class="navbar-brand" href="#">潜在语义关系:&nbsp;
+                <?php
+                echo $subject . '&nbsp;-&nbsp;' . $object ;
+                ?>
+            </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <!-- 
             <ul class="nav navbar-nav">
+                
                 <li><a class href="basic.php?action=create&type=期刊文献"><span class="glyphicon glyphicon-list"></span>&nbsp;录入TCMLS</a></li>               
                 <li><a href="upload.php"><span class="glyphicon glyphicon-cloud-download"></span>&nbsp;下载RDF文件</a></li>               
             </ul>
-
+            -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" >返回首页</a></li>
+                <li><a href="#" ><span class="glyphicon glyphicon-home"></span>&nbsp;返回首页</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
-    <?php
-    echo '<div class = "panel panel-default">';
-    echo '<div class = "panel-heading">';
-    echo '<strong>基本信息</strong>';
-    echo '</div>';
-    echo '<div class = "panel-body">';
-    echo '<p><strong>主体:</strong>'. $subject . '</p>';
 
-    echo '<p><strong>谓词:</strong>'. $predicate . '</p>';
 
-    echo '<p><strong>客体:</strong>'. $object . '</p>';
 
-    echo '<p><strong>赋值:</strong>' . $value . '</p>';
 
-    echo '<p><strong>距离:</strong>' . $distance . '</p>';
-
-    echo '<p><strong>频数:</strong>' . $frequency . '</p>';
-
-   
-
-    echo '</div>';
-    echo '</div>';
-    ?>
     <div class="tabbable">
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#docs" data-toggle="tab">文献来源</a></li>
-            <li><a href="#baidu" data-toggle="tab">百度搜索</a></li>   
-            <li><a href="#tcmls" data-toggle="tab">TCMLS</a></li>   
+            <li class="active"><a href="#docs" data-toggle="tab"><span class="glyphicon glyphicon-book"></span>&nbsp;文献来源</a></li>          
+            <li><a href="#tcmls" data-toggle="tab"><span class="glyphicon glyphicon-pencil"></span>&nbsp;加入语言系统</a></li>  
+            <li><a href="#baidu" data-toggle="tab"><span class="glyphicon glyphicon-search"></span>&nbsp;百度搜索</a></li>    
+            <li><a href="#params" data-toggle="tab"><span class="glyphicon glyphicon-list"></span>&nbsp;相关参数</a></li>    
 
-            
+
         </ul>
 
 
@@ -216,7 +216,7 @@ if (isset($_GET['id'])) {
 
                 echo '<p></p>';
 
-                echo '<p><font color="gray">出现于如下' . $total . '篇文献之中:</font></p>';
+                echo '<p><font color="gray">该语义关系出现于如下' . $total . '篇文献之中:</font></p>';
                 echo '<hr>';
                 $query = build_query($docs) . " LIMIT $skip, $results_per_page";
 
@@ -231,14 +231,98 @@ if (isset($_GET['id'])) {
                 }
                 ?>
             </div>
+
+
+            <div class="tab-pane fade" id="tcmls">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <strong>参考性谓词：</strong>
+                        <?php echo '&nbsp;(' . implode(',&nbsp;', array_slice($predicates, 0, 20)) ;
+                        if (count($predicates) > 20) echo '...)';
+                        ?>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form-horizontal"
+                              enctype="multipart/form-data">
+
+                            <input  type="hidden" id="name" name="name" value = "<?php echo $name; ?>" >
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label" for="subject">主体:</label>
+                                <div class="col-sm-11">
+                                    <input class="form-control" type="text" id="subject" name="subject" value = "<?php echo $subject; ?>" >
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label" for="property">属性:</label>
+                                <div class="col-sm-11">
+
+                                    <?php
+                                    $query = "SELECT property FROM properties";
+                                    $result = mysqli_query($dbc, $query) or die('Error querying database.');
+
+                                    while ($row = mysqli_fetch_array($result)) {
+                                        echo '<label><input type="radio" id="property" name="property" value="' . $row[0] . '" >'
+                                        . $row[0] . '</label>&nbsp;&nbsp;';
+                                    }
+                                    ?>
+
+
+                                    <input class="form-control" id="extraproperty" name="extraproperty" type="text"  value = "<?php if (isset($property)) echo $property; ?>" placeholder="其他属性...">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label" for="object">客体:</label>
+                                <div class="col-sm-11">
+                                    <input class="form-control" type="text" id="object" name="object" value = "<?php echo $object; ?>" >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label" for="description">注释:</label>
+                                <div class="col-sm-11">
+                                    <textarea class="form-control" id="description" name="description"  placeholder="请输入注释" rows="2"><?php if (isset($description)) echo $description; ?></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-1 col-sm-11">
+                                    <input class="btn btn-large btn-primary" type="submit" name="submit" value="提交" />    
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
             <div class="tab-pane fade" id="baidu">
                 <br>百度搜索，未完成...
             </div>
+            <div class="tab-pane fade" id="params">
+                <div class = "panel panel-default">
+                    <div class = "panel-heading">
+                        <strong>语义关系参数</strong>
+                    </div>
+                    <div class = "panel-body">
+                        <?php
+                       
+                        echo '<p><strong>价值:</strong>' . $value . '</p>';
 
-            <div class="tab-pane fade" id="tcmls">
-                <br>语言系统，未完成...
+                        echo '<p><strong>距离:</strong>' . $distance . '</p>';
+
+                        echo '<p><strong>频数:</strong>' . $frequency . '</p>';
+                        ?>
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
 
