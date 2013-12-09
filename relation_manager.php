@@ -52,7 +52,7 @@ function build_query($user_search, $count_only = false) {
 
 
 
-    $search_query .= " ORDER BY value desc, frequency desc, distance";
+    $search_query .= " ORDER BY value desc, distance, frequency desc";
 
     return $search_query;
 }

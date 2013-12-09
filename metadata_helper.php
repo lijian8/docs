@@ -1,12 +1,12 @@
 <?php
 
 function delete_triple($dbc, $id) {
-    $query = "DELETE FROM graph WHERE id = '$id'";
+    $query = "DELETE FROM metadata WHERE id = '$id'";
     mysqli_query($dbc, $query) or die('Error querying database.');
 }
 
 function render_graph($dbc, $name, $edit) {
-    $query = "select * from graph where subject ='$name'";
+    $query = "select * from metadata where subject ='$name'";
     //if (!$edit) $query .= " limit 10";
     $result = mysqli_query($dbc, $query) or die('Error querying database2.');
     while ($row = mysqli_fetch_array($result)) {

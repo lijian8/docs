@@ -5,6 +5,7 @@ include_once ("./messages.php");
 include_once ("./functions.php");
 require_once('appvars.php');
 include_once ("./db_helper.php");
+include_once ("./graph_helper.php");
 
 function build_query($docs, $count_only = false) {
 
@@ -164,9 +165,9 @@ if (isset($_GET['id'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">潜在语义关系:&nbsp;
+            <a class="navbar-brand" href="#">语义关系:&nbsp;
                 <?php
-                echo $subject . '&nbsp;-&nbsp;' . $object ;
+                echo $subject . '&nbsp;-&nbsp;' . $object;
                 ?>
             </a>
         </div>
@@ -181,7 +182,7 @@ if (isset($_GET['id'])) {
             </ul>
             -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" ><span class="glyphicon glyphicon-home"></span>&nbsp;返回首页</a></li>
+                <li><a href="relation_manager.php?keywords=<?php echo $subject . '+' . $object; ?>" ><span class="glyphicon glyphicon-home"></span>&nbsp;返回首页</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
@@ -192,6 +193,7 @@ if (isset($_GET['id'])) {
     <div class="tabbable">
         <ul class="nav nav-tabs">
             <li class="active"><a href="#docs" data-toggle="tab"><span class="glyphicon glyphicon-book"></span>&nbsp;文献来源</a></li>          
+            <li><a href="#graph" data-toggle="tab"><span class="glyphicon glyphicon-search"></span>&nbsp;查看语言系统</a></li> 
             <li><a href="#tcmls" data-toggle="tab"><span class="glyphicon glyphicon-pencil"></span>&nbsp;加入语言系统</a></li>  
             <li><a href="#baidu" data-toggle="tab"><span class="glyphicon glyphicon-search"></span>&nbsp;百度搜索</a></li>    
             <li><a href="#params" data-toggle="tab"><span class="glyphicon glyphicon-list"></span>&nbsp;相关参数</a></li>    
@@ -238,8 +240,10 @@ if (isset($_GET['id'])) {
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <strong>参考性谓词：</strong>
-                        <?php echo '&nbsp;(' . implode(',&nbsp;', array_slice($predicates, 0, 20)) ;
-                        if (count($predicates) > 20) echo '...)';
+                        <?php
+                        echo '&nbsp;(' . implode(',&nbsp;', array_slice($predicates, 0, 20));
+                        if (count($predicates) > 20)
+                            echo '...)';
                         ?>
                     </div>
                     <div class="panel-body">
@@ -303,8 +307,28 @@ if (isset($_GET['id'])) {
 
             </div>
 
+            <div class="tab-pane fade" id="graph">
+                <p>语言系统中的相关陈述：</p>
+                <table class="table">                 
+
+                    <?php
+                    $subject_ids = get_ids($dbc, $subject);
+                    $object_ids = get_ids($dbc, $object);
+
+                    foreach ($subject_ids as $subject_id) {
+                        foreach ($object_ids as $object_id) {                            
+                            render_triples($dbc, $db_name, $db_name . ':o' . $subject_id, $db_name . ':o' . $object_id);
+                        }
+                    }
+                    ?>
+                </table>
+
+            </div>
+
             <div class="tab-pane fade" id="baidu">
-                <br>百度搜索，未完成...
+                <iframe src="<?php echo 'http://www.baidu.com/s?tn=baiduhome_pg&ie=utf-8&bs=iframe%E7%94%A8%E6%B3%95&f=8&rsv_bp=1&rsv_spt=1&wd=' . $subject . '+' . $object; ?>" width="100%" height="1000"> 
+                百度搜索结果 
+                </iframe>
             </div>
             <div class="tab-pane fade" id="params">
                 <div class = "panel panel-default">
@@ -313,7 +337,6 @@ if (isset($_GET['id'])) {
                     </div>
                     <div class = "panel-body">
                         <?php
-                       
                         echo '<p><strong>价值:</strong>' . $value . '</p>';
 
                         echo '<p><strong>距离:</strong>' . $distance . '</p>';

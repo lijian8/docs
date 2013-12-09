@@ -57,7 +57,7 @@ $name = $_GET['id'];
 
 //render_entity($dbc, $name, false);
 
-    $query = "select * from graph where subject ='$name'";
+    $query = "select * from metadata where subject ='$name'";
     //if (!$edit) $query .= " limit 10";
     $result = mysqli_query($dbc, $query) or die('Error querying database:' . $query);
     while ($row = mysqli_fetch_array($result)) {
