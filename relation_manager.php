@@ -5,6 +5,7 @@ include_once ("./messages.php");
 include_once ("./functions.php");
 require_once('appvars.php');
 include_once ("./db_helper.php");
+include_once ("./graph_helper.php");
 
 function generate_where_clause($final_search_words, $column) {
     // Generate a WHERE clause using all of the search keywords
@@ -155,25 +156,24 @@ $num_pages = ceil($total / $results_per_page);
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-
+                <!--
                 <li><a href="basic.php?action=create&type=期刊文献"><span class="glyphicon glyphicon-list"></span>&nbsp;导出Excel</a></li>               
                 <li><a href="upload.php"><span class="glyphicon glyphicon-cloud-download"></span>&nbsp;导出RDF</a></li>               
-
+                -->
             </ul>
             <form class="navbar-form navbar-left" role="search" action="<?php echo $_SERVER['PHP_SELF']; ?>"  enctype="multipart/form-data">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="keywords" name ="keywords" placeholder="输入关键词...">
+                    <input type="text" class="form-control" id="keywords" name ="keywords" value="<?php echo $keywords; ?>" placeholder="输入关键词...">
                 </div>
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span>&nbsp;搜索</button>
             </form>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" ><font color="gray">获得约 <?php echo $total; ?> 条结果。</font></a></li>
-                <li><a href="#" >返回首页</a></li>
-
+                <li><a href="#" ><span class="glyphicon glyphicon-home"></span>&nbsp;返回首页</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
+    <p><font color="gray">从文献中获取约 <?php echo $total; ?> 条关系。</font></p>
 
     <table class="table table-hover">
         <tbody>
@@ -182,9 +182,9 @@ $num_pages = ceil($total / $results_per_page);
                 <td ><strong>主体</strong></td>
                 <td><strong>谓词</strong></td>
                 <td><strong>客体</strong></td>
-                <td><strong>赋值</strong></td>
+                <!--<td><strong>赋值</strong></td>
                 <td><strong>距离</strong></td>
-                <td><strong>频数</strong></td>                 
+                <td><strong>频数</strong></td> -->                
                 <td><strong>操作</strong></td>
 
             </tr>
@@ -209,16 +209,12 @@ $num_pages = ceil($total / $results_per_page);
                 }
                 $color = !$color;
                 echo '<td width = "3%">' . $row_num++ . '</td>';
-                echo '<td width = "10%">' . $row['SUBJECT'] . '</td>';
-                echo '<td width = "50%">' . $row['PREDICATE'] . '</td>';
-                echo '<td width = "10%">' . $row['OBJECT'] . '</td>';
-                echo '<td width = "5%">' . $row['VALUE'] . '</td>';
-                echo '<td width = "5%">' . $row['DISTANCE'] . '</td>';
-                echo '<td width = "5%">' . $row['FREQUENCY'] . '</td>';
-
-
-
-
+                echo '<td width = "35%">' . render_word($dbc, $db_name, $row['SUBJECT'], true)  . '</td>';
+                echo '<td width = "15%">' . $row['PREDICATE'] . '</td>';
+                echo '<td width = "35%">' . render_word($dbc, $db_name, $row['OBJECT'], true) . '</td>';
+                //echo '<td width = "5%">' . $row['VALUE'] . '</td>';
+                //echo '<td width = "5%">' . $row['DISTANCE'] . '</td>';
+                //echo '<td width = "5%">' . $row['FREQUENCY'] . '</td>';
                 echo '<td width = "12%">';
                 echo '<a class="btn btn-primary btn-xs" href="relation.php?id=' . $row['id'] . '"><span class="glyphicon glyphicon-search"></span>&nbsp;查看</a>';
                 echo '&nbsp;';

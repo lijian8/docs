@@ -96,7 +96,7 @@ and open the template in the editor.
                         <li class="active"><a href="index.php">首页</a></li>
                         <li><a href="resource_manager.php">文献管理</a></li>
                         <li><a href="relation_manager.php">语义关系</a></li>
-                       
+                        <li><a href="projects.php">相关项目</a></li> 
                         <li><a href="#about">关于本站</a></li>
                         <li><a href="#contact">联系我们</a></li>
                     </ul>

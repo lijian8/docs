@@ -6,7 +6,7 @@ include_once ("./functions.php");
 require_once('appvars.php');
 include_once ("./db_helper.php");
 include_once ("./graph_helper.php");
-
+include_once ("./function.php");
 function build_query($docs, $count_only = false) {
 
     if ($count_only) {
@@ -274,8 +274,6 @@ if (isset($_GET['id'])) {
                                         . $row[0] . '</label>&nbsp;&nbsp;';
                                     }
                                     ?>
-
-
                                     <input class="form-control" id="extraproperty" name="extraproperty" type="text"  value = "<?php if (isset($property)) echo $property; ?>" placeholder="其他属性...">
                                 </div>
                             </div>
@@ -308,15 +306,17 @@ if (isset($_GET['id'])) {
             </div>
 
             <div class="tab-pane fade" id="graph">
-                <p>语言系统中的相关陈述：</p>
-                <table class="table">                 
-
+                <p>相关陈述：</p>
+                <table class="table">   
+                    
+                    <tr><td width="40%">主体</td><td width="20%">谓词</td><td width="40%">客体</td></tr>
+                    
                     <?php
                     $subject_ids = get_ids($dbc, $subject);
                     $object_ids = get_ids($dbc, $object);
 
                     foreach ($subject_ids as $subject_id) {
-                        foreach ($object_ids as $object_id) {                            
+                        foreach ($object_ids as $object_id) {
                             render_triples($dbc, $db_name, $db_name . ':o' . $subject_id, $db_name . ':o' . $object_id);
                         }
                     }

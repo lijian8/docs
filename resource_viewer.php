@@ -7,8 +7,6 @@ include_once ("./entity_helper.php");
 include_once ("./functions.php");
 include_once ("./db_helper.php");
 
-echo $db_name;
-
 if (!isset($_GET['id']) || ($_GET['id'] == '')) {
     render_warning('无相关实体信息！');
 }
