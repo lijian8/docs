@@ -1,13 +1,27 @@
 <?php
+
+function get_class_links($dbc, $c1, $c2) {
+    $query = "select property from sn1 where subject='$c1' and object = '$c2' order by count desc";
+    //echo $query;
+    $result = mysqli_query($dbc, $query) or die('Error querying database:' . $query);
+    $values = array();
+    while ($row = mysqli_fetch_array($result)) {
+        $value = $row[0];
+        array_push($values, $value);
+    }
+
+    return $values;
+}
+
 function get_type($dbc, $name) {
-    
+
     $types = get_types($dbc, $name);
+    print_r($types);
     if (count($types) == 0) {
         return '事物';
-    }else{
+    } else {
         return $types[0];
     }
-    
 }
 
 function get_types($dbc, $name) {
@@ -15,18 +29,18 @@ function get_types($dbc, $name) {
 }
 
 function get_property_values($dbc, $subject, $property) {
-    
-    $query = "select * from graph where subject='$subject' and property = '$property'";
 
+    $query = "select * from graph where subject='$subject' and property = '$property'";
+    echo $query;
     $result = mysqli_query($dbc, $query) or die('Error querying database:' . $query);
+    echo $query . 'successful';
     $values = array();
     while ($row = mysqli_fetch_array($result)) {
         $value = $row[value];
         array_push($values, $value);
     }
-
+    echo $subject . $property;
     return $values;
-    
 }
 
 function get_ids($dbc, $name) {
@@ -40,9 +54,9 @@ function get_ids($dbc, $name) {
 }
 
 function render_word($dbc, $db_name, $name, $with_def = false) {
-    
+
     $ids = get_ids($dbc, $name);
-    
+
     if (count($ids) != 0) {
         $id = $ids[0];
         return render_value($dbc, $db_name, $db_name . ':o' . $id, $with_def);
@@ -131,10 +145,10 @@ function render_triples($dbc, $db_name, $subject, $object) {
     $query = "SELECT * FROM graph where subject like '%" . $subject . "%' and value like '%" . $object . "%' limit 5";
     render_triples_helper($dbc, $db_name, $subject, $object, $query);
 
-    $query = "SELECT * FROM graph where subject like '%" . $subject . "%' and value like '". $db_name. ':o' .  "%' limit 5";
+    $query = "SELECT * FROM graph where subject like '%" . $subject . "%' and value like '" . $db_name . ':o' . "%' limit 5";
     render_triples_helper($dbc, $db_name, $subject, $object, $query);
-    
-    $query = "SELECT * FROM graph where subject like '". $db_name. ':o' .  "%' and value like '%" . $object . "%' limit 5";
+
+    $query = "SELECT * FROM graph where subject like '" . $db_name . ':o' . "%' and value like '%" . $object . "%' limit 5";
     render_triples_helper($dbc, $db_name, $subject, $object, $query);
 }
 

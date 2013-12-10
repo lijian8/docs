@@ -7,6 +7,7 @@ require_once('appvars.php');
 include_once ("./db_helper.php");
 include_once ("./graph_helper.php");
 include_once ("./function.php");
+
 function build_query($docs, $count_only = false) {
 
     if ($count_only) {
@@ -308,9 +309,9 @@ if (isset($_GET['id'])) {
             <div class="tab-pane fade" id="graph">
                 <p>相关陈述：</p>
                 <table class="table">   
-                    
+
                     <tr><td width="40%">主体</td><td width="20%">谓词</td><td width="40%">客体</td></tr>
-                    
+
                     <?php
                     $subject_ids = get_ids($dbc, $subject);
                     $object_ids = get_ids($dbc, $object);
@@ -336,13 +337,50 @@ if (isset($_GET['id'])) {
                         <strong>语义关系参数</strong>
                     </div>
                     <div class = "panel-body">
-                        <?php
-                        echo '<p><strong>价值:</strong>' . $value . '</p>';
+                        <table class="table">                         
+                            <?php
+                            //$subject_ids = get_ids($dbc, $row['SUBJECT']);
+                            //$object_ids = get_ids($dbc, $row['OBJECT']);
+                            if ((count($subject_ids) != 0) && (count($object_ids) != 0)) {
+                                echo '<tr>';
+                                $subject_id = $subject_ids[0];
+                                
+                                $subject_type = get_type($dbc, $db_name . ':o' . $subject_id);
 
-                        echo '<p><strong>距离:</strong>' . $distance . '</p>';
+                                $object_id = $object_ids[0];
+                                echo $row['OBJECT'] . '2;';
+                                $object_type = get_type($dbc, $db_name . ':o' . $object_id);
+                                echo $object_type . '3;';
+                                echo '<td width = "35%">' . render_word($dbc, $db_name, $row['SUBJECT'], true) . '</td>';
+                                echo $row['OBJECT'] . '4;';
+                                $class_links = get_class_links($dbc, $subject_type, $object_type);
+                                if (count($class_links) != 0) {
+                                    echo '<td width = "15%">' . implode(',', $class_links) . '</td>';
+                                } else {
+                                    echo '<td width = "15%">' . $row['PREDICATE'] . '</td>';
+                                }
 
-                        echo '<p><strong>频数:</strong>' . $frequency . '</p>';
-                        ?>
+                                echo '<td width = "35%">' . render_word($dbc, $db_name, $row['OBJECT'], true) . '</td>';
+                                //echo '<td width = "5%">' . $row['VALUE'] . '</td>';
+                                //echo '<td width = "5%">' . $row['DISTANCE'] . '</td>';
+                                //echo '<td width = "5%">' . $row['FREQUENCY'] . '</td>';
+                                echo '<td width = "12%">';
+                                echo '<a class="btn btn-primary btn-xs" href="relation.php?id=' . $row['id'] . '"><span class="glyphicon glyphicon-search"></span>&nbsp;查看</a>';
+                                echo '&nbsp;';
+
+                                $link_for_delete = $_SERVER['PHP_SELF'] . '?deleted_file=' . $row['id'];
+                                echo '<a class="btn btn-danger btn-xs" href="' . $link_for_delete . '"><span class="glyphicon glyphicon-trash"></span>&nbsp;删除</a></td></tr>';
+
+
+                                //return render_value($dbc, $db_name, $db_name . ':o' . $id, $with_def);
+                            }
+                            echo '<tr><td><strong>价值:</strong></td><td>' . $value . '</td></tr>';
+
+                            echo '<tr><td><strong>距离:</strong></td><td>' . $distance . '</td></tr>';
+
+                            echo '<tr><td><strong>频数:</strong>' . $frequency . '</td></tr>';
+                            ?>
+                        </table>
                     </div>
                 </div>
             </div>

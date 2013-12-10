@@ -134,7 +134,7 @@ if (isset($_GET['deleted_file'])) {
 
 $keywords = $_GET['keywords'];
 $cur_page = isset($_GET['page']) ? $_GET['page'] : 1;
-$results_per_page = 10;  // number of results per page
+$results_per_page = 5;  // number of results per page
 $skip = (($cur_page - 1) * $results_per_page);
 $total = get_total($keywords, $dbc);
 $num_pages = ceil($total / $results_per_page);
@@ -200,36 +200,55 @@ $num_pages = ceil($total / $results_per_page);
             $data = mysqli_query($dbc, $query);
 
             $row_num = 1;
-            $color = true;
+            
             while ($row = mysqli_fetch_array($data)) {
-                if ($color) {
-                    echo '<tr>';
-                } else {
-                    echo '<tr class="info">';
-                }
-                $color = !$color;
-                echo '<td width = "3%">' . $row_num++ . '</td>';
-                echo '<td width = "35%">' . render_word($dbc, $db_name, $row['SUBJECT'], true)  . '</td>';
-                echo '<td width = "15%">' . $row['PREDICATE'] . '</td>';
-                echo '<td width = "35%">' . render_word($dbc, $db_name, $row['OBJECT'], true) . '</td>';
-                //echo '<td width = "5%">' . $row['VALUE'] . '</td>';
-                //echo '<td width = "5%">' . $row['DISTANCE'] . '</td>';
-                //echo '<td width = "5%">' . $row['FREQUENCY'] . '</td>';
-                echo '<td width = "12%">';
-                echo '<a class="btn btn-primary btn-xs" href="relation.php?id=' . $row['id'] . '"><span class="glyphicon glyphicon-search"></span>&nbsp;查看</a>';
-                echo '&nbsp;';
 
-                $link_for_delete = $_SERVER['PHP_SELF'] . '?deleted_file=' . $row['id'];
-                echo '<a class="btn btn-danger btn-xs" href="' . $link_for_delete . '"><span class="glyphicon glyphicon-trash"></span>&nbsp;删除</a></td></tr>';
+
+                $subject_ids = get_ids($dbc, $row['SUBJECT']);
+                $object_ids = get_ids($dbc, $row['OBJECT']);
+                if ((count($subject_ids) != 0) && (count($object_ids) != 0)) {
+                    echo '<tr>';
+                    echo '<td width = "3%">' . $row_num++ . '</td>';
+                    $subject_id = $subject_ids[0];
+                    echo $row['SUBJECT'] . '1;';
+                    $subject_type = get_type($dbc, $db_name . ':o' . $subject_id);
+                    
+                    $object_id = $object_ids[0];
+                    echo $row['OBJECT'] . '2;';
+                    $object_type = get_type($dbc, $db_name . ':o' . $object_id);
+                    echo $object_type . '3;';
+                    echo '<td width = "35%">' . render_word($dbc, $db_name, $row['SUBJECT'], true) . '</td>';
+                    echo $row['OBJECT'] . '4;';
+                    $class_links = get_class_links($dbc, $subject_type, $object_type) ;
+                    if (count($class_links) != 0){
+                        echo '<td width = "15%">' . implode(',', $class_links) . '</td>';
+                    }else{
+                        echo '<td width = "15%">' . $row['PREDICATE'] . '</td>';
+                    }
+                    
+                    echo '<td width = "35%">' . render_word($dbc, $db_name, $row['OBJECT'], true) . '</td>';
+                    //echo '<td width = "5%">' . $row['VALUE'] . '</td>';
+                    //echo '<td width = "5%">' . $row['DISTANCE'] . '</td>';
+                    //echo '<td width = "5%">' . $row['FREQUENCY'] . '</td>';
+                    echo '<td width = "12%">';
+                    echo '<a class="btn btn-primary btn-xs" href="relation.php?id=' . $row['id'] . '"><span class="glyphicon glyphicon-search"></span>&nbsp;查看</a>';
+                    echo '&nbsp;';
+
+                    $link_for_delete = $_SERVER['PHP_SELF'] . '?deleted_file=' . $row['id'];
+                    echo '<a class="btn btn-danger btn-xs" href="' . $link_for_delete . '"><span class="glyphicon glyphicon-trash"></span>&nbsp;删除</a></td></tr>';
+
+
+                    //return render_value($dbc, $db_name, $db_name . ':o' . $id, $with_def);
+                }
             }
             ?>
         </tbody>
     </table>
-<?php
-if ($num_pages > 1) {
-    generate_page_links($keywords, $cur_page, $num_pages);
-}
-?>
+    <?php
+    if ($num_pages > 1) {
+        generate_page_links($keywords, $cur_page, $num_pages);
+    }
+    ?>
 
 
 </div> 
