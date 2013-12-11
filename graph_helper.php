@@ -1,5 +1,14 @@
 <?php
 
+function get_candidate_properties($dbc, $subject_id, $object_id) {
+    
+    $subject_type = get_type($dbc, $subject_id);    
+    $object_type = get_type($dbc, $object_id);
+    return get_class_links($dbc, $subject_type, $object_type);
+    
+    
+}
+
 function get_class_links($dbc, $c1, $c2) {
     $query = "select property from sn1 where subject='$c1' and object = '$c2' order by count desc";
     //echo $query;
@@ -9,14 +18,13 @@ function get_class_links($dbc, $c1, $c2) {
         $value = $row[0];
         array_push($values, $value);
     }
-
     return $values;
 }
 
 function get_type($dbc, $name) {
 
     $types = get_types($dbc, $name);
-    print_r($types);
+   
     if (count($types) == 0) {
         return '事物';
     } else {
@@ -31,15 +39,12 @@ function get_types($dbc, $name) {
 function get_property_values($dbc, $subject, $property) {
 
     $query = "select * from graph where subject='$subject' and property = '$property'";
-    echo $query;
     $result = mysqli_query($dbc, $query) or die('Error querying database:' . $query);
-    echo $query . 'successful';
     $values = array();
     while ($row = mysqli_fetch_array($result)) {
         $value = $row[value];
         array_push($values, $value);
     }
-    echo $subject . $property;
     return $values;
 }
 

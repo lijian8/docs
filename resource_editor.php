@@ -2,7 +2,6 @@
 require_once('appvars.php');
 include_once ("./header.php");
 include_once ("./messages.php");
-//include_once ("./image_helper.php");
 include_once ("./entity_helper.php");
 include_once ("./functions.php");
 

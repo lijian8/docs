@@ -180,7 +180,7 @@ $num_pages = ceil($total / $results_per_page);
             <tr class="info">
                 <td>#</td>
                 <td ><strong>主体</strong></td>
-                <td><strong>谓词</strong></td>
+                 <!--<td><strong>谓词</strong></td>-->
                 <td><strong>客体</strong></td>
                 <!--<td><strong>赋值</strong></td>
                 <td><strong>距离</strong></td>
@@ -196,7 +196,7 @@ $num_pages = ceil($total / $results_per_page);
             $query = build_query($keywords) . " LIMIT $skip, $results_per_page";
 
             //$query = build_query($keywords) . ' LIMIT 0,100';
-            //echo $query;
+            
             $data = mysqli_query($dbc, $query);
 
             $row_num = 1;
@@ -204,34 +204,33 @@ $num_pages = ceil($total / $results_per_page);
             while ($row = mysqli_fetch_array($data)) {
 
 
-                $subject_ids = get_ids($dbc, $row['SUBJECT']);
-                $object_ids = get_ids($dbc, $row['OBJECT']);
-                if ((count($subject_ids) != 0) && (count($object_ids) != 0)) {
+                //$subject_ids = get_ids($dbc, $row['SUBJECT']);
+                //$object_ids = get_ids($dbc, $row['OBJECT']);
+               // if ((count($subject_ids) != 0) && (count($object_ids) != 0)) {
                     echo '<tr>';
                     echo '<td width = "3%">' . $row_num++ . '</td>';
-                    $subject_id = $subject_ids[0];
-                    echo $row['SUBJECT'] . '1;';
-                    $subject_type = get_type($dbc, $db_name . ':o' . $subject_id);
+                    //$subject_id = $subject_ids[0];
+                    //$subject_type = get_type($dbc, $db_name . ':o' . $subject_id);                
+                    //$object_id = $object_ids[0];                    
+                    //$object_type = get_type($dbc, $db_name . ':o' . $object_id);  
+                    //$class_links = get_class_links($dbc, $subject_type, $object_type) ;
                     
-                    $object_id = $object_ids[0];
-                    echo $row['OBJECT'] . '2;';
-                    $object_type = get_type($dbc, $db_name . ':o' . $object_id);
-                    echo $object_type . '3;';
+                    //$class_links = get_candidate_properties($dbc, $db_name . ':o' . $subject_id, $db_name . ':o' . $object_id);
+                    
                     echo '<td width = "35%">' . render_word($dbc, $db_name, $row['SUBJECT'], true) . '</td>';
-                    echo $row['OBJECT'] . '4;';
-                    $class_links = get_class_links($dbc, $subject_type, $object_type) ;
+                    /*                  
                     if (count($class_links) != 0){
                         echo '<td width = "15%">' . implode(',', $class_links) . '</td>';
                     }else{
                         echo '<td width = "15%">' . $row['PREDICATE'] . '</td>';
-                    }
+                    }*/
                     
                     echo '<td width = "35%">' . render_word($dbc, $db_name, $row['OBJECT'], true) . '</td>';
                     //echo '<td width = "5%">' . $row['VALUE'] . '</td>';
                     //echo '<td width = "5%">' . $row['DISTANCE'] . '</td>';
                     //echo '<td width = "5%">' . $row['FREQUENCY'] . '</td>';
                     echo '<td width = "12%">';
-                    echo '<a class="btn btn-primary btn-xs" href="relation.php?id=' . $row['id'] . '"><span class="glyphicon glyphicon-search"></span>&nbsp;查看</a>';
+                    echo '<a class="btn btn-primary btn-xs" href="relation_in_docs.php?id=' . $row['id'] . '"><span class="glyphicon glyphicon-search"></span>&nbsp;查看</a>';
                     echo '&nbsp;';
 
                     $link_for_delete = $_SERVER['PHP_SELF'] . '?deleted_file=' . $row['id'];
@@ -239,7 +238,7 @@ $num_pages = ceil($total / $results_per_page);
 
 
                     //return render_value($dbc, $db_name, $db_name . ':o' . $id, $with_def);
-                }
+                //}
             }
             ?>
         </tbody>
