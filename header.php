@@ -8,20 +8,19 @@ session_name('tzLogin');
 // Starting the session
 session_start();
 
-  if (isset($_GET['logoff'])) {
-  $_SESSION = array();
-  session_destroy();
+if (isset($_GET['logoff'])) {
+    $_SESSION = array();
+    session_destroy();
 
-  header("Location: demo.php");
-  exit;
-  }
+    header("Location: demo.php");
+    exit;
+}
 
 
-  if (!isset($_SESSION['real_name']) || !isset($_SESSION['usr']) || !isset($_SESSION['id'])) {
-  header("Location: demo.php");
-  exit;
-  }
-
+if (!isset($_SESSION['real_name']) || !isset($_SESSION['usr']) || !isset($_SESSION['id'])) {
+    header("Location: demo.php");
+    exit;
+}
 ?>
 <!--
 To change this template, choose Tools | Templates
@@ -89,36 +88,42 @@ and open the template in the editor.
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">TCMLM</a>
+                    <a class="navbar-brand" href="main.php">TCMLM</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php">首页</a></li>
+                        <li class="active"><a href="main.php">首页</a></li>
+                        <li><a href="index.php">文献检索</a></li>
                         <li><a href="resource_manager.php">文献管理</a></li>
                         <li><a href="relation_manager.php">语义关系</a></li>
-                        <li><a href="projects.php">相关项目</a></li> 
-                        <li><a href="#about">关于本站</a></li>
-                        <li><a href="#contact">联系我们</a></li>
-                    </ul>
-                    
-                     <?php
-                        if ($_SESSION['real_name']) {
-                           echo "<p class=\"navbar-text pull-right\">您好," . $_SESSION['real_name'] . "&nbsp;|&nbsp;" . "<a href=\"?logoff\" class=\"navbar-link\">退出</a></p>";
-                        } else {
-                            ?>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">相关项目<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="project_relation.php">基于文本的中医药语义关系发现研究</a></li>
+                                <li><a href="project_tcmlm.php">中医药文献元数据标准的示范应用与评价研究</a></li>
+                            </ul>
+                        </li>      
 
-                    <form class="navbar-form navbar-right">
-                        <div class="form-group">
-                            <input type="text" placeholder="用户名" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" placeholder="密码" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-success">登录</button>
-                    </form>
-                        <?php
-                        }
+                    </ul>
+
+                    <?php
+                    if ($_SESSION['real_name']) {
+                        echo "<p class=\"navbar-text pull-right\">您好," . $_SESSION['real_name'] . "&nbsp;|&nbsp;" . "<a href=\"?logoff\" class=\"navbar-link\">退出</a></p>";
+                    } else {
                         ?>
+
+                        <form class="navbar-form navbar-right">
+                            <div class="form-group">
+                                <input type="text" placeholder="用户名" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" placeholder="密码" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-success">登录</button>
+                        </form>
+                        <?php
+                    }
+                    ?>
                 </div><!--/.navbar-collapse -->
             </div>
         </div>

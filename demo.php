@@ -299,12 +299,9 @@ if ($_SESSION['msg']) {
 
         <div class="pageContent">
             <div id="main">
-
-
                 <div align="center" class="container">
-                    <img width ="50%" src ="img/logo.jpg"></img>    
+                    <img width ="100%" src ="img/tcmlm_logo1.jpg"></img>    
                 </div>
-
                 <div class="container">
 
                     <p><strong>简介：</strong>
@@ -319,7 +316,7 @@ if ($_SESSION['msg']) {
                         ?>
                     </p>
                     <div align="center"><div class="container_button">
-                            <a href="index.php"><font face="微软雅黑" color="white">进入系统</font></a>
+                            <a href="main.php"><font face="微软雅黑" color="white">进入系统</font></a>
                         </div></div>
 
                     <div class="clear"></div>

@@ -134,7 +134,7 @@ if (isset($_GET['deleted_file'])) {
 
 $keywords = $_GET['keywords'];
 $cur_page = isset($_GET['page']) ? $_GET['page'] : 1;
-$results_per_page = 5;  // number of results per page
+$results_per_page = 10;  // number of results per page
 $skip = (($cur_page - 1) * $results_per_page);
 $total = get_total($keywords, $dbc);
 $num_pages = ceil($total / $results_per_page);
@@ -230,7 +230,7 @@ $num_pages = ceil($total / $results_per_page);
                     //echo '<td width = "5%">' . $row['DISTANCE'] . '</td>';
                     //echo '<td width = "5%">' . $row['FREQUENCY'] . '</td>';
                     echo '<td width = "12%">';
-                    echo '<a class="btn btn-primary btn-xs" href="relation_in_docs.php?id=' . $row['id'] . '"><span class="glyphicon glyphicon-search"></span>&nbsp;查看</a>';
+                    echo '<a class="btn btn-primary btn-xs" href="relation.php?id=' . $row['id'] . '"><span class="glyphicon glyphicon-search"></span>&nbsp;查看</a>';
                     echo '&nbsp;';
 
                     $link_for_delete = $_SERVER['PHP_SELF'] . '?deleted_file=' . $row['id'];
