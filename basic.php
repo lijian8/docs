@@ -3,41 +3,19 @@ include_once ("./header.php");
 include_once ("./resource_helper.php");
 include_once ("./functions.php");
 require_once('appvars.php');
-
+include_once ("./db_helper.php");
 echo '<p></p>';
 
 //require_once('connectvars.php');
-
-
 //$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-if (isset($_GET['action'])) {
-    if ($_GET['action'] == 'create') {
-        //echo 'create new resource!';
 
-        $type = isset($_GET['type']) ? $_GET['type'] : '其他资源';
-
-        $file_id = init_resource($dbc, $type);
-    } elseif ($_GET['action'] == 'update') {
-        $file_id = $_GET['file_id'];
-        $query = "SELECT * FROM resource WHERE id = '$file_id'";
-        $result = mysqli_query($dbc, $query) or die('Error querying database.');
-        if ($row = mysqli_fetch_array($result)) {
-            $title = $row['title'];
-            $creator = $row['creator'];
-            $publisher = $row['publisher'];
-            $source = $row['source'];
-            $description = $row['description'];
-            $type = $row['type'];
-            $subject = $row['subject'];
-            $identifier = $row['identifier'];
-        }
-    }
-} elseif (isset($_POST['submit'])) {
+    
+if (isset($_POST['submit'])) {
     $file_id = $_POST['file_id'];
 
     if (is_uploaded_file($_FILES['file']['tmp_name'])) {
-        $file_name = upload_file($file_id);
+        $file_name = upload_file($db_name, $file_id);
     }
 
     $title = $_POST['title'];
@@ -88,18 +66,43 @@ if (isset($_GET['action'])) {
         echo '您没有上传原文！';
     }
     echo '</dl></div>';
+}else{
+    /*
+      if ($_GET['action'] == 'create') {
+      //echo 'create new resource!';
+
+      $type = isset($_GET['type']) ? $_GET['type'] : '其他资源';
+
+      $file_id = init_resource($dbc, $type);
+      } elseif ($_GET['action'] == 'update') {
+     * 
+     */
+    $file_id = $_GET['file_id'];
+    $query = "SELECT * FROM resource WHERE id = '$file_id'";
+    $result = mysqli_query($dbc, $query) or die('Error querying database.');
+    if ($row = mysqli_fetch_array($result)) {
+        $title = $row['title'];
+        $creator = $row['creator'];
+        $publisher = $row['publisher'];
+        $source = $row['source'];
+        $description = $row['description'];
+        $type = $row['type'];
+        $subject = $row['subject'];
+        $identifier = $row['identifier'];
+    }
 }
 //echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
 ?>
 
 <div class="container">
-  
+
 
     <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form-horizontal"
           enctype="multipart/form-data">
         <legend>请录入文献的基本信息：</legend>
         <input  type="hidden" id="file_id" name="file_id" value = "<?php if (isset($file_id)) echo $file_id; ?>" >
         <input  type="hidden" id="type" name="type" value = "<?php if (isset($type)) echo $type; ?>" >
+        <input  type="hidden" id="db_name" name="db_name" value = "<?php if (isset($db_name)) echo $db_name; ?>" >
 
         <div class="form-group">
             <label class="col-sm-2 control-label" for="title">题名:</label>
@@ -164,7 +167,7 @@ if (isset($_GET['action'])) {
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <input class="btn btn-primary" type="submit" name="submit" value="提交" />    
-                <a class="btn btn-success" href="resource_manager.php">返回首页</a>
+                <a class="btn btn-success" href="resource_manager.php?db_name=<?php echo $db_name; ?>">返回首页</a>
             </div>
         </div>
 

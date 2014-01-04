@@ -94,7 +94,7 @@ and open the template in the editor.
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="main.php">首页</a></li>
                         <li><a href="index.php">文献检索</a></li>
-                        <li><a href="resource_manager.php">文献管理</a></li>
+                        <li><a href="db_manager.php">文献管理</a></li>
                         <li><a href="relation_manager.php">语义关系</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">相关项目<b class="caret"></b></a>

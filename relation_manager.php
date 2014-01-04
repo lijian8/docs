@@ -121,16 +121,6 @@ function get_total($keywords, $dbc) {
     return $total;
 }
 
-if (isset($_GET['deleted_file'])) {
-
-    $deleted_file = get_title_by_id($dbc, $_GET['deleted_file']);
-
-    delete_resource($dbc, $_GET['deleted_file']);
-
-    //echo '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button>';
-    //echo '文献"' . $deleted_file . '"已被删除!</div>';
-    render_success('文献"' . $deleted_file . '"已被删除!');
-}
 
 $keywords = $_GET['keywords'];
 $cur_page = isset($_GET['page']) ? $_GET['page'] : 1;

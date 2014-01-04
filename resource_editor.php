@@ -4,6 +4,8 @@ include_once ("./header.php");
 include_once ("./messages.php");
 include_once ("./entity_helper.php");
 include_once ("./functions.php");
+include_once ("./db_helper.php");
+include_once ("./metadata_helper.php");
 
 if (isset($_GET['delete_triple_id'])) {
     delete_triple($dbc, $_GET['delete_triple_id']);
@@ -22,7 +24,7 @@ if (isset($_GET['id'])) {
     //$property_escape = mysql_escape_string($property);
     //$value_escape = mysql_escape_string($value);
 
-    $query = "update graph set ";
+    $query = "update metadata set ";
 
     $query .= "subject = '" . mysql_escape_string($name) . "',";
     $query .= "property='" . mysql_escape_string($property) . "',";
@@ -64,7 +66,7 @@ if (isset($_GET['id'])) {
         $value_escape = mysql_escape_string($value);
         $description_escape = mysql_escape_string($description);
 
-        $query = "insert into graph (subject, property, value, description, user_id, date) values ('$name','$property_escape','$value_escape', '$description_escape', '$user_id', NOW()) ";
+        $query = "insert into metadata (subject, property, value, description, user_id, date) values ('$name','$property_escape','$value_escape', '$description_escape', '$user_id', NOW()) ";
         mysqli_query($dbc, $query) or die('Error querying database.');
         render_warning('实体信息添加成功！');
         //$name = '';
@@ -81,7 +83,8 @@ if (isset($_GET['id'])) {
 if (isset($name) && $name != '') {
     ?>
     <div class="container">
-        <?php
+         <?php   
+        include_once ('resource_header.php'); 
         $user_id = 2;
         $query = "SELECT * FROM resource where id ='$name'";
         $data = mysqli_query($dbc, $query);
@@ -92,17 +95,17 @@ if (isset($name) && $name != '') {
 
             if ($row['file'] != '') {
                 $file_name = iconv('utf-8', 'gb2312', $row['file']);
-                if (is_file(GW_UPLOADPATH . $file_name))
-                    echo '&nbsp;<a class="btn btn-primary btn-xs" href="' . GW_UPLOADPATH . $row['file'] . '"><span class="glyphicon glyphicon-cloud-download"></span>下载</a>';
+                if (is_file(GW_UPLOADPATH . $db_name . '/' . $file_name))
+                    echo '&nbsp;<a class="btn btn-primary btn-xs" href="' . GW_UPLOADPATH  . $db_name . '/'. $row['file'] . '"><span class="glyphicon glyphicon-cloud-download"></span>下载</a>';
             }
-            $link_for_delete = $_SERVER['PHP_SELF'] . '?deleted_file=' . $row['id'];
+            $link_for_delete = $_SERVER['PHP_SELF'] . '?db_name=' . $db_name . '&deleted_file=' . $row['id'];
             echo '&nbsp;';
-            echo '<a class="btn btn-primary btn-xs" href="basic.php?action=update&file_id=' . $row[id] . '"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑基本信息</a>';
+            echo '<a class="btn btn-primary btn-xs" href="basic.php?db_name=' . $db_name . '&file_id=' . $row[id] . '"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑基本信息</a>';
             echo '&nbsp;';
             echo '<a class="btn btn-danger  btn-xs" href="' . $link_for_delete . '"><span class="glyphicon glyphicon-trash"></span>&nbsp;删除本文</a>';
 
             echo '&nbsp;';
-            echo '<a class="btn btn-success  btn-xs" href="#"><span class="glyphicon glyphicon-home"></span>&nbsp;返回</a>';
+            echo '<a class="btn btn-success  btn-xs" href="resource_manager.php?db_name=' . $db_name . '"><span class="glyphicon glyphicon-home"></span>&nbsp;返回</a>';
             echo '<p></p><strong>录入时间:&nbsp;</strong>' . $row['create_time'];
             echo '<p>';
             echo '<strong>摘要:&nbsp;</strong>' . $row['description'];
@@ -113,12 +116,10 @@ if (isset($name) && $name != '') {
             echo '<p><strong>主题:</strong>' . $row['subject'] . '</p>';
             echo '</div>';
             echo '<p></p>';
-
-
-       
         }
-
-        render_entity($dbc, $name, true);
+        
+        render_entity($dbc, $db_name, $name, true);
+       
         ?>
 
 
@@ -131,6 +132,7 @@ if (isset($name) && $name != '') {
                       enctype="multipart/form-data">
 
                     <input  type="hidden" id="name" name="name" value = "<?php echo $name; ?>" >
+                    <input  type="hidden" id="db_name" name="db_name" value = "<?php echo $db_name; ?>" >
 
                     <div class="form-group">
                         <label class="col-sm-1 control-label" for="property">属性:</label>

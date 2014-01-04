@@ -4,69 +4,69 @@ include_once ("./resource_helper.php");
 include_once ("./functions.php");
 require_once('appvars.php');
 include_once ("./db_helper.php");
-
 echo '<p></p>';
 
-//require_once('connectvars.php');
-//$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-//尝试上传原文，若原文上传成功，则调用文件解析服务获取文献元数据，存入数据库，再将它们显示出来以供用户检查；若未解析成功，则将文件名作为原文题目，存入数据库，供用户检查。
+if (isset($_POST['submit'])) {
 
-if (isset($_POST['submit']) && (is_uploaded_file($_FILES['file']['tmp_name']))) {
-    echo '准备上传文件...';
-    $type = '期刊';
-    $file_id = init_resource($dbc, $type);
-    $file_name = upload_file($file_id);
+    $creator = $_POST['creator'];
+    $publisher = $_POST['publisher'];
+    $description = $_POST['description'];
+    $identifier = $_POST['identifier'];
+    $source = $_POST['source'];
+    $type = isset($_POST['type']) ? $_POST['type'] : '其他资源';
+    $subject = $_POST['subject'];
 
-    $title = 'title' . $file_id;
-    $creator = 'creator' . $file_id;
-    $publisher = 'publisher' . $file_id;
-    $description = 'description' . $file_id;
-    $identifier = 'identifier' . $file_id;
+    if (isset($_POST['title']) && ($_POST['title'] != '')) {
+        $title = $_POST['title'];
+        $file_id = init_resource($dbc, $type);
+        if (is_uploaded_file($_FILES['file']['tmp_name'])) {
+            $file_name = upload_file($db_name, $file_id);
+        }
 
-    $source = 'source' . $file_id;
+        $query = "update resource set ";
 
-    $type = 'type' . $file_id;
-    $subject = 'subject' . $file_id;
+        $query .= "title = '" . mysql_escape_string($title) . "',";
 
-    $query = "update resource set ";
+        if ('' != $file_name) {
+            $query .= "file = '$file_name',";
+        }
 
-    $query .= "title = '" . mysql_escape_string($title) . "',";
+        $query .= "source='" . mysql_escape_string($source) . "',";
+        $query .= "creator='" . mysql_escape_string($creator) . "',";
+        //$query .= "description = '".tcmks_substr(mysql_escape_string($description),1000)."',";
+        $query .= "description = '" . mysql_escape_string($description) . "',";
+        $query .= "publisher = '" . mysql_escape_string($publisher) . "', ";
+        $query .= "identifier = '" . mysql_escape_string($identifier) . "', ";
+        $query .= "subject = '" . mysql_escape_string($subject) . "' ";
 
-    if ('' != $file_name) {
-        $query .= "file = '$file_name',";
+        $query .= " where id = '$file_id'";
+
+        //echo $query;
+        //$query = "INSERT INTO resource VALUES ('$file_id', '$title', '$file_name', '$creator', '$journal', '$pages', '$year', '$publisher',NULL)";
+        mysqli_query($dbc, $query);
+
+        echo '<div class="alert alert-success">';
+        echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+        echo '<h4>文献录入成功!</h4>';
+        echo '文献信息如下：';
+        echo '<dl class="dl-horizontal">';
+        echo "<dt>文献题目:</dt><dd>" . $title . '</dd>';
+        echo "<dt>文献类型:</dt><dd>" . $type . '</dd>';
+        if ('' != $file_name) {
+            echo "<dt>文件名称:</dt><dd>" . $file_name . "</dd>";
+            echo "<dt>文件类型:</dt><dd>" . $_FILES["file"]["type"] . "</dd>";
+            echo "<dt>文件尺寸:<dt><dd>" . ($_FILES["file"]["size"] / 1024) . "Kb</dd>";
+        } else {
+            echo '您没有上传原文！';
+        }
+        echo '</dl></div>';
+    } else {
+        echo '<div class="alert alert-success">';
+        echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+        echo '<h4>文献录入失败!</h4>';
+        echo '您没有填写文献标题！';
+        echo '</div>';
     }
-
-    $query .= "source='" . mysql_escape_string($source) . "',";
-    $query .= "creator='" . mysql_escape_string($creator) . "',";
-    //$query .= "description = '".tcmks_substr(mysql_escape_string($description),1000)."',";
-    $query .= "description = '" . mysql_escape_string($description) . "',";
-    $query .= "publisher = '" . mysql_escape_string($publisher) . "', ";
-    $query .= "identifier = '" . mysql_escape_string($identifier) . "', ";
-    $query .= "subject = '" . mysql_escape_string($subject) . "' ";
-
-    $query .= " where id = '$file_id'";
-
-    //echo $query;
-    //$query = "INSERT INTO resource VALUES ('$file_id', '$title', '$file_name', '$creator', '$journal', '$pages', '$year', '$publisher',NULL)";
-    mysqli_query($dbc, $query);
-
-    echo '<div class="alert alert-success">';
-    echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
-    echo '<h4>文献录入成功!</h4>';
-    echo '文献信息如下：';
-    echo '<dl class="dl-horizontal">';
-    echo "<dt>文献题目:</dt><dd>" . $title . '</dd>';
-    echo "<dt>文献类型:</dt><dd>" . $type . '</dd>';
-
-    echo "<dt>文件名称:</dt><dd>" . $file_name . "</dd>";
-    echo "<dt>文件类型:</dt><dd>" . $_FILES["file"]["type"] . "</dd>";
-    echo "<dt>文件尺寸:<dt><dd>" . ($_FILES["file"]["size"] / 1024) . "Kb</dd>";
-
-
-
-    echo '</dl></div>';
-} else {
-    echo '您没有上传原文！';
 }
 //echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
 ?>
@@ -74,11 +74,9 @@ if (isset($_POST['submit']) && (is_uploaded_file($_FILES['file']['tmp_name']))) 
 <div class="container">
 
 
-    <form role="form" action="basic.php" method="post" class="form-horizontal"
+    <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form-horizontal"
           enctype="multipart/form-data">
-        <legend>请录入<?php echo isset($type) ? $type : '文献'; ?>的信息：</legend>
-        <input  type="hidden" id="file_id" name="file_id" value = "<?php if (isset($file_id)) echo $file_id; ?>" >
-        <input  type="hidden" id="type" name="type" value = "<?php if (isset($type)) echo $type; ?>" >
+        <legend>请录入文献的基本信息：</legend>
         <input  type="hidden" id="db_name" name="db_name" value = "<?php if (isset($db_name)) echo $db_name; ?>" >
 
         <div class="form-group">
@@ -101,6 +99,13 @@ if (isset($_POST['submit']) && (is_uploaded_file($_FILES['file']['tmp_name']))) 
             <label class="col-sm-2 control-label" for="creator">创建者:</label>
             <div class="col-sm-10">
                 <input class="form-control" type="text" id="creator" name="creator" value = "<?php if (isset($creator)) echo $creator; ?>" placeholder="请输入作者">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="title">类型:</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="type" name="type" value = "<?php if (isset($type)) echo $type; ?>" placeholder="请输入文献的类型">
             </div>
         </div>
 
@@ -144,7 +149,7 @@ if (isset($_POST['submit']) && (is_uploaded_file($_FILES['file']['tmp_name']))) 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <input class="btn btn-primary" type="submit" name="submit" value="提交" />    
-                <a class="btn btn-success" href="resource_manager.php">返回首页</a>
+                <a class="btn btn-success" href="resource_manager.php?db_name=<?php echo $db_name; ?>">返回首页</a>
             </div>
         </div>
 

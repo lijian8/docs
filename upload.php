@@ -1,9 +1,11 @@
 <?php
 include_once ("./header.php");
+include_once ("./db_helper.php");
 ?>
 
 <form class="form-search" action="parser.php" method="post" class="form-horizontal"
       enctype="multipart/form-data">
+    <input type="hidden" name="db_name" value="<?php echo $db_name; ?>" />
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6" align="center" >
@@ -15,7 +17,7 @@ include_once ("./header.php");
             </div>
             <p></p>
             <input class="btn btn-primary" type="submit" name="submit" value="提交" />    
-            <a class="btn btn-success" href="resource_manager.php">返回首页</a>
+            <a class="btn btn-success" href="resource_manager.php?db_name=<?php echo db_name; ?>">返回首页</a>
         </div>
     </div>
 </form>

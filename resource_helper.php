@@ -37,15 +37,15 @@ function get_title_by_id($dbc, $id) {
     }
 }
 
-function delete_resource($dbc, $id) {
-    $file = GW_UPLOADPATH . get_file_by_id($dbc, $id);
+function delete_resource($dbc, $db_name, $id) {
+    $file = GW_UPLOADPATH  . $db_name . '/' . get_file_by_id($dbc, $id);
     unlink($file);
 
     $query = "DELETE FROM resource WHERE id = '$id'";
     mysqli_query($dbc, $query) or die('Error querying database.');
 }
-
-function render_resource_as_item($row) {
+/**
+function render_resource_as_item($db_name, $row) {
 
     if ($row['identifier'] != '') {
         $link = '<a href="' . $row['identifier'] . '">' . $row['title'] . '</a>';
@@ -60,8 +60,8 @@ function render_resource_as_item($row) {
 
     echo '<a class = "btn  btn-small btn-success" href="javascript:invokePopupService(\'' . $row['id'] . '\',\'resource\');"><i class="icon-search icon-white"></i>&nbsp;查看</a>';
     echo '&nbsp;';
-    if (is_file(GW_UPLOADPATH . $file_name)) {
-        echo '<a class = "btn  btn-small btn-warning" href="' . GW_UPLOADPATH . $row['file'] . '"><i class="icon-download-alt icon-white"></i>&nbsp;下载</a>';
+    if (is_file(GW_UPLOADPATH . $db_name . '/' . $file_name)) {
+        echo '<a class = "btn  btn-small btn-warning" href="' . GW_UPLOADPATH . $db_name . '/' . $row['file'] . '"><i class="icon-download-alt icon-white"></i>&nbsp;下载</a>';
     }
 }
 
@@ -81,20 +81,20 @@ function render_resource_list($dbc, $biblio) {
         }
         echo '</ol>';
     }
-}
+}*/
 
-function upload_file($file_id) {
+function upload_file($db_name, $file_id) {
     if ($_FILES["file"]["error"] > 0) {
         echo "Error: " . $_FILES["file"]["error"] . "<br />";
     } else {
         $file_name = $file_id . '.' . pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
-        if (file_exists(GW_UPLOADPATH . $file_name)) {
-            unlink(GW_UPLOADPATH . $file_name);
+        if (file_exists(GW_UPLOADPATH . $db_name . '/' . $file_name)) {
+            unlink(GW_UPLOADPATH . $db_name . '/' . $file_name);
         }
 
         $name = iconv('utf-8', 'gb2312', $file_name);
 //move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $_FILES["file"]["name"]);
-        if (move_uploaded_file($_FILES["file"]["tmp_name"], GW_UPLOADPATH . $name)) {
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], GW_UPLOADPATH . $db_name . '/' . $name)) {
             return $file_name;
         }
     }

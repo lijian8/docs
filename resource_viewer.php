@@ -33,11 +33,11 @@ $name = $_GET['id'];
 
         if ($row['file'] != '') {
             $file_name = iconv('utf-8', 'gb2312', $row['file']);
-            if (is_file(GW_UPLOADPATH . $file_name))
-                echo '&nbsp;<a class="btn btn-primary btn-xs" href="' . GW_UPLOADPATH . $row['file'] . '"><span class="glyphicon glyphicon-cloud-download"></span>下载</a>';
+            if (is_file(GW_UPLOADPATH. $db_name . '/' . $file_name))
+                echo '&nbsp;<a class="btn btn-primary btn-xs" href="' . GW_UPLOADPATH. $db_name . '/' . $row['file'] . '"><span class="glyphicon glyphicon-cloud-download"></span>下载</a>';
         }
         echo '&nbsp;';
-        echo '<a class="btn btn-primary btn-xs" href="resource_editor.php?id=' . $name . '"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑</a>';
+        echo '<a class="btn btn-primary btn-xs" href="resource_editor.php?db_name=' . $db_name . '&id=' . $name . '"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑</a>';
         echo '&nbsp;';
         echo '<a class="btn btn-success  btn-xs" href="index.php"><span class="glyphicon glyphicon-home"></span>&nbsp;返回</a>';
         echo '</div>';

@@ -16,7 +16,9 @@ include_once ("./db_array.php");
             echo '<tr>';
             echo '<td>' . $db_label . '</td>';
             echo '<td>' . $db_descs[$db_id] . '</td>';
-            echo '<td><a class="btn-link" href="index.php?db=' . $db_id . '"><span class="glyphicon glyphicon-search"></span>检索</a></td>';
+            echo '<td><a class="btn btn-xs btn-default" href="index.php?db=' . $db_id . '"><span class="glyphicon glyphicon-search"></span> 检索</a>&nbsp;&nbsp;  <a class="btn btn-xs btn-default" href="resource_manager.php?db_name=' . $db_id . '"><span class="glyphicon glyphicon-edit"></span> 管理</a></td>';
+            
+            
             echo '</tr>';
         }
         ?>
