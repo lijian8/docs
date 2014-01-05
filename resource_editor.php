@@ -100,7 +100,7 @@ if (isset($name) && $name != '') {
             }
             $link_for_delete = $_SERVER['PHP_SELF'] . '?db_name=' . $db_name . '&deleted_file=' . $row['id'];
             echo '&nbsp;';
-            echo '<a class="btn btn-primary btn-xs" href="basic.php?db_name=' . $db_name . '&file_id=' . $row[id] . '"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑基本信息</a>';
+            echo '<a class="btn btn-primary btn-xs" href="resource_basic.php?db_name=' . $db_name . '&file_id=' . $row[id] . '"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑基本信息</a>';
             echo '&nbsp;';
             echo '<a class="btn btn-danger  btn-xs" href="' . $link_for_delete . '"><span class="glyphicon glyphicon-trash"></span>&nbsp;删除本文</a>';
 

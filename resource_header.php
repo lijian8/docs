@@ -1,5 +1,5 @@
- <img width ="100%" src ="img/tcmlm_logo1.jpg"></img> 
-    
+<img width ="100%" src ="img/tcmlm_logo1.jpg"></img> 
+
 <nav class="navbar navbar-default" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -17,15 +17,17 @@
         <ul class="nav navbar-nav">
 
             <li><a href="resource_add.php?db_name=<?php echo $db_name; ?>"><span class="glyphicon glyphicon-list"></span>&nbsp;录入文献</a></li>               
-             <!--<li><a href="upload.php?db_name=<?php //echo $db_name;     ?>"><span class="glyphicon glyphicon-cloud-upload"></span>&nbsp;上传</a></li>   -->            
+             <!--<li><a href="upload.php?db_name=<?php //echo $db_name;      ?>"><span class="glyphicon glyphicon-cloud-upload"></span>&nbsp;上传</a></li>   -->            
 
         </ul>
 
-        <form class="navbar-form navbar-left" role="search">
+        <form class="navbar-form navbar-left" role="search" action="resource_manager.php" method="get" 
+              enctype="multipart/form-data">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" id ="keywords" name ="keywords" value="<?php echo $keywords;?>" placeholder="请输入关键词...">
             </div>
             <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>&nbsp;搜索</button>
+            <input type="hidden" id ="db_name" name ="db_name" value=" <?php echo $db_name; ?>">
         </form>
 
         <ul class="nav navbar-nav navbar-right">

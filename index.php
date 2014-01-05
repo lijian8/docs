@@ -9,7 +9,7 @@ include_once ("./db_array.php");
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6" align="center" >
-            <img width="60%" class="media-object" src="img/logo_wide.jpg" >
+            <img width="100%" class="media-object" src="img/logo_wide.jpg" >
             <p></p>             
             <div class="container" align="center">
                 <ul class="nav nav-pills" align="center">                   

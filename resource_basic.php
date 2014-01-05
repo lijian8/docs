@@ -10,7 +10,7 @@ echo '<p></p>';
 //$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 
-    
+
 if (isset($_POST['submit'])) {
     $file_id = $_POST['file_id'];
 
@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
         echo '您没有上传原文！';
     }
     echo '</dl></div>';
-}else{
+} else {
     /*
       if ($_GET['action'] == 'create') {
       //echo 'create new resource!';
@@ -96,10 +96,11 @@ if (isset($_POST['submit'])) {
 
 <div class="container">
 
-
+    <?php include_once ('resource_header.php'); ?>
     <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form-horizontal"
           enctype="multipart/form-data">
-        <legend>请录入文献的基本信息：</legend>
+        <p>请录入文献<?php if (isset($title)) echo '"' . $title . '"'; ?>的基本信息：</p>
+        <hr>
         <input  type="hidden" id="file_id" name="file_id" value = "<?php if (isset($file_id)) echo $file_id; ?>" >
         <input  type="hidden" id="type" name="type" value = "<?php if (isset($type)) echo $type; ?>" >
         <input  type="hidden" id="db_name" name="db_name" value = "<?php if (isset($db_name)) echo $db_name; ?>" >
