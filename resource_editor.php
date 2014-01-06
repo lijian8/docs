@@ -1,9 +1,11 @@
 <?php
+echo 'test';
 require_once('appvars.php');
-include_once ("./header.php");
-include_once ("./messages.php");
-include_once ("./entity_helper.php");
-include_once ("./functions.php");
+echo 'test';
+include_once ("./header.php");echo 'test';
+include_once ("./messages.php");echo 'test';
+include_once ("./entity_helper.php");echo 'test';
+include_once ("./functions.php");echo 'test';
 include_once ("./db_helper.php");
 include_once ("./metadata_helper.php");
 

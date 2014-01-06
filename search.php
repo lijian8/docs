@@ -93,7 +93,7 @@ $num_pages = ceil($total / $results_per_page);
 
         <div class="container" >
             <?php include_once ("./search_form.php"); ?>
-           
+
             <div class="row">
                 <div class="col-md-8">
 
@@ -129,7 +129,7 @@ $num_pages = ceil($total / $results_per_page);
 
 
                     <p><font color="gray">获得约 <?php echo $total; ?> 条结果。</font></p>
-                   
+
 
                     <!--
                     <div class="col-md-1">
@@ -180,14 +180,32 @@ $num_pages = ceil($total / $results_per_page);
 
 
 
-                                    $s = '';
+
                                     $names = array('英文正名', '英文异名', '中文异名', '中文正名', '异名', '汉语拼音', '英文名', '别名');
                                     $type_labels = array('类型');
+                                    /*
+                                      foreach ($names as $name_property) {
+                                      $s .= render_info_by_property($dbc, $db_name, PREFIX . $entity_id, $name_property, false);
+                                      }
+                                      if ($s != '')
+                                      echo "<tr><td width='30%'>相关术语:</td><td>$s</td></tr>"; */
+
+                                    $s = array();
                                     foreach ($names as $name_property) {
-                                        $s .= render_info_by_property($dbc, $db_name, PREFIX . $entity_id, $name_property, false);
+                                        $full_id= PREFIX . $entity_id;
+                                        $query = "select * from graph where subject ='$full_id' and property = '$name_property'";
+                                        $result = mysqli_query($dbc, $query) or die('Error querying database2.');
+
+                                        while ($row = mysqli_fetch_array($result)) {
+                                            $value = $row[value];
+                                            $s[] = render_value($dbc, $db_name, $value, false);
+                                        }
                                     }
-                                    if ($s != '')
-                                        echo "<tr><td width='30%'>相关术语:</td><td>$s</td></tr>";
+                                    if (count($s) != 0) {
+                                        echo "<tr><td width='30%'>相关术语:</td><td>";
+                                        echo implode(', ', $s);
+                                        echo "</td></tr>";
+                                    }
 
                                     $values = get_links($dbc, $db_name, PREFIX . $entity_id);
                                     $values = array_slice($values, 0, 4);
@@ -201,10 +219,11 @@ $num_pages = ceil($total / $results_per_page);
                                     $filter = array_merge($type_labels, $names);
 
                                     $values = get_literals($dbc, $db_name, PREFIX . $entity_id, $filter) + get_literals($dbc, $db_name, $keywords, $filter);
-                                     foreach ($values as $property => $value) {
-                                        if (mb_strlen($value, 'UTF-8') > 100)   unset($values[$property]);                                       
+                                    foreach ($values as $property => $value) {
+                                        if (mb_strlen($value, 'UTF-8') > 100)
+                                            unset($values[$property]);
                                     }
-                                   
+
                                     $values = array_slice($values, 0, 4);
 
                                     foreach ($values as $property => $value) {
@@ -225,7 +244,7 @@ $num_pages = ceil($total / $results_per_page);
             </div>
     </form>   
 </div>
- <hr>
+<hr>
 
 
 <!-- Example row of columns -->

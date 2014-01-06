@@ -14,15 +14,7 @@ include_once ("./header.php");
                     在本系统中，还实现了一种简单的语义关系发现方法，作为中医文献知识发现的一次尝试。
                 </p>
             </div>
-        </div>    
-        <div class="panel panel-default">
-            <div class="panel-heading lead">文献资源</div>
-            <div class="panel-body">
-                <p>该系统中已集成了如下的文献资源库：
-                </p>
-                <?php include_once ("./db_list.php"); ?>
-            </div>
-        </div>    
+        </div>  
         <div class="panel panel-default">
             <div class="panel-heading lead">系统功能</div>
             <div class="panel-body">
@@ -68,8 +60,15 @@ include_once ("./header.php");
 
 
             </div>
+        </div>              
+        <div class="panel panel-default">
+            <div class="panel-heading lead">文献资源</div>
+            <div class="panel-body">
+                <p>该系统中已集成了如下的文献资源库：
+                </p>
+                <?php include_once ("./db_list.php"); ?>
+            </div>
         </div>    
-
         <div class="panel panel-default">
             <div class="panel-heading lead">相关项目</div>
             <div class="panel-body">

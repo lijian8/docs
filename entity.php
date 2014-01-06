@@ -55,6 +55,8 @@ if (isset($_GET['type'])) {
 
 <div class="container">
     <ul class="nav nav-pills pull-right">    
+        <li><a class='pull-right' href='#'><span class='glyphicon glyphicon-pencil'></span> 编辑词条</a></li>
+         
         <li ><a  href="editor.php?db_name=<?php echo $db_name; ?>&name=<?php echo $name; ?>"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加信息</a></li>
         <li ><a  href="editor.php?name=<?php echo $name; ?>"><span class="glyphicon glyphicon-home"></span>&nbsp;返回首页</a></li>
     </ul>

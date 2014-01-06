@@ -1,6 +1,7 @@
 <br>
 <div class="row">
     <div class="col-md-8">
+        
         <?php
         $filter = array_merge($type_labels, $names);
 
@@ -16,7 +17,8 @@
         }
 
         foreach ($values as $property => $value) {
-            echo "<p class='lead'><strong>$property</strong></p>";
+            echo "<a class='pull-right' href='#'><span class='glyphicon glyphicon-pencil'></span> 编辑</a>";
+            echo "<p class='lead'><strong>$property</strong></p>";          
             echo $value;
             echo "<hr>";
         }
@@ -69,15 +71,23 @@
 
 
 
-                    $s = '';
+                    $s = array();
                     foreach ($names as $name_property) {
-                        $s .= render_info_by_property($dbc, $db_name, PREFIX . $id, $name_property, false);
+                        $query = "select * from graph where subject ='$name' and property = '$name_property'";
+                        $result = mysqli_query($dbc, $query) or die('Error querying database2.');
+                        
+                        while ($row = mysqli_fetch_array($result)) {
+                            $value = $row[value];                                                  
+                            $s[]  = render_value($dbc, $db_name, $value, false);                                                    
+                        }
                     }
-                    if ($s != '')
-                        echo "<tr><td width='30%'>相关术语:</td><td>$s</td></tr>";
-
+                    if (count($s) != 0){
+                        echo "<tr><td width='30%'>相关术语:</td><td>";
+                        echo implode(', ', $s);
+                        echo "</td></tr>";
+                    }
                     render_links($dbc, $db_name, PREFIX . $id, '30%');
-                    
+
                     foreach ($values_in_graph as $property => $value) {
                         //echo "<p><strong>$property</strong>$value</p>";
                         echo "<tr><td width='10%'>" . $property . ":</td><td>";

@@ -162,7 +162,7 @@ function render_graph_by_property($dbc, $name, $property) {
         echo '</div></div>';
     }
 }
-
+/*
 function render_graph($dbc, $id, $ontology) {
 
     $types = get_types($dbc, $id);
@@ -172,7 +172,7 @@ function render_graph($dbc, $id, $ontology) {
             render_graph_by_property($dbc, PREFIX . $id, $property);
         }
     }
-}
+}*/
 
 function render_info_by_property($dbc, $db_name, $name, $property, $with_def = true) {
     $query = "select * from graph where subject ='$name' and property = '$property'";
@@ -338,6 +338,7 @@ function get_links($dbc, $db_name, $name) {
 
 function render_links($dbc, $db_name, $name, $ratio = '10%') {
     $query = "select * from graph where subject ='$name' and value like '" . PREFIX . "%'  limit 100";
+    
     $result = mysqli_query($dbc, $query) or die('Error querying database2.');
 
     $values = array();

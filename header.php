@@ -93,9 +93,31 @@ and open the template in the editor.
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="main.php">首页</a></li>
-                        <li><a href="index.php">文献检索</a></li>
-                        <li><a href="db_manager.php">文献管理</a></li>
-                        <li><a href="relation_manager.php">语义关系</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">知识检索<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="index.php?db_name=tcmls">文献检索</a></li>
+                                <li><a href="entity_search.php?db_name=tcmls">实体检索</a></li>                              
+                            </ul>
+                        </li>   
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">文献库管理<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="resource_manager.php?db_name=tcmls">TCMLS/万方文献库</a></li>
+                                <li><a href="resource_manager.php?db_name=tcm_info">中医药信息学文献库</a></li>
+                                <li class="divider"></li>
+                                <li><a href="db_manager.php" >更多》</a></li>
+                            </ul>
+                        </li>      
+                         <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">知识发现<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="relation_manager.php">语义关系</a></li>
+                            </ul>
+                        </li>      
+
+                        
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">相关项目<b class="caret"></b></a>
                             <ul class="dropdown-menu">
