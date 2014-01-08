@@ -19,9 +19,9 @@ function generate_where_clause($final_search_words, $column) {
 function build_query($user_search, $user_id, $count_only = false) {
 
     if ($count_only) {
-        $search_query = "SELECT count(*) as count FROM resource";
+        $search_query = "SELECT count(*) as count FROM resource  WHERE (user_id = '$user_id') ";
     } else {
-        $search_query = "SELECT * FROM resource";
+        $search_query = "SELECT * FROM resource  WHERE (user_id = '$user_id') ";
     }
 
     //$search_query = "SELECT * FROM resource";
@@ -47,13 +47,13 @@ function build_query($user_search, $user_id, $count_only = false) {
 
         // Add the keyword WHERE clause to the search query
         if (!empty($where_clause)) {
-            $search_query .= " WHERE (user_id = '$user_id') and ($where_clause)";
+            $search_query .= " and ($where_clause)";
         }
     }
 
 
     $search_query .= " ORDER BY title";
-
+    
     return $search_query;
 }
 
@@ -131,7 +131,7 @@ if (isset($_GET['keywords'])) {
 $user_id = $_SESSION[id];
 // Calculate pagination information
 $cur_page = isset($_GET['page']) ? $_GET['page'] : 1;
-$results_per_page = 3;  // number of results per page
+$results_per_page = 10;  // number of results per page
 $skip = (($cur_page - 1) * $results_per_page);
 $total = get_total($keywords, $user_id, $dbc);
 $num_pages = ceil($total / $results_per_page);

@@ -1,0 +1,4055 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY www "http://www.example.com/" >
+    <!ENTITY 被 "http://www.example.com/被……" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.example.com/"
+     xml:base="http://www.example.com/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:被="&www;被……"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:www="http://www.example.com/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.example.com/">
+        <rdfs:comment xml:lang="en">An example of OWL ontology for Traditional Chinese Medicine domain.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">中医药领域本体示例。</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;seeAlso"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;isDefinedBy"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral -->
+
+    <rdfs:Datatype rdf:about="&rdf;PlainLiteral"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177859902026 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177859902026">
+        <rdfs:label xml:lang="zh">身份</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;contributorDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177871179228 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177871179228">
+        <rdfs:label xml:lang="zh">作序</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;contributorResponsibility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177882184607 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177882184607">
+        <rdfs:label xml:lang="zh">梓行</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;publisher"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177889294519 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177889294519">
+        <rdfs:label xml:lang="zh">翻刻本</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177891334652 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177891334652">
+        <rdfs:label xml:lang="zh">目录</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;description"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177899310387 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177899310387">
+        <rdfs:label xml:lang="zh">现代出版者</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;publisher"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177899650653 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177899650653">
+        <rdfs:label xml:lang="zh">注</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177901395987 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177901395987">
+        <rdfs:label xml:lang="zh">牌记</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;description"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177908341632 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177908341632">
+        <rdfs:label xml:lang="zh">阅</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;contributorResponsibility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177908976210 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177908976210">
+        <rdfs:label xml:lang="zh">校勘</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;contributorResponsibility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177910227766 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177910227766">
+        <rdfs:label xml:lang="zh">注释</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;contributorResponsibility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177913442700 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177913442700">
+        <rdfs:label xml:lang="zh">类编</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177913769766 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177913769766">
+        <rdfs:label xml:lang="zh">籍贯</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;contributorDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177918928523 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177918928523">
+        <rdfs:label xml:lang="zh">印刷方式</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177919928300 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177919928300">
+        <rdfs:label xml:lang="zh">被……校正</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;contributorResponsibility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177920870389 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177920870389">
+        <rdfs:label xml:lang="zh">录</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;contributorResponsibility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177934502080 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177934502080">
+        <rdfs:label xml:lang="zh">底本来源</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;source"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177939771325 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177939771325">
+        <rdfs:label xml:lang="zh">校刊</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;contributorResponsibility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177944604481 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177944604481">
+        <rdfs:label xml:lang="zh">装帧方式</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;type"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177946977059 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177946977059">
+        <rdfs:label xml:lang="zh">整理</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;contributorResponsibility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177947568615 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177947568615">
+        <rdfs:label xml:lang="zh">重订</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;contributorResponsibility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/OWLObjectPropertyImpl_00000003177948766393 -->
+
+    <owl:ObjectProperty rdf:about="&www;OWLObjectPropertyImpl_00000003177948766393">
+        <rdfs:label xml:lang="zh">雕刻</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;contributorResponsibility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/abstract -->
+
+    <owl:ObjectProperty rdf:about="&www;abstract">
+        <rdfs:label xml:lang="en">Abstract</rdfs:label>
+        <rdfs:label xml:lang="zh">摘要</rdfs:label>
+        <rdfs:comment xml:lang="en">A summary of the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">摘要又称概要、内容提要。摘要是以提供文献内容梗概为目的，不加评论和补充解释，简明、确切地记述文献重要内容的短文。其基本要素包括研究目的、方法、结果和结论。具体地讲就是研究工作的主要对象和范围，采用的手段和方法，得出的结果和重要的结论，有时也包括具有情报价值的其它重要的信息。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;description"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/accessRights -->
+
+    <owl:ObjectProperty rdf:about="&www;accessRights">
+        <rdfs:label xml:lang="en">Access Rights</rdfs:label>
+        <rdfs:label xml:lang="zh">访问权限</rdfs:label>
+        <rdfs:comment xml:lang="en">Information about who can access the resource or an indication of its security status.Access Rights may include information regarding access or restrictions based on privacy, security, or other policies.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">关于谁可以访问某一资源的信息，或关于该资源安全状态的指示。访问权限可能根据隐私、安全或其他政策，对资源访问做出许可或限制。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;rights"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/additional -->
+
+    <owl:ObjectProperty rdf:about="&www;additional">
+        <rdfs:label xml:lang="en">Additional</rdfs:label>
+        <rdfs:label xml:lang="zh">附加</rdfs:label>
+        <rdfs:comment xml:lang="en">Record the literature which have additional relationship with this literature.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">与本文献资源有附加关系的关联文献，作为该文献的附加材料。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/annotations -->
+
+    <owl:ObjectProperty rdf:about="&www;annotations">
+        <rdfs:label xml:lang="en">Annotations</rdfs:label>
+        <rdfs:label xml:lang="zh">注释</rdfs:label>
+        <rdfs:comment xml:lang="en">Account of the various aspects of content and form of the literature.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">关于该资源的内容和形式等方面的注释和说明，如：牌记、藏版、避讳、作伪、挖改、纸墨情况、刻工姓名等。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;description"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/appendix -->
+
+    <owl:ObjectProperty rdf:about="&www;appendix">
+        <rdfs:label xml:lang="en">Appendix</rdfs:label>
+        <rdfs:label xml:lang="zh">附录</rdfs:label>
+        <rdfs:comment xml:lang="en">Some additional texts with titles which are after main body but not separately recorded. </rdfs:comment>
+        <rdfs:comment xml:lang="zh">文献正文之后的一些有题名但没有单独著录的附加性文字内容。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;additional"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/audience -->
+
+    <owl:ObjectProperty rdf:about="&www;audience">
+        <rdfs:label xml:lang="en">Audience</rdfs:label>
+        <rdfs:label xml:lang="zh">受众</rdfs:label>
+        <rdfs:comment xml:lang="en">A class of entity for whom the resource is intended or useful.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">某一资源所针对或被用于的群体。</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/bindingAndLayout -->
+
+    <owl:ObjectProperty rdf:about="&www;bindingAndLayout">
+        <rdfs:label xml:lang="en">Binding and Layout</rdfs:label>
+        <rdfs:label xml:lang="zh">装帧方法</rdfs:label>
+        <rdfs:comment xml:lang="en">The method with which books is made into finished products.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">将制作好的书籍加工为成品的方法。书籍装帧方式指精装、平装、线装、经摺装、卷轴装、蝴蝶装、包背装、摺装、片叶式、毛装、散装等。(《我国数字图书馆标准规范建设》2003DEA4T035)</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;format"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/capacity -->
+
+    <owl:ObjectProperty rdf:about="&www;capacity">
+        <rdfs:label xml:lang="en">Capacity</rdfs:label>
+        <rdfs:label xml:lang="zh">容量</rdfs:label>
+        <rdfs:comment xml:lang="en">Number of pages in papery resources, time duration of Audio or video files.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">纸质资源的页数，或视频/音频资料的持续时间。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;format"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/catalog -->
+
+    <owl:ObjectProperty rdf:about="&www;catalog">
+        <rdfs:label xml:lang="en">Catalog</rdfs:label>
+        <rdfs:label xml:lang="zh">目录</rdfs:label>
+        <rdfs:comment xml:lang="en">Catalog is a table of contents in front of text. It is made up systematically to guide reading and retrieving the book content.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">在正文之前的系统性内容列表，用于引导阅读和书籍内容检索。</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/collectionHistory -->
+
+    <owl:ObjectProperty rdf:about="&www;collectionHistory">
+        <rdfs:label xml:lang="en">Collection History</rdfs:label>
+        <rdfs:label xml:lang="zh">收藏历史</rdfs:label>
+        <rdfs:comment xml:lang="en">The circulating history of the ancient books and related information. Record the Collection History of the ancient literature, inscriptive writings and signet, obtain-way, the purchase price.
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">著录古代文献的流传历史以及相关信息，如收藏沿革、题跋印记、获得方式、购买价格等。
+
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/collectionNumber -->
+
+    <owl:ObjectProperty rdf:about="&www;collectionNumber">
+        <rdfs:label xml:lang="en">Collection Number</rdfs:label>
+        <rdfs:label xml:lang="zh">典藏号</rdfs:label>
+        <rdfs:comment xml:lang="en">A certain number is given to the literature in order to shelving and retrieve faster.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">收藏单位为了检索和排架的需要而给予每一本书籍的一个特定号码(来源于：《我国数字图书馆标准规范建设》2003DEA4T035)。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;storageLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/collectionSeries -->
+
+    <owl:ObjectProperty rdf:about="&www;collectionSeries">
+        <rdfs:label xml:lang="en">Collection Series</rdfs:label>
+        <rdfs:label xml:lang="zh">丛编</rdfs:label>
+        <rdfs:comment xml:lang="en">The collection of literature with independent title which have some connections in the aspect of content, form, or the way of collection. </rdfs:comment>
+        <rdfs:comment xml:lang="zh">在内容和形式，或者典藏方式上具有一定联系，并有独立题名的文献的集合 (《我国数字图书馆标准规范建设》2003DEA4T035)。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;containedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/collectionShift -->
+
+    <owl:ObjectProperty rdf:about="&www;collectionShift">
+        <rdfs:label xml:lang="en">Collection Shift</rdfs:label>
+        <rdfs:label xml:lang="zh">收藏沿革</rdfs:label>
+        <rdfs:comment xml:lang="en">Historical changes of literature&#39;s collectors and collection method. </rdfs:comment>
+        <rdfs:comment xml:lang="zh">文献资源收藏者和收藏方式的历史变迁。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;collectionHistory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/conformsTo -->
+
+    <owl:ObjectProperty rdf:about="&www;conformsTo">
+        <rdfs:label xml:lang="en">Conforms To</rdfs:label>
+        <rdfs:label xml:lang="zh">符合</rdfs:label>
+        <rdfs:comment xml:lang="en">An established standard to which the described resource conforms.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">某一资源所符合的既定标准。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/containedBy -->
+
+    <owl:ObjectProperty rdf:about="&www;containedBy">
+        <rdfs:label xml:lang="en">contained by</rdfs:label>
+        <rdfs:label xml:lang="zh">被包含</rdfs:label>
+        <rdfs:comment xml:lang="en">Record the related literature which contains the literature. For examples, the collection series which the literature belongs.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">包含该资源的某项资源，如该资源所属的丛编。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/contains -->
+
+    <owl:ObjectProperty rdf:about="&www;contains">
+        <rdfs:label xml:lang="en">contains</rdfs:label>
+        <rdfs:label xml:lang="zh">包含</rdfs:label>
+        <rdfs:comment xml:lang="zh">Record the related literature which is contained by this literature. For examples, the fascicle of this literature.
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">本文献所包含的关联文献，如此文献的子目。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/contributor -->
+
+    <owl:ObjectProperty rdf:about="&www;contributor">
+        <rdfs:label xml:lang="en">Contributor</rdfs:label>
+        <rdfs:label xml:lang="zh">其他责任者</rdfs:label>
+        <rdfs:comment xml:lang="en">An entity responsible for making contributions to the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">为该资源做出贡献的实体。</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/contributorDescription -->
+
+    <owl:ObjectProperty rdf:about="&www;contributorDescription">
+        <rdfs:label xml:lang="en">Contributor Description</rdfs:label>
+        <rdfs:label xml:lang="zh">责任者说明</rdfs:label>
+        <rdfs:comment xml:lang="en">An account of a Contributor of the resource. Contributor Description may include but is not limited to: nationality, era, country of origin, or identity. The era of Contributor can be recorded with the reign dynasty dating or Christian era. Reign dynasty dating is recorded by the order: Dynasty (foreign countries should be indicated the name of the country), the Emperor, Annals.
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">著录责任者国籍、年代、籍贯、身份等信息。古代文献的作者时代可用年号纪年和公元纪年分别描述。当代和现代文献责任者可只用公元纪年描述。年号纪年要按朝代（其他国家要注明国家）、帝号、纪年的顺序著录。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;contributor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/contributorResponsibility -->
+
+    <owl:ObjectProperty rdf:about="&www;contributorResponsibility">
+        <rdfs:label xml:lang="en">Contributor Responsibility</rdfs:label>
+        <rdfs:label xml:lang="zh">责任方式</rdfs:label>
+        <rdfs:comment xml:lang="en">The ways by which a Contributor works on the resource. Describe the relationship between a Contributor and the resource. 
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">描述作者与资源之间的关系。例如：第一作者、通讯作者、翻译、雕刻、录、拍摄、书、撰、纂、修、注、编、辑、绘画、整理、修改、制作、其他（注：撰：著述；编：将多种著作整理、编排为一种书；辑：收集他人的著述或零散文字，汇集为一种书；注：对一部书的内容、文字进行解释；译：将一种文字翻译成另一种文字；修、纂：常用语官修书的两种责任方式；绘：图画的创作；书：书法作品的创作；篆刻：玺印的创作）</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;contributor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/coverage -->
+
+    <owl:ObjectProperty rdf:about="&www;coverage">
+        <rdfs:label xml:lang="en">Coverage</rdfs:label>
+        <rdfs:label xml:lang="zh">范围</rdfs:label>
+        <rdfs:comment xml:lang="en">The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">与资源相关的时空主题。</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/creator -->
+
+    <owl:ObjectProperty rdf:about="&www;creator">
+        <rdfs:label xml:lang="en">Creator</rdfs:label>
+        <rdfs:label xml:lang="zh">创建者</rdfs:label>
+        <rdfs:comment xml:lang="en">An entity primarily responsible for making the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">主要负责创建资源的实体。</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/creatorDescription -->
+
+    <owl:ObjectProperty rdf:about="&www;creatorDescription">
+        <rdfs:label xml:lang="en">Creator Description</rdfs:label>
+        <rdfs:label xml:lang="zh">创建者描述</rdfs:label>
+        <rdfs:comment xml:lang="en">An account of a creator of the resource.  Creator Description may include but is not limited to: nationality, era, country of origin, or identity. The era of creator can be recorded with the reign dynasty dating or Christian era. Reign dynasty dating is recorded by the order: Dynasty (foreign countries should be indicated the name of the country), the Emperor, Annals. </rdfs:comment>
+        <rdfs:comment xml:lang="zh">对责任者的相关说明。著录责任者国籍、年代、籍贯、身份等信息。古代文献的作者时代可用年号纪年和公元纪年分别描述。当代和现代文献责任者可只用公元纪年描述。年号纪年要按朝代（其他国家要注明国家）、帝号、纪年的顺序著录。
+</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;creator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/creatorResponsibility -->
+
+    <owl:ObjectProperty rdf:about="&www;creatorResponsibility">
+        <rdfs:label xml:lang="en">Creator Responsibility</rdfs:label>
+        <rdfs:label xml:lang="zh">创建者责任</rdfs:label>
+        <rdfs:comment xml:lang="en">The ways by which a creator works on the resource. Describe the relationship between a creator and the resource. For example, First author, corresponding author, translate, engrave, record, photograph, Calligraphy, compile, repair, annotate, edit, collect , paint, sort, modify, manufacture, etc. 
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">责任者以何种方式作用于资源。描述作者与资源之间的关系。例如：第一作者、通讯作者、翻译、雕刻、录、拍摄、书、撰、纂、修、注、编、辑、绘画、整理、修改、制作、其他（注：撰：著述；编：将多种著作整理、编排为一种书；辑：收集他人的著述或零散文字，汇集为一种书；注：对一部书的内容、文字进行解释；译：将一种文字翻译成另一种文字；修、纂：常用语官修书的两种责任方式；绘：图画的创作；书：书法作品的创作；篆刻：玺印的创作）
+</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;creator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/dataFrom -->
+
+    <owl:ObjectProperty rdf:about="&www;dataFrom">
+        <rdfs:label xml:lang="en">Data From</rdfs:label>
+        <rdfs:label xml:lang="zh">数据来源</rdfs:label>
+        <rdfs:comment xml:lang="en">Source or obtaining-way of data of literature. For example: Four diagnostic methods of traditional Chinese medicine, analogy method, electronic medical record, image scanning, experimental research, etc.
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">该资源中数据的来源或获取方法，如四诊方法、类比法、电子病历、图像扫描、实验研究等。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;source"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/description -->
+
+    <owl:ObjectProperty rdf:about="&www;description">
+        <rdfs:label xml:lang="en">Description</rdfs:label>
+        <rdfs:label xml:lang="zh">描述</rdfs:label>
+        <rdfs:comment xml:lang="en">An account of the resource. Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">关于该资源的一段陈述。描述可能包括但不限于该资源的摘要、内容列表、图形化表示、或自由文本陈述。</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/digitalFilesFormat -->
+
+    <owl:ObjectProperty rdf:about="&www;digitalFilesFormat">
+        <rdfs:label xml:lang="en">Digital Files Format</rdfs:label>
+        <rdfs:label xml:lang="zh">数字文件格式</rdfs:label>
+        <rdfs:comment xml:lang="en">Special encoding of information in order to the computer to store information. Comments: Recommend using thesaurus such as computer media formats table defined Internet media types. [MIME] 
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh"> 电脑为了存储信息而使用的对信息的特殊编码方式。数字资源格式建议采用受控词表，例如因特网媒体类型[MIME]定义的计算机媒体格式。
+</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;format"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/editionOfAncientBooks -->
+
+    <owl:ObjectProperty rdf:about="&www;editionOfAncientBooks">
+        <rdfs:label xml:lang="en">Edition of Ancient Books</rdfs:label>
+        <rdfs:label xml:lang="zh">古籍版本类别</rdfs:label>
+        <rdfs:comment xml:lang="en">Different versions of ancient literature due to different processing methods. To identify the edition of ancient literature should accord to the literary records in books combining with characteristics of the different versions. It typically includes: Script writing, manuscripts, carbon copies, wood block prints, Movable - type Printing, stone prints, stereotype print, photocopies, copperplate print, seal print, etc. 
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">古籍文献因制作方式不同而产生的不同版本（来源：《我国数字图书馆标准规范建设》2003DEA4T035）。古籍版本类别要根据书中有关文字记载、结合版本的类别特征进行鉴定而著录。其名称一般为：稿本、写本、抄本、影抄本、刻本、影刻本、活字本、石印本、铅印本、影印本、铜版印本、钤印本、晒印本。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;format"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/extent -->
+
+    <owl:ObjectProperty rdf:about="&www;extent">
+        <rdfs:label xml:lang="en">Extent</rdfs:label>
+        <rdfs:label xml:lang="zh">规模</rdfs:label>
+        <rdfs:comment xml:lang="en">The size or duration of the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">资源的尺寸和规模。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;format"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/fascicle -->
+
+    <owl:ObjectProperty rdf:about="&www;fascicle">
+        <rdfs:label xml:lang="en">Fascicle</rdfs:label>
+        <rdfs:label xml:lang="zh">子目</rdfs:label>
+        <rdfs:comment xml:lang="en">The sub-section of a set of collection series</rdfs:comment>
+        <rdfs:comment xml:lang="zh">丛书、集部书等整套书中的单种图书(来源于：《我国数字图书馆标准规范建设》2003DEA4T035)。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;contains"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/format -->
+
+    <owl:ObjectProperty rdf:about="&www;format">
+        <rdfs:label xml:lang="en">Format</rdfs:label>
+        <rdfs:label xml:lang="zh">格式</rdfs:label>
+        <rdfs:comment xml:lang="en">The file format, physical medium, or dimensions of the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">资源的文件格式、物理媒介或维度。</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/humidity -->
+
+    <owl:ObjectProperty rdf:about="&www;humidity">
+        <rdfs:label xml:lang="en">Humidity</rdfs:label>
+        <rdfs:label xml:lang="zh">湿度</rdfs:label>
+        <rdfs:comment xml:lang="en">The humidity requirements of preservation environment. </rdfs:comment>
+        <rdfs:comment xml:lang="zh">文献资源保护环境的湿度要求。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;preserveMethod"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/inheritFrom -->
+
+    <owl:ObjectProperty rdf:about="&www;inheritFrom">
+        <rdfs:label xml:lang="en">Inherit from</rdfs:label>
+        <rdfs:label xml:lang="zh">继承于</rdfs:label>
+        <rdfs:comment xml:lang="en">Record the earlier literature whose theories were inherited by the new literature . </rdfs:comment>
+        <rdfs:comment xml:lang="zh">与该资源相关的另一资源，其相关性体现在后者提出的理论被前者继承。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/inscriptiveWritingsAndSignet -->
+
+    <owl:ObjectProperty rdf:about="&www;inscriptiveWritingsAndSignet">
+        <rdfs:label xml:lang="en">Inscriptive Writings and Signet</rdfs:label>
+        <rdfs:label xml:lang="zh">题跋印记</rdfs:label>
+        <rdfs:comment xml:lang="en">Record the inscriptions and seal in literature.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">著录对象上的题跋、钤印。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;collectionHistory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/institutionInformation -->
+
+    <owl:ObjectProperty rdf:about="&www;institutionInformation">
+        <rdfs:label xml:lang="en">Institution Information</rdfs:label>
+        <rdfs:label xml:lang="zh">机构信息</rdfs:label>
+        <rdfs:comment xml:lang="en">The information of the institution which possesses the literature.
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">该项著录文献资源的收藏机构信息(来源于：《我国数字图书馆标准规范建设》2003DEA4T035)。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;storageLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/isReplacedBy -->
+
+    <owl:ObjectProperty rdf:about="&www;isReplacedBy">
+        <rdfs:label xml:lang="en">Is Replaced By</rdfs:label>
+        <rdfs:label xml:lang="zh">被替代</rdfs:label>
+        <rdfs:comment xml:lang="en">The subsequent versions which replaced the previous version and result in the previous version is no longer with the force of law or recognized. </rdfs:comment>
+        <rdfs:comment xml:lang="zh">该资源的一个新版本，它取代了该资源，使其不再被承认或在法律上失效。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/keyWords -->
+
+    <owl:ObjectProperty rdf:about="&www;keyWords">
+        <rdfs:label xml:lang="en">Key Words</rdfs:label>
+        <rdfs:label xml:lang="zh">关键词</rdfs:label>
+        <rdfs:comment xml:lang="en">The non-standardized words or phrases truncated from the title or text which express the subject of resources.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">从标题或文本中截取的非标准化词汇或短语，用于表达资源的主题。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;subject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/language -->
+
+    <owl:ObjectProperty rdf:about="&www;language">
+        <rdfs:label xml:lang="en">Language</rdfs:label>
+        <rdfs:label xml:lang="zh">语言</rdfs:label>
+        <rdfs:comment xml:lang="en">A language of the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">资源的一种语言。</rdfs:comment>
+        <rdfs:range rdf:resource="&www;LinguisticSystem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/license -->
+
+    <owl:ObjectProperty rdf:about="&www;license">
+        <rdfs:label xml:lang="en">License</rdfs:label>
+        <rdfs:label xml:lang="zh">许可</rdfs:label>
+        <rdfs:comment xml:lang="en">A legal document giving official permission to do something with the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">为处理该资源给予官方许可的法律文件。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;rights"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/medium -->
+
+    <owl:ObjectProperty rdf:about="&www;medium">
+        <rdfs:label xml:lang="en">Medium</rdfs:label>
+        <rdfs:label xml:lang="zh">媒介</rdfs:label>
+        <rdfs:comment xml:lang="en">The material or physical carrier of the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">某一资源的物质或物理载体。</rdfs:comment>
+        <rdfs:range rdf:resource="&www;PhysicalMedium"/>
+        <rdfs:domain rdf:resource="&www;PhysicalResource"/>
+        <rdfs:subPropertyOf rdf:resource="&www;format"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/missingWordsAnnotations -->
+
+    <owl:ObjectProperty rdf:about="&www;missingWordsAnnotations">
+        <rdfs:label xml:lang="en">Missing Words Annotations</rdfs:label>
+        <rdfs:label xml:lang="zh">缺词注释</rdfs:label>
+        <rdfs:comment xml:lang="en">Record the words that do not exist in current Chinese character fonts.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">在古籍中出现，但在现代汉语中已不用的汉字/词汇的注释。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;annotations"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/obtainWay -->
+
+    <owl:ObjectProperty rdf:about="&www;obtainWay">
+        <rdfs:label xml:lang="en">Obtain Way</rdfs:label>
+        <rdfs:label xml:lang="zh">获取方式</rdfs:label>
+        <rdfs:comment xml:lang="en">The source and purchase price of literature. </rdfs:comment>
+        <rdfs:comment xml:lang="en">文献资源的来源和购置价格。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;collectionHistory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/paragraphStyle -->
+
+    <owl:ObjectProperty rdf:about="&www;paragraphStyle">
+        <rdfs:label xml:lang="en">Paragraph Style</rdfs:label>
+        <rdfs:label xml:lang="zh">行款版式</rdfs:label>
+        <rdfs:comment xml:lang="en">The number of rows per page and the words per row, the style of typesetting including style and size of space of a whole page.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">指古籍每页几行、每行几个字，以及版面安排方式，包括版框版心的样式及尺寸（来源：《我国数字图书馆标准规范建设》2003DEA4T035）。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;format"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/parallel -->
+
+    <owl:ObjectProperty rdf:about="&www;parallel">
+        <rdfs:label xml:lang="en">Record the related literature that parallel to this literature. For example, original version and stereotype print ,carbon copies, photocopies;  co-engraved the book, co-loaded book.</rdfs:label>
+        <rdfs:label xml:lang="en">parallel</rdfs:label>
+        <rdfs:label xml:lang="zh">并行</rdfs:label>
+        <rdfs:comment xml:lang="zh">与本文献有并列关系的关联文献，如原印与影抄、影刻、翻刻、影印；合刻书、合函书、合装书。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/physicalDegradation -->
+
+    <owl:ObjectProperty rdf:about="&www;physicalDegradation">
+        <rdfs:label xml:lang="en">Physical Degradation</rdfs:label>
+        <rdfs:label xml:lang="zh">物理损耗</rdfs:label>
+        <rdfs:comment xml:lang="en">The wear degree of literature resources.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">文献资源的损耗程度。</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/physiciansOfPastGenerations -->
+
+    <owl:ObjectProperty rdf:about="&www;physiciansOfPastGenerations">
+        <rdfs:label xml:lang="en">Physicians of Past Generations</rdfs:label>
+        <rdfs:label xml:lang="zh">历代医家</rdfs:label>
+        <rdfs:comment xml:lang="en">The Physicians of Past Generations who developed the TCM theory that relate to literature resource. </rdfs:comment>
+        <rdfs:comment xml:lang="zh">文献资源中所提到的中医理论的提出者（实际上也就是历代的中医医家）。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;subject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/placeOfPrinting -->
+
+    <owl:ObjectProperty rdf:about="&www;placeOfPrinting">
+        <rdfs:label xml:lang="en">Place of Printing</rdfs:label>
+        <rdfs:label xml:lang="zh">印刷地</rdfs:label>
+        <rdfs:comment xml:lang="en">The place where printer printed large numbers of copies of literature with printing tools.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">印刷者用工具批量制作文献副本的地点。</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/placeOfPublication -->
+
+    <owl:ObjectProperty rdf:about="&www;placeOfPublication">
+        <rdfs:label xml:lang="en">Place of Publication</rdfs:label>
+        <rdfs:label xml:lang="zh">出版地</rdfs:label>
+        <rdfs:comment xml:lang="en">The locations where the resource was published. </rdfs:comment>
+        <rdfs:comment xml:lang="zh">将文献资源编印或制作出来的地点。</rdfs:comment>
+        <rdfs:range rdf:resource="&www;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/prefaceOrPostscript -->
+
+    <owl:ObjectProperty rdf:about="&www;prefaceOrPostscript">
+        <rdfs:label xml:lang="en">Preface or Postscript</rdfs:label>
+        <rdfs:label xml:lang="zh">序跋</rdfs:label>
+        <rdfs:comment xml:lang="en">Preface is also known as preamble, introduction, etc. Preface in ancient times usually put in the back of the book, now usually placed in the front of the book, and call it postscript put when it in the back of the book. The content and style of preface and postscript are roughly the same, so it can be called the prefaces and postscripts.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">序，又称叙、叙文、叙言、序言、序文、引、引言、导言等。据说序始于孔子的《易》。序在古代多放在书的后面，现在一般放在书的前面，而把放在书后面的序称为后序或跋。序跋的内容、体例大致相同，因而可合称序跋文。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;description"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/preserveMethod -->
+
+    <owl:ObjectProperty rdf:about="&www;preserveMethod">
+        <rdfs:label xml:lang="en">Preserve Method</rdfs:label>
+        <rdfs:label xml:lang="zh">保存方法</rdfs:label>
+        <rdfs:comment xml:lang="en">Requirements of literature preservation. Environmental constraints include temperature, humidity, storage carrier, vermin proof, security, shockproof, light requirements, etc. 
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">与该文献资源的保护有关的要求，包括温度、湿度、存储载体、害虫防治、安全、防震、对光线的要求等。</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/printingInstructions -->
+
+    <owl:ObjectProperty rdf:about="&www;printingInstructions">
+        <rdfs:label xml:lang="en">Printing Instructions</rdfs:label>
+        <rdfs:label xml:lang="zh">古籍版印说明</rdfs:label>
+        <rdfs:comment xml:lang="en">Additional description of edition of the Ancient Books. For example, the printing inks color or printing methods. Color Overprint, chromatography, Blue print, red printed, etc.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">古籍版本类别的附加说明，如刻本印墨的颜色或印制方法，朱印、蓝印、套印、彩色套印等(《我国数字图书馆标准规范建设》2003DEA4T035)</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;format"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/provenance -->
+
+    <owl:ObjectProperty rdf:about="&www;provenance">
+        <rdfs:label xml:lang="en">Provenance</rdfs:label>
+        <rdfs:label xml:lang="zh">出处</rdfs:label>
+        <rdfs:comment xml:lang="en">A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">对某一资源的真实性、完整性和解释具有重要意义的陈述，其中记录了自资源创建以来在资源所有权和保管权方面的变更。</rdfs:comment>
+        <rdfs:range rdf:resource="&www;ProvenanceStatement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/publisher -->
+
+    <owl:ObjectProperty rdf:about="&www;publisher">
+        <rdfs:label xml:lang="en">Publisher</rdfs:label>
+        <rdfs:label xml:lang="zh">出版者</rdfs:label>
+        <rdfs:comment xml:lang="en">An entity responsible for making the resource available.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">负责使该资源可及的实体。</rdfs:comment>
+        <rdfs:range rdf:resource="&www;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/quantity -->
+
+    <owl:ObjectProperty rdf:about="&www;quantity">
+        <rdfs:label xml:lang="en">Quantity</rdfs:label>
+        <rdfs:label xml:lang="zh">数量</rdfs:label>
+        <rdfs:comment xml:lang="en">The number of separate parts of a set of literature collection. Ancient books are usually expressed in volume, case.
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">文献的单位数量。古籍通常用册、函表示。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;format"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/rareDegree -->
+
+    <owl:ObjectProperty rdf:about="&www;rareDegree">
+        <rdfs:label xml:lang="en">Rare Degree</rdfs:label>
+        <rdfs:label xml:lang="zh">珍稀程度</rdfs:label>
+        <rdfs:comment xml:lang="en">The current quantity of literature, superior or inferior version. Describe rare degree of the literature. For example, the only existing copies, rare edition, uncut version, residues version, fineness version. coarse version. 
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">关于文献资源存世数量、珍稀程度和版本优劣的评价。例如孤本、善本、足本和残本、精本和劣本的差别。       孤本是仅存一本的图书，也包括仅存一份的某书的某种碑刻的旧拓本和未刊刻的手稿等。足本指无缺佚、删削，内容完整的书籍。残本：凡不完整的书，称为“残本”。精本：校印精善的书本。劣本：整理粗糙，又随意删削的书本。
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/relation -->
+
+    <owl:ObjectProperty rdf:about="&www;relation">
+        <rdfs:label xml:lang="en">Relation</rdfs:label>
+        <rdfs:label xml:lang="zh">关系</rdfs:label>
+        <rdfs:comment xml:lang="en">A related resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">一个相关资源。</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/replaces -->
+
+    <owl:ObjectProperty rdf:about="&www;replaces">
+        <rdfs:label xml:lang="en">Replaces </rdfs:label>
+        <rdfs:label xml:lang="zh">替代</rdfs:label>
+        <rdfs:comment xml:lang="en">Record the previous versions which were replaced by the new one, and they are no longer recognized or not valid. </rdfs:comment>
+        <rdfs:comment xml:lang="zh">该资源所取代的、不再被承认或无效的旧版本。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/rights -->
+
+    <owl:ObjectProperty rdf:about="&www;rights">
+        <rdfs:label xml:lang="en">Rights</rdfs:label>
+        <rdfs:label xml:lang="zh">权限</rdfs:label>
+        <rdfs:comment xml:lang="en">Information about rights held in and over the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">关于资源权限的信息。如馆内阅览、提供电子传阅、提供复制品阅览。
+</rdfs:comment>
+        <rdfs:range rdf:resource="&www;RightsStatement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/rightsHolder -->
+
+    <owl:ObjectProperty rdf:about="&www;rightsHolder">
+        <rdfs:label xml:lang="en">Rights Holder</rdfs:label>
+        <rdfs:label xml:lang="zh">权利人</rdfs:label>
+        <rdfs:comment xml:lang="en">A person or organization owning or managing rights over the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">拥有或管理某一资源的权利的人或组织。</rdfs:comment>
+        <rdfs:range rdf:resource="&www;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/size -->
+
+    <owl:ObjectProperty rdf:about="&www;size">
+        <rdfs:label xml:lang="en">Size</rdfs:label>
+        <rdfs:label xml:lang="en">Use a specific unit to describe the size of physical medium or storage size of digital resources. </rdfs:label>
+        <rdfs:label xml:lang="zh">大小</rdfs:label>
+        <rdfs:comment xml:lang="zh">用特定的单位描述物理载体尺寸或数字资源占据存储空间的大小。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;format"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/source -->
+
+    <owl:ObjectProperty rdf:about="&www;source">
+        <rdfs:label xml:lang="en">Source</rdfs:label>
+        <rdfs:label xml:lang="zh">来源</rdfs:label>
+        <rdfs:comment xml:lang="en">A related resource from which the described resource is derived. The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">该资源所源自的一个相关资源。所描述的资源可以全部或部分地衍生于这个相关资源。推荐的最好做法是通过符合某一正式标识体系的字符串来标识这个相关资源。</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/spatial -->
+
+    <owl:ObjectProperty rdf:about="&www;spatial">
+        <rdfs:label xml:lang="en">Spatial Coverage</rdfs:label>
+        <rdfs:label xml:lang="zh">空间范围</rdfs:label>
+        <rdfs:comment xml:lang="en">Spatial characteristics of the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">资源的空间特性。</rdfs:comment>
+        <rdfs:range rdf:resource="&www;Location"/>
+        <rdfs:subPropertyOf rdf:resource="&www;coverage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/storageCarrier -->
+
+    <owl:ObjectProperty rdf:about="&www;storageCarrier">
+        <rdfs:label xml:lang="en">Storage Carrier</rdfs:label>
+        <rdfs:label xml:lang="zh">存储载体</rdfs:label>
+        <rdfs:comment xml:lang="en">Physical facilities for storage of literature resources. Literature storage facility or storage medium, such as open-shelf cabinet storage, liquid immersion. Further, it also can be recorded the material requirements of the storage medium, such as the ancient books storage cupboard should be made of camphor.
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">文献资源的物理存储设施或介质（如开架、柜藏、药液浸泡等）以及对存储介质材质的要求（如存放古籍的柜子要用樟木）。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;preserveMethod"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/storageLocation -->
+
+    <owl:ObjectProperty rdf:about="&www;storageLocation">
+        <rdfs:label xml:lang="en">Storage Location</rdfs:label>
+        <rdfs:label xml:lang="zh">存储地点</rdfs:label>
+        <rdfs:comment xml:lang="en">Record the institution which possesses the literature.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">保管或提供该文献资源的机构。</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/subject -->
+
+    <owl:ObjectProperty rdf:about="&www;subject">
+        <rdfs:label xml:lang="en">Subject</rdfs:label>
+        <rdfs:label xml:lang="zh">主题</rdfs:label>
+        <rdfs:comment xml:lang="en">The topic of the resource. Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">该资源的主题。通常情况下，主题被表示为关键词、关键短语或分类代码。推荐的最佳做法是使用一个受控词汇表。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/subjectHeadings -->
+
+    <owl:ObjectProperty rdf:about="&www;subjectHeadings">
+        <rdfs:label xml:lang="en">Keywords or standardized words used to express the core content of the resource.</rdfs:label>
+        <rdfs:label xml:lang="en">Subject Headings</rdfs:label>
+        <rdfs:label xml:lang="zh">主题词</rdfs:label>
+        <rdfs:label xml:lang="zh">用于表达资源核心内容的关键词或标准词。</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&www;subject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/subsequent -->
+
+    <owl:ObjectProperty rdf:about="&www;subsequent">
+        <rdfs:label xml:lang="en">Subsequent </rdfs:label>
+        <rdfs:label xml:lang="zh">后续</rdfs:label>
+        <rdfs:comment xml:lang="en">The subsequent literature which is in the same strain.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">与此文献在内容上具有一脉相承的延续性的文献。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/tCMSchoolOfThought -->
+
+    <owl:ObjectProperty rdf:about="&www;tCMSchoolOfThought">
+        <rdfs:label xml:lang="en">TCM School of Thought</rdfs:label>
+        <rdfs:label xml:lang="zh">中医学派</rdfs:label>
+        <rdfs:comment xml:lang="en">Mark the classic Chinese academic schools which the main content of the TCM literature succeed or advocate. Traditional Chinese medicine theory has been developed for thousands of years, and produced a large number of academic schools, for example: typhoid school, the school of acute febrile, replenish school, nourish yin school, the HeJian school, Yi school, Qian Tang medical school, WuZhong medical school, Menghe medical school ,etc.
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">该文献资源所代表或主张的中医学术流派。中医在数千年间发展出了许多学术流派，如伤寒学派、河间学派、易水学派、温病学派、汇通学派等。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;subject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/temperature -->
+
+    <owl:ObjectProperty rdf:about="&www;temperature">
+        <rdfs:label xml:lang="en">Temperature</rdfs:label>
+        <rdfs:label xml:lang="zh">温度</rdfs:label>
+        <rdfs:comment xml:lang="en">The temperature requirements of preservation environment. </rdfs:comment>
+        <rdfs:comment xml:lang="zh">文献资源保存环境的温度要求。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;preserveMethod"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/temporal -->
+
+    <owl:ObjectProperty rdf:about="&www;temporal">
+        <rdfs:label xml:lang="en">Temporal Coverage</rdfs:label>
+        <rdfs:label xml:lang="zh">时间范围</rdfs:label>
+        <rdfs:comment xml:lang="en">Temporal characteristics of the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">资源的时间特性。</rdfs:comment>
+        <rdfs:range rdf:resource="&www;PeriodOfTime"/>
+        <rdfs:subPropertyOf rdf:resource="&www;coverage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/translatedFrom -->
+
+    <owl:ObjectProperty rdf:about="&www;translatedFrom">
+        <rdfs:label xml:lang="en">Translated From</rdfs:label>
+        <rdfs:label xml:lang="zh">翻译自</rdfs:label>
+        <rdfs:comment xml:lang="en"> The title, authors, edition information of the literature which is translated. </rdfs:comment>
+        <rdfs:comment xml:lang="zh">被翻译成此著录文献的原始文献的名称、作者、版本信息。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.com/type -->
+
+    <owl:ObjectProperty rdf:about="&www;type">
+        <rdfs:label xml:lang="en">Type</rdfs:label>
+        <rdfs:label xml:lang="zh">类型</rdfs:label>
+        <rdfs:comment xml:lang="en">The nature or genre of the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">资源的性质和流派。著录文献资源载体所属的一般范畴，例如图书、光盘、微缩胶卷、拓片、矿物种类、标本科属等等。</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="&owl;topObjectProperty">
+        <rdfs:label xml:lang="en">Top object property </rdfs:label>
+        <rdfs:label xml:lang="zh">顶级对象属性</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.com/OWLDataPropertyImpl_00000003177916837544 -->
+
+    <owl:DatatypeProperty rdf:about="&www;OWLDataPropertyImpl_00000003177916837544">
+        <rdfs:label xml:lang="zh">容量大小</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/OWLDataPropertyImpl_00000003177925566168 -->
+
+    <owl:DatatypeProperty rdf:about="&www;OWLDataPropertyImpl_00000003177925566168">
+        <rdfs:label xml:lang="zh">大小</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/OWLDataPropertyImpl_00000003177928445724 -->
+
+    <owl:DatatypeProperty rdf:about="&www;OWLDataPropertyImpl_00000003177928445724">
+        <rdfs:label xml:lang="zh">行款</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/OWLDataPropertyImpl_00000003177929689946 -->
+
+    <owl:DatatypeProperty rdf:about="&www;OWLDataPropertyImpl_00000003177929689946">
+        <rdfs:label xml:lang="zh">有牌记</rdfs:label>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/OWLDataPropertyImpl_00000003177939159236 -->
+
+    <owl:DatatypeProperty rdf:about="&www;OWLDataPropertyImpl_00000003177939159236">
+        <rdfs:label xml:lang="zh">印章数</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/OWLDataPropertyImpl_00000003177944009504 -->
+
+    <owl:DatatypeProperty rdf:about="&www;OWLDataPropertyImpl_00000003177944009504">
+        <rdfs:label xml:lang="zh">典藏号</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/availableDate -->
+
+    <owl:DatatypeProperty rdf:about="&www;availableDate">
+        <rdfs:label xml:lang="en">Available Date</rdfs:label>
+        <rdfs:label xml:lang="zh">可获得日期</rdfs:label>
+        <rdfs:comment xml:lang="en">The date that the resource can be obtained by a legal way.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">该资源可通过合法方式获得的日期。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/bibliographicCitation -->
+
+    <owl:DatatypeProperty rdf:about="&www;bibliographicCitation">
+        <rdfs:label xml:lang="en">Bibliographic Citation</rdfs:label>
+        <rdfs:label xml:lang="zh">书目引用</rdfs:label>
+        <rdfs:comment xml:lang="en">A bibliographic reference for the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">资源的书目引用。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;identifier"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/creationDate -->
+
+    <owl:DatatypeProperty rdf:about="&www;creationDate">
+        <rdfs:label xml:lang="en">Creation Date</rdfs:label>
+        <rdfs:label xml:lang="zh">创建日期</rdfs:label>
+        <rdfs:comment xml:lang="en">The creation, formation date of the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">该资源创建或形成的日期。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/date -->
+
+    <owl:DatatypeProperty rdf:about="&www;date">
+        <rdfs:label xml:lang="en">Date</rdfs:label>
+        <rdfs:label xml:lang="zh">日期</rdfs:label>
+        <rdfs:comment xml:lang="en">A point or period of time associated with an event in the lifecycle of the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">在资源生命周期中某一事件的时间点或时间段。</rdfs:comment>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/identifier -->
+
+    <owl:DatatypeProperty rdf:about="&www;identifier">
+        <rdfs:label xml:lang="en">Identifier</rdfs:label>
+        <rdfs:label xml:lang="zh">标识</rdfs:label>
+        <rdfs:comment xml:lang="en">An unambiguous reference to the resource within a given context.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">在给定环境下对该资源的一个无歧义的引用。建议用符合某一正式标识体系的字符串或数字作为资源标识。</rdfs:comment>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/otherTitles -->
+
+    <owl:DatatypeProperty rdf:about="&www;otherTitles">
+        <rdfs:label xml:lang="en">Other Titles</rdfs:label>
+        <rdfs:label xml:lang="zh">其他名称</rdfs:label>
+        <rdfs:comment xml:lang="en">The title for short or alias of the literature</rdfs:comment>
+        <rdfs:comment xml:lang="zh">文献资源的简称或别名等其他非正式名称。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;title"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/phoneticGuides -->
+
+    <owl:DatatypeProperty rdf:about="&www;phoneticGuides">
+        <rdfs:label xml:lang="en">Phonetic Guides</rdfs:label>
+        <rdfs:label xml:lang="zh">名称注音</rdfs:label>
+        <rdfs:comment xml:lang="en">The title&#39;s transliteration of Chinese Phonetic Alphabet. </rdfs:comment>
+        <rdfs:comment xml:lang="zh">题名的拼音。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;title"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/printingDate -->
+
+    <owl:DatatypeProperty rdf:about="&www;printingDate">
+        <rdfs:label xml:lang="en">Printing Date</rdfs:label>
+        <rdfs:label xml:lang="zh">印刷日期</rdfs:label>
+        <rdfs:comment xml:lang="en">The date that print the resource on paper or other medium.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">将资源打印在纸张或其他介质之上的日期。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/publicationDate -->
+
+    <owl:DatatypeProperty rdf:about="&www;publicationDate">
+        <rdfs:label xml:lang="en">Publication Date</rdfs:label>
+        <rdfs:label xml:lang="zh">发布日期</rdfs:label>
+        <rdfs:comment xml:lang="en">The date that publisher made the finished first draft into batch production.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">发布者开始对完成的书稿进行批量印刷之日期。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/title -->
+
+    <owl:DatatypeProperty rdf:about="&www;title">
+        <rdfs:label xml:lang="en">Title</rdfs:label>
+        <rdfs:label xml:lang="zh">题名</rdfs:label>
+        <rdfs:comment xml:lang="en">A name given to the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">为资源赋予的名称。</rdfs:comment>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/titleOnForeEdge -->
+
+    <owl:DatatypeProperty rdf:about="&www;titleOnForeEdge">
+        <rdfs:label xml:lang="en">Title on Fore Edge</rdfs:label>
+        <rdfs:label xml:lang="zh">版心题名</rdfs:label>
+        <rdfs:comment xml:lang="en">The title on fore-edge of ancient books. Type page is the page edge Relative to the spine edge 
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">在古籍版心上方刻写的书名(来源：《我国数字图书馆标准规范建设》2003DEA4T035)。版心是古籍版面的中心一行，又叫书口，故版心题名也称书口题名。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;title"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/titleOnTheBookCover -->
+
+    <owl:DatatypeProperty rdf:about="&www;titleOnTheBookCover">
+        <rdfs:label xml:lang="en">Title on the Book Cover</rdfs:label>
+        <rdfs:label xml:lang="zh">书衣题名</rdfs:label>
+        <rdfs:comment xml:lang="en">The title inscribed the ancient books cover.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">题写在古籍书衣上的题名就成为书衣题名(来源：《我国数字图书馆标准规范建设》2003DEA4T035)。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;title"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/titleOnTheFirstPageOfText -->
+
+    <owl:DatatypeProperty rdf:about="&www;titleOnTheFirstPageOfText">
+        <rdfs:label xml:lang="en">Title on the First Page of Text</rdfs:label>
+        <rdfs:label xml:lang="zh">卷端题名</rdfs:label>
+        <rdfs:comment xml:lang="en">The title on the first page of text.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">卷端题名是图书正文第一页起始出现的题名(来源：《我国数字图书馆标准规范建设》2003DEA4T035)。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;title"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/titleOnTheInsideCovers -->
+
+    <owl:DatatypeProperty rdf:about="&www;titleOnTheInsideCovers">
+        <rdfs:label xml:lang="en">Title on the Inside Covers</rdfs:label>
+        <rdfs:label xml:lang="zh">内封题名</rdfs:label>
+        <rdfs:comment xml:lang="en">The title inscribed on the inside cover of ancient books. Ancient books&#39; inside cover is equivalent to the title page of modern books. Ancient books&#39; inside cover is equivalent to the title page of modern books.
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">题写在古籍内封面上的书名就叫内封题名(来源：《我国数字图书馆标准规范建设》2003DEA4T035)。内封是古籍内封面的省称，相当于现代图书的书名页，又称扉页,主要用来题写书名。
+</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;title"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/translatedTitle -->
+
+    <owl:DatatypeProperty rdf:about="&www;translatedTitle">
+        <rdfs:label xml:lang="en">Translated Title</rdfs:label>
+        <rdfs:label xml:lang="zh">译名</rdfs:label>
+        <rdfs:comment xml:lang="en">Other language translations of the title.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">将资源中文名译为其他语言所得到的题名。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;title"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/updateDate -->
+
+    <owl:DatatypeProperty rdf:about="&www;updateDate">
+        <rdfs:label xml:lang="en">UpdateDate</rdfs:label>
+        <rdfs:label xml:lang="zh">更新日期</rdfs:label>
+        <rdfs:comment xml:lang="en"> The date that administrator or other person modify, add or delete resource content.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">管理员或其他人修改、添加或删除该资源内容的日期。</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&www;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.com/Agent -->
+
+    <owl:Class rdf:about="&www;Agent">
+        <rdfs:label xml:lang="en">Agent</rdfs:label>
+        <rdfs:label xml:lang="zh">行动者</rdfs:label>
+        <rdfs:comment xml:lang="en">A resource that acts or has the power to act. Examples of Agent include person, organization, and software agent.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">采取行动或能够采取行动的资源，如人、组织、软件代理等。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/AgentClass -->
+
+    <owl:Class rdf:about="&www;AgentClass">
+        <rdfs:label xml:lang="en">Agent Class</rdfs:label>
+        <rdfs:label xml:lang="zh">行动者类型</rdfs:label>
+        <rdfs:comment xml:lang="en">A group of agents. Examples of Agent Class include groups seen as classes, such as students, women, charities, lecturers.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">由行动者构成的群体，如学生、女人、慈善机构和演讲人等。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/BibliographicResource -->
+
+    <owl:Class rdf:about="&www;BibliographicResource">
+        <rdfs:label xml:lang="en">Bibliographic Resource</rdfs:label>
+        <rdfs:label xml:lang="zh">著录资源</rdfs:label>
+        <rdfs:comment xml:lang="en">书籍、文章或其他文档资源。</rdfs:comment>
+        <rdfs:comment xml:lang="zh">A book, article, or other documentary resource.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/EncodingScheme -->
+
+    <owl:Class rdf:about="&www;EncodingScheme">
+        <rdfs:label xml:lang="en">Encoding Scheme</rdfs:label>
+        <rdfs:label xml:lang="zh">编码方案</rdfs:label>
+        <rdfs:comment xml:lang="zh">编码方案</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/FileFormat -->
+
+    <owl:Class rdf:about="&www;FileFormat">
+        <rdfs:label xml:lang="en">File Format</rdfs:label>
+        <rdfs:label xml:lang="zh">文件格式</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&www;MediaType"/>
+        <rdfs:comment xml:lang="en">A digital resource format.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">某一数字资源的格式。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/Frequency -->
+
+    <owl:Class rdf:about="&www;Frequency">
+        <rdfs:label xml:lang="en">Frequency</rdfs:label>
+        <rdfs:label xml:lang="zh">频率</rdfs:label>
+        <rdfs:comment xml:lang="en">A rate at which something recurs.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">某事发生的速率。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/Jurisdiction -->
+
+    <owl:Class rdf:about="&www;Jurisdiction">
+        <rdfs:label xml:lang="en">Jurisdiction</rdfs:label>
+        <rdfs:label xml:lang="zh">权限</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&www;LocationPeriodOrJurisdiction"/>
+        <rdfs:comment xml:lang="en">The extent or range of judicial, law enforcement, or other authority.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">司法，执法或其他授权文件的程度或范围。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/LicenseDocument -->
+
+    <owl:Class rdf:about="&www;LicenseDocument">
+        <rdfs:label xml:lang="en">License Document</rdfs:label>
+        <rdfs:label xml:lang="zh">许可文件</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&www;RightsStatement"/>
+        <rdfs:comment xml:lang="en">A legal document giving official permission to do something with a Resource.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">为处理某一资源给予官方许可的法律文件。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/LinguisticSystem -->
+
+    <owl:Class rdf:about="&www;LinguisticSystem">
+        <rdfs:label xml:lang="en">Linguistic System</rdfs:label>
+        <rdfs:label xml:lang="zh">语言系统</rdfs:label>
+        <rdfs:comment xml:lang="en">A system of signs, symbols, sounds, gestures, or rules used in communication.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">一个由标志、符号、声音、手势或规则所构成的系统，用于沟通或通信之目的。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/Location -->
+
+    <owl:Class rdf:about="&www;Location">
+        <rdfs:label xml:lang="en">Location</rdfs:label>
+        <rdfs:label xml:lang="zh">地点</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&www;LocationPeriodOrJurisdiction"/>
+        <rdfs:comment xml:lang="en">A spatial region or named place.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">一个空间区域或被命名的地方。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/LocationPeriodOrJurisdiction -->
+
+    <owl:Class rdf:about="&www;LocationPeriodOrJurisdiction">
+        <rdfs:label xml:lang="en">Location, Period, or Jurisdiction</rdfs:label>
+        <rdfs:label xml:lang="zh">地点、时期或权限</rdfs:label>
+        <rdfs:comment xml:lang="en">A location, period of time, or jurisdiction.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">地点、时间区域或权限。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/MediaType -->
+
+    <owl:Class rdf:about="&www;MediaType">
+        <rdfs:label xml:lang="en">Media Type</rdfs:label>
+        <rdfs:label xml:lang="zh">媒介类型</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&www;MediaTypeOrExtent"/>
+        <rdfs:comment xml:lang="en">A file format or physical medium.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">一种文件格式或物理介质。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/MediaTypeOrExtent -->
+
+    <owl:Class rdf:about="&www;MediaTypeOrExtent">
+        <rdfs:label xml:lang="en">Media Type or Extent</rdfs:label>
+        <rdfs:label xml:lang="zh">媒介类型或规模</rdfs:label>
+        <rdfs:comment xml:lang="en">A media type or extent.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">一种媒介的类型或规模。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177870435139 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177870435139">
+        <rdfs:label xml:lang="zh">有</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177874504161 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177874504161">
+        <rdfs:label xml:lang="zh">温度</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177881435629 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177881435629">
+        <rdfs:label xml:lang="zh">主题词</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177883601896 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177883601896">
+        <rdfs:label xml:lang="zh">医家</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&www;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177887573141 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177887573141">
+        <rdfs:label xml:lang="zh">行_款</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177888951319 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177888951319">
+        <rdfs:label xml:lang="zh">印记</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177904829454 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177904829454">
+        <rdfs:label xml:lang="zh">破损级别</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177905485054 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177905485054">
+        <rdfs:label xml:lang="zh">刻本印制方法</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177908031188 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177908031188">
+        <rdfs:label xml:lang="zh">现代印刷方式</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177911218744 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177911218744">
+        <rdfs:label xml:lang="zh">责任方式</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177918605367 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177918605367">
+        <rdfs:label xml:lang="zh">版本类别</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177923654123 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177923654123">
+        <rdfs:label xml:lang="zh">职业</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&www;AgentClass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177924321457 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177924321457">
+        <rdfs:label xml:lang="zh">珍稀程度</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177940090570 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177940090570">
+        <rdfs:label xml:lang="zh">刻工</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&www;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177945022481 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177945022481">
+        <rdfs:label xml:lang="zh">装帧_方式</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177946341504 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177946341504">
+        <rdfs:label xml:lang="zh">无</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/OWLClassImpl_00000003177947269415 -->
+
+    <owl:Class rdf:about="&www;OWLClassImpl_00000003177947269415">
+        <rdfs:label xml:lang="zh">底本类别</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/Orgnization -->
+
+    <owl:Class rdf:about="&www;Orgnization">
+        <rdfs:label xml:lang="zh">组织</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&www;Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/PeriodOfTime -->
+
+    <owl:Class rdf:about="&www;PeriodOfTime">
+        <rdfs:label xml:lang="en">Period of Time</rdfs:label>
+        <rdfs:label xml:lang="zh">时期</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&www;LocationPeriodOrJurisdiction"/>
+        <rdfs:comment xml:lang="en">An interval of time that is named or defined by its start and end dates.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">一个被命名或被定义了起止时间的时间段。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/Person -->
+
+    <owl:Class rdf:about="&www;Person">
+        <rdfs:label xml:lang="zh">人</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&www;Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/PhysicalMedium -->
+
+    <owl:Class rdf:about="&www;PhysicalMedium">
+        <rdfs:label xml:lang="en">Physical Medium</rdfs:label>
+        <rdfs:label xml:lang="zh">物理媒介</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&www;MediaType"/>
+        <rdfs:comment xml:lang="en">A physical material or carrier. Examples include paper, canvas, or DVD.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">物理材料或载体，如纸、画布、DVD等。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/PhysicalResource -->
+
+    <owl:Class rdf:about="&www;PhysicalResource">
+        <rdfs:label xml:lang="en">Physical Resource</rdfs:label>
+        <rdfs:label xml:lang="zh">物理资源</rdfs:label>
+        <rdfs:comment xml:lang="en">A material thing.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">一个物质性的东西。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/Policy -->
+
+    <owl:Class rdf:about="&www;Policy">
+        <rdfs:label xml:lang="en">Policy</rdfs:label>
+        <rdfs:label xml:lang="zh">政策</rdfs:label>
+        <rdfs:comment xml:lang="en">A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">权威机构制定的计划或程序，旨在影响和决定决策、行动和其他事项。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/ProvenanceStatement -->
+
+    <owl:Class rdf:about="&www;ProvenanceStatement">
+        <rdfs:label xml:lang="en">Provenance Statement</rdfs:label>
+        <rdfs:label xml:lang="zh">出处声明</rdfs:label>
+        <rdfs:comment xml:lang="en">A statement of any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">对某一资源的真实性、完整性和解释具有重要意义的陈述，其中记录了自资源创建以来在资源所有权和保管权方面的变更。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/RightsStatement -->
+
+    <owl:Class rdf:about="&www;RightsStatement">
+        <rdfs:label xml:lang="en">Rights Statement</rdfs:label>
+        <rdfs:label xml:lang="zh">权利声明</rdfs:label>
+        <rdfs:comment xml:lang="en">A statement about the intellectual property rights (IPR) held in or over a Resource, a legal document giving official permission to do something with a resource, or a statement about access rights.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">关于某一资源的知识产权的声明。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/SizeOrDuration -->
+
+    <owl:Class rdf:about="&www;SizeOrDuration">
+        <rdfs:label xml:lang="en">Size or Duration</rdfs:label>
+        <rdfs:label xml:lang="zh">尺寸或时长</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&www;MediaTypeOrExtent"/>
+        <rdfs:comment xml:lang="en">A dimension or extent, or a time taken to play or execute. Examples include a number of pages, a specification of length, width, and breadth, or a period in hours, minutes, and seconds.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">尺寸、规模，或播放/执行所用的时间，如页数、长度、宽度、广度、以小时、分钟、秒钟计的时间段等。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/Standard -->
+
+    <owl:Class rdf:about="&www;Standard">
+        <rdfs:label xml:lang="en">Standard</rdfs:label>
+        <rdfs:label xml:lang="zh">标准</rdfs:label>
+        <rdfs:comment xml:lang="en">A basis for comparison; a reference point against which other things can be evaluated.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">用于评估其他事物的参考依据。</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/SyndromeDifferentiation -->
+
+    <owl:Class rdf:about="&www;SyndromeDifferentiation">
+        <rdfs:label xml:lang="en">Syndrome Differentiation</rdfs:label>
+        <rdfs:label xml:lang="zh">辨证方法</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment xml:lang="zh">The main traditional Chinese medicine syndrome differentiation method which Literature resource content involved. &quot;Syndrome differentiation&quot; is to summarize and refine on the pathological changes through a combination of symptoms and disease nature.Syndrome differentiation of TCM derived from &quot;&#39;The Emperor&#39;s Internal Classic&quot; including Zang-Fu Syndrome Differentiation Syndrome, differentiation of meridians,Syndrome differentiation of Qi - blood and body fluid, Syndrome differentiation of Pathogenesis, Syndrome Differentiation on Eight Cardinal Principles,etc.
+</rdfs:comment>
+        <rdfs:comment xml:lang="zh">文献资源内容涉及的主要的中医辨证方法。“辨证论治”是通过综合症状、审辨病性,对人体病变的性质所作的一个总结和提炼。中医学的辨证方法,源自《内经》,包括脏腑辨证、经络辨证、气血津液辨证、病因辨证以及八纲辨证。中医学诊治疾病的基本理论与思维方法。根据中医理论分析四诊获得的临床资料，明确病变的本质，拟定治则治法。（GB/T 20348-2006）
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing">
+        <rdfs:label xml:lang="en">Thing</rdfs:label>
+        <rdfs:label xml:lang="zh">事物</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.com/ChineseLibraryClassification -->
+
+    <owl:NamedIndividual rdf:about="&www;ChineseLibraryClassification">
+        <rdf:type rdf:resource="&www;Standard"/>
+        <rdfs:label xml:lang="en">Chinese Library Classification</rdfs:label>
+        <rdfs:label xml:lang="zh">中国图书馆图书分类法</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177860182648 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177860182648">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177888951319"/>
+        <rdfs:label xml:lang="zh">赵药家藏书（赵橘黄）</rdfs:label>
+        <inscriptiveWritingsAndSignet rdf:resource="&www;OWLNamedIndividualImpl_00000003177860182648"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177870029850 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177870029850">
+        <rdf:type rdf:resource="&www;PhysicalMedium"/>
+        <rdfs:label xml:lang="zh">皮纸</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177870809139 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177870809139">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177945022481"/>
+        <rdfs:label xml:lang="zh">精装</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177871573761 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177871573761">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">新编证类图注本草四十二</rdfs:label>
+        <OWLDataPropertyImpl_00000003177916837544 xml:lang="zh">1036页</OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177916837544 xml:lang="zh">37卷</OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177939159236 xml:lang="zh">8枚</OWLDataPropertyImpl_00000003177939159236>
+        <creationDate xml:lang="zh">宋</creationDate>
+        <OWLDataPropertyImpl_00000003177925566168 xml:lang="zh">高19.1cm，宽13.6cm，半叶10行，19字/行</OWLDataPropertyImpl_00000003177925566168>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177876037806"/>
+        <inscriptiveWritingsAndSignet rdf:resource="&www;OWLNamedIndividualImpl_00000003177883239140"/>
+        <medium rdf:resource="&www;OWLNamedIndividualImpl_00000003177892705008"/>
+        <storageLocation rdf:resource="&www;OWLNamedIndividualImpl_00000003177923036168"/>
+        <creator rdf:resource="&www;OWLNamedIndividualImpl_00000003177929077368"/>
+        <inheritFrom rdf:resource="&www;OWLNamedIndividualImpl_00000003177936108080"/>
+        <additional rdf:resource="&www;OWLNamedIndividualImpl_00000003177945345637"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177946678837"/>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177949056304"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177871947272 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177871947272">
+        <rdf:type rdf:resource="&www;LinguisticSystem"/>
+        <rdfs:label xml:lang="zh">英文</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177872306606 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177872306606">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177887573141"/>
+        <rdfs:label xml:lang="zh">红格</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177872685006 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177872685006">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">铜版印本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177873042383 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177873042383">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177905485054"/>
+        <rdfs:label xml:lang="zh">套印</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177873398783 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177873398783">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177923654123"/>
+        <rdfs:label xml:lang="zh">蕲州儒学生</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177873777672 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177873777672">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177924321457"/>
+        <rdfs:label xml:lang="zh">精本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177874137006 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177874137006">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177888951319"/>
+        <rdfs:label xml:lang="zh">合众图书馆藏书印</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177874884028 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177874884028">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">玄达堂本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177875261939 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177875261939">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177888951319"/>
+        <rdfs:label xml:lang="zh">景葵秘笈印</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177875663806 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177875663806">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label>阴秉旸</rdfs:label>
+        <rdfs:label>卫涯居人</rdfs:label>
+        <rdfs:label xml:lang="zh">阴秉旸</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177876037806 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177876037806">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177887573141"/>
+        <rdfs:label xml:lang="zh">双栏</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177876408873 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177876408873">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">金陵</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177876788739 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177876788739">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177923654123"/>
+        <rdfs:label xml:lang="zh">应天府儒学生</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177877162251 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177877162251">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177940090570"/>
+        <rdfs:label xml:lang="zh">张鼎思</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177877527940 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177877527940">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">林亿</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177877883362 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177877883362">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">丹溪心法</rdfs:label>
+        <OWLDataPropertyImpl_00000003177939159236>5</OWLDataPropertyImpl_00000003177939159236>
+        <OWLDataPropertyImpl_00000003177925566168>高17.6cm，宽11.9，半叶10行，22字/行</OWLDataPropertyImpl_00000003177925566168>
+        <OWLDataPropertyImpl_00000003177916837544>454叶</OWLDataPropertyImpl_00000003177916837544>
+        <creationDate>明嘉靖33年甲寅(1554)</creationDate>
+        <OWLDataPropertyImpl_00000003177916837544>5卷</OWLDataPropertyImpl_00000003177916837544>
+        <medium rdf:resource="&www;OWLNamedIndividualImpl_00000003177870029850"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177894461586"/>
+        <physicalDegradation rdf:resource="&www;OWLNamedIndividualImpl_00000003177894820431"/>
+        <placeOfPrinting rdf:resource="&www;OWLNamedIndividualImpl_00000003177896181986"/>
+        <creator rdf:resource="&www;OWLNamedIndividualImpl_00000003177908652566"/>
+        <editionOfAncientBooks rdf:resource="&www;OWLNamedIndividualImpl_00000003177912184788"/>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177913129811"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177928136746"/>
+        <physiciansOfPastGenerations rdf:resource="&www;OWLNamedIndividualImpl_00000003177930310835"/>
+        <contributor rdf:resource="&www;OWLNamedIndividualImpl_00000003177934810080"/>
+        <storageLocation rdf:resource="&www;OWLNamedIndividualImpl_00000003177945644348"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177878267628 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177878267628">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">黄帝内经素问校义</rdfs:label>
+        <OWLDataPropertyImpl_00000003177925566168>书高17cm，宽13.1cm，半叶12行，一行24字</OWLDataPropertyImpl_00000003177925566168>
+        <publicationDate>光绪九年癸未(1883)</publicationDate>
+        <creationDate xml:lang="zh">1872年</creationDate>
+        <OWLDataPropertyImpl_00000003177939159236 xml:lang="zh">4枚</OWLDataPropertyImpl_00000003177939159236>
+        <OWLDataPropertyImpl_00000003177916837544 xml:lang="zh">图片49张</OWLDataPropertyImpl_00000003177916837544>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177876037806"/>
+        <medium rdf:resource="&www;OWLNamedIndividualImpl_00000003177892705008"/>
+        <bindingAndLayout rdf:resource="&www;OWLNamedIndividualImpl_00000003177897926342"/>
+        <inheritFrom rdf:resource="&www;OWLNamedIndividualImpl_00000003177910906833"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177917935100"/>
+        <storageLocation rdf:resource="&www;OWLNamedIndividualImpl_00000003177945644348"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177946678837"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177878626473 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177878626473">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177888951319"/>
+        <rdfs:label xml:lang="zh">宫内厅图书印</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177878977006 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177878977006">
+        <rdf:type rdf:resource="&www;Person"/>
+        <rdfs:label xml:lang="zh">黄申</rdfs:label>
+        <OWLObjectPropertyImpl_00000003177908341632 rdf:resource="&www;OWLNamedIndividualImpl_00000003177880042295"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177879315806 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177879315806">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">上海图书馆</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177879686384 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177879686384">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">黄帝内经始生考</rdfs:label>
+        <creationDate>明隆庆元年丁卯（1567）</creationDate>
+        <creator rdf:resource="&www;OWLNamedIndividualImpl_00000003177875663806"/>
+        <physicalDegradation rdf:resource="&www;OWLNamedIndividualImpl_00000003177885379985"/>
+        <medium rdf:resource="&www;OWLNamedIndividualImpl_00000003177892705008"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177894461586"/>
+        <bindingAndLayout rdf:resource="&www;OWLNamedIndividualImpl_00000003177897926342"/>
+        <OWLObjectPropertyImpl_00000003177913442700 rdf:resource="&www;OWLNamedIndividualImpl_00000003177910906833"/>
+        <editionOfAncientBooks rdf:resource="&www;OWLNamedIndividualImpl_00000003177912184788"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177931526702"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177935784436"/>
+        <storageLocation rdf:resource="&www;OWLNamedIndividualImpl_00000003177945644348"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177880042295 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177880042295">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">本草纲目</rdfs:label>
+        <creationDate>1578年</creationDate>
+        <OWLDataPropertyImpl_00000003177928445724>半叶9行，20字/行，卷三之上、中两册系用墨宝抄配，共102叶</OWLDataPropertyImpl_00000003177928445724>
+        <printingDate>1603年，明万历三十一年</printingDate>
+        <OWLDataPropertyImpl_00000003177916837544>3048页</OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177925566168>高22.5cm，宽15cm</OWLDataPropertyImpl_00000003177925566168>
+        <updateDate>1981年</updateDate>
+        <inscriptiveWritingsAndSignet rdf:resource="&www;OWLNamedIndividualImpl_00000003177860182648"/>
+        <OWLObjectPropertyImpl_00000003177889294519 rdf:resource="&www;OWLNamedIndividualImpl_00000003177874884028"/>
+        <publisher rdf:resource="&www;OWLNamedIndividualImpl_00000003177877162251"/>
+        <OWLObjectPropertyImpl_00000003177889294519 rdf:resource="&www;OWLNamedIndividualImpl_00000003177881811584"/>
+        <appendix rdf:resource="&www;OWLNamedIndividualImpl_00000003177882546873"/>
+        <OWLObjectPropertyImpl_00000003177889294519 rdf:resource="&www;OWLNamedIndividualImpl_00000003177886809496"/>
+        <OWLObjectPropertyImpl_00000003177889294519 rdf:resource="&www;OWLNamedIndividualImpl_00000003177887922207"/>
+        <medium rdf:resource="&www;OWLNamedIndividualImpl_00000003177892705008"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177894461586"/>
+        <physicalDegradation rdf:resource="&www;OWLNamedIndividualImpl_00000003177894820431"/>
+        <OWLObjectPropertyImpl_00000003177944604481 rdf:resource="&www;OWLNamedIndividualImpl_00000003177897926342"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177902369854"/>
+        <OWLObjectPropertyImpl_00000003177919928300 rdf:resource="&www;OWLNamedIndividualImpl_00000003177903052832"/>
+        <OWLObjectPropertyImpl_00000003177899310387 rdf:resource="&www;OWLNamedIndividualImpl_00000003177903463009"/>
+        <subsequent rdf:resource="&www;OWLNamedIndividualImpl_00000003177906116699"/>
+        <publisher rdf:resource="&www;OWLNamedIndividualImpl_00000003177906423721"/>
+        <editionOfAncientBooks rdf:resource="&www;OWLNamedIndividualImpl_00000003177912184788"/>
+        <rareDegree rdf:resource="&www;OWLNamedIndividualImpl_00000003177914373055"/>
+        <OWLObjectPropertyImpl_00000003177889294519 rdf:resource="&www;OWLNamedIndividualImpl_00000003177914766611"/>
+        <OWLObjectPropertyImpl_00000003177889294519 rdf:resource="&www;OWLNamedIndividualImpl_00000003177917585545"/>
+        <OWLObjectPropertyImpl_00000003177889294519 rdf:resource="&www;OWLNamedIndividualImpl_00000003177922425056"/>
+        <placeOfPublication rdf:resource="&www;OWLNamedIndividualImpl_00000003177927488968"/>
+        <OWLObjectPropertyImpl_00000003177889294519 rdf:resource="&www;OWLNamedIndividualImpl_00000003177927810168"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177931526702"/>
+        <OWLObjectPropertyImpl_00000003177882184607 rdf:resource="&www;OWLNamedIndividualImpl_00000003177935127369"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177935784436"/>
+        <inheritFrom rdf:resource="&www;OWLNamedIndividualImpl_00000003177936108080"/>
+        <contributorResponsibility rdf:resource="&www;OWLNamedIndividualImpl_00000003177941949325"/>
+        <OWLObjectPropertyImpl_00000003177919928300 rdf:resource="&www;OWLNamedIndividualImpl_00000003177942530126"/>
+        <appendix rdf:resource="&www;OWLNamedIndividualImpl_00000003177943125103"/>
+        <institutionInformation rdf:resource="&www;OWLNamedIndividualImpl_00000003177945644348"/>
+        <OWLObjectPropertyImpl_00000003177947568615 rdf:resource="&www;OWLNamedIndividualImpl_00000003177948172882"/>
+        <OWLObjectPropertyImpl_00000003177934502080 rdf:resource="&www;OWLNamedIndividualImpl_00000003177949848793"/>
+        <creator rdf:resource="&www;李时珍"/>
+        <physiciansOfPastGenerations rdf:resource="&www;李时珍"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177880382562 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177880382562">
+        <rdf:type rdf:resource="&www;EncodingScheme"/>
+        <rdfs:label xml:lang="zh">ISBN</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177880743851 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177880743851">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177945022481"/>
+        <rdfs:label xml:lang="zh">经摺装</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177881085584 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177881085584">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177905485054"/>
+        <rdfs:label xml:lang="zh">朱印</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177881811584 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177881811584">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">张朝璘刊本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177882546873 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177882546873">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">奇经八脉考</rdfs:label>
+        <creator rdf:resource="&www;李时珍"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177882893985 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177882893985">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">浙江慈溪</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177883239140 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177883239140">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177888951319"/>
+        <rdfs:label xml:lang="zh">兼牧堂藏书记</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177883955363 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177883955363">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">嘉永己酉影宋本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177884320074 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177884320074">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">涂绅</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177884678918 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177884678918">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177881435629"/>
+        <rdfs:label xml:lang="zh">中医基础理论</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177885018207 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177885018207">
+        <rdf:type rdf:resource="&www;Person"/>
+        <rdfs:label xml:lang="zh">丁瓒</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177885379985 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177885379985">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177904829454"/>
+        <rdfs:label xml:lang="zh">一般</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177885727096 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177885727096">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">伤寒杂病论</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177886078607 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177886078607">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">重广补注黄帝内经素问</rdfs:label>
+        <printingDate xml:lang="zh"> 明嘉靖二十九年(1550)</printingDate>
+        <OWLDataPropertyImpl_00000003177916837544 xml:lang="zh">412页</OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177925566168 xml:lang="zh">高21.6cm，宽15.7cm，半叶10行，20字/行</OWLDataPropertyImpl_00000003177925566168>
+        <contributor rdf:resource="&www;OWLNamedIndividualImpl_00000003177877527940"/>
+        <OWLObjectPropertyImpl_00000003177919928300 rdf:resource="&www;OWLNamedIndividualImpl_00000003177877527940"/>
+        <creator rdf:resource="&www;OWLNamedIndividualImpl_00000003177893393853"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177894461586"/>
+        <physicalDegradation rdf:resource="&www;OWLNamedIndividualImpl_00000003177894820431"/>
+        <OWLObjectPropertyImpl_00000003177899650653 rdf:resource="&www;OWLNamedIndividualImpl_00000003177910906833"/>
+        <inheritFrom rdf:resource="&www;OWLNamedIndividualImpl_00000003177910906833"/>
+        <editionOfAncientBooks rdf:resource="&www;OWLNamedIndividualImpl_00000003177912184788"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177931526702"/>
+        <bindingAndLayout rdf:resource="&www;OWLNamedIndividualImpl_00000003177936419503"/>
+        <OWLObjectPropertyImpl_00000003177948766393 rdf:resource="&www;OWLNamedIndividualImpl_00000003177939459903"/>
+        <contributor rdf:resource="&www;OWLNamedIndividualImpl_00000003177939459903"/>
+        <medium rdf:resource="&www;OWLNamedIndividualImpl_00000003177941048303"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177886456030 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177886456030">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177881435629"/>
+        <rdfs:label xml:lang="zh">中医妇产科疾病</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177886809496 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177886809496">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">宽永本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177887166385 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177887166385">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">郑道煌</rdfs:label>
+        <creatorDescription rdf:resource="&www;OWLNamedIndividualImpl_00000003177921192567"/>
+        <OWLObjectPropertyImpl_00000003177913769766 rdf:resource="&www;OWLNamedIndividualImpl_00000003177944304304"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177887922207 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177887922207">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">金闾绿荫堂本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177888258074 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177888258074">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">铅印本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177888587096 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177888587096">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177911218744"/>
+        <rdfs:label xml:lang="zh">阅</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177889647985 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177889647985">
+        <rdf:type rdf:resource="&www;Person"/>
+        <rdfs:label xml:lang="zh">顾时田</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177889980430 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177889980430">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">华佗</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177890310430 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177890310430">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177881435629"/>
+        <rdfs:label xml:lang="zh">五运六气</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177890659497 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177890659497">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">蛟川二仁堂</rdfs:label>
+        <placeOfPrinting rdf:resource="&www;OWLNamedIndividualImpl_00000003177890659497"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177891000741 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177891000741">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">扁鹊</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177891672964 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177891672964">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">陶弘景</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177892020564 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177892020564">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177888951319"/>
+        <rdfs:label xml:lang="zh">多纪氏藏书印</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177892355452 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177892355452">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177945022481"/>
+        <rdfs:label xml:lang="zh">线装</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177892705008 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177892705008">
+        <rdf:type rdf:resource="&www;PhysicalMedium"/>
+        <rdfs:label xml:lang="zh">竹纸</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177893046741 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177893046741">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">百代医宗</rdfs:label>
+        <OWLDataPropertyImpl_00000003177916837544>10卷</OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177925566168>高20.7cm，宽13.2cm，半叶13行，28字/行</OWLDataPropertyImpl_00000003177925566168>
+        <creationDate>明万历三十五年丁未（1607）</creationDate>
+        <OWLDataPropertyImpl_00000003177916837544>  576页 </OWLDataPropertyImpl_00000003177916837544>
+        <OWLObjectPropertyImpl_00000003177899310387 rdf:resource="&www;OWLNamedIndividualImpl_00000003177879315806"/>
+        <creator rdf:resource="&www;OWLNamedIndividualImpl_00000003177884320074"/>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177886456030"/>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177890310430"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177894461586"/>
+        <physicalDegradation rdf:resource="&www;OWLNamedIndividualImpl_00000003177894820431"/>
+        <OWLObjectPropertyImpl_00000003177918928523 rdf:resource="&www;OWLNamedIndividualImpl_00000003177895499008"/>
+        <storageLocation rdf:resource="&www;OWLNamedIndividualImpl_00000003177898974520"/>
+        <OWLObjectPropertyImpl_00000003177899310387 rdf:resource="&www;OWLNamedIndividualImpl_00000003177902048165"/>
+        <physiciansOfPastGenerations rdf:resource="&www;OWLNamedIndividualImpl_00000003177908652566"/>
+        <inheritFrom rdf:resource="&www;OWLNamedIndividualImpl_00000003177910906833"/>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177913129811"/>
+        <placeOfPublication rdf:resource="&www;OWLNamedIndividualImpl_00000003177918292478"/>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177919581189"/>
+        <rareDegree rdf:resource="&www;OWLNamedIndividualImpl_00000003177923336345"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177931526702"/>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177933578569"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177935784436"/>
+        <OWLObjectPropertyImpl_00000003177948766393 rdf:resource="&www;OWLNamedIndividualImpl_00000003177947870748"/>
+        <contributor rdf:resource="&www;OWLNamedIndividualImpl_00000003177947870748"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177893393853 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177893393853">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">王冰</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177893744386 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177893744386">
+        <rdf:type rdf:resource="&www;Person"/>
+        <rdfs:label xml:lang="zh">王世贞</rdfs:label>
+        <OWLObjectPropertyImpl_00000003177871179228 rdf:resource="&www;OWLNamedIndividualImpl_00000003177880042295"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177894461586 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177894461586">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177887573141"/>
+        <rdfs:label xml:lang="zh">白口</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177894820431 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177894820431">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177904829454"/>
+        <rdfs:label xml:lang="zh">完好</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177895151897 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177895151897">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">李东垣</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177895499008 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177895499008">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177908031188"/>
+        <rdfs:label xml:lang="zh">影印</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177895851986 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177895851986">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177911218744"/>
+        <rdfs:label xml:lang="zh">修改</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177896181986 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177896181986">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">养正书馆</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177896515897 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177896515897">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">内经必读</rdfs:label>
+        <OWLDataPropertyImpl_00000003177939159236>4</OWLDataPropertyImpl_00000003177939159236>
+        <OWLDataPropertyImpl_00000003177916837544>213页</OWLDataPropertyImpl_00000003177916837544>
+        <creationDate>清1710年</creationDate>
+        <OWLDataPropertyImpl_00000003177916837544>2卷</OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177925566168>高23cm，宽17.4cm，半叶12行，22字/行</OWLDataPropertyImpl_00000003177925566168>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177884678918"/>
+        <creator rdf:resource="&www;OWLNamedIndividualImpl_00000003177887166385"/>
+        <contributor rdf:resource="&www;OWLNamedIndividualImpl_00000003177889647985"/>
+        <medium rdf:resource="&www;OWLNamedIndividualImpl_00000003177892705008"/>
+        <physicalDegradation rdf:resource="&www;OWLNamedIndividualImpl_00000003177894820431"/>
+        <bindingAndLayout rdf:resource="&www;OWLNamedIndividualImpl_00000003177897926342"/>
+        <OWLObjectPropertyImpl_00000003177913442700 rdf:resource="&www;OWLNamedIndividualImpl_00000003177910906833"/>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177934185280"/>
+        <editionOfAncientBooks rdf:resource="&www;OWLNamedIndividualImpl_00000003177937349369"/>
+        <editionOfAncientBooks rdf:resource="&www;OWLNamedIndividualImpl_00000003177943415015"/>
+        <storageLocation rdf:resource="&www;OWLNamedIndividualImpl_00000003177945644348"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177897133853 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177897133853">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177888951319"/>
+        <rdfs:label xml:lang="zh">帝国博物馆图书</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177897558209 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177897558209">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177881435629"/>
+        <rdfs:label xml:lang="zh">中医男科病</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177897926342 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177897926342">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177945022481"/>
+        <rdfs:label xml:lang="zh">重新装裱</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177898273453 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177898273453">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177904829454"/>
+        <rdfs:label xml:lang="zh">缺一卷</rdfs:label>
+        <physicalDegradation rdf:resource="&www;OWLNamedIndividualImpl_00000003177898273453"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177898621542 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177898621542">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177945022481"/>
+        <rdfs:label xml:lang="zh">平装</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177898974520 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177898974520">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">中华医学会上海分会图书馆</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177900346342 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177900346342">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">佚名</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177900719365 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177900719365">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177887573141"/>
+        <rdfs:label>朱口</rdfs:label>
+        <rdfs:label>红口</rdfs:label>
+        <rdfs:label xml:lang="zh">朱口</rdfs:label>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177900719365"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177901056698 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177901056698">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177940090570"/>
+        <rdfs:label xml:lang="zh">李栻</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177901725987 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177901725987">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">刘文泰</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177902048165 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177902048165">
+        <rdf:type rdf:resource="&www;Orgnization"/>
+        <rdfs:label xml:lang="zh">中医古籍出版社</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177902369854 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177902369854">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177887573141"/>
+        <rdfs:label xml:lang="zh">宋体</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177902725276 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177902725276">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">存诚药室</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177903052832 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177903052832">
+        <rdf:type rdf:resource="&www;Person"/>
+        <rdfs:label xml:lang="zh">李建元</rdfs:label>
+        <OWLObjectPropertyImpl_00000003177859902026 rdf:resource="&www;OWLNamedIndividualImpl_00000003177909910966"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177903463009 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177903463009">
+        <rdf:type rdf:resource="&www;Orgnization"/>
+        <rdfs:label xml:lang="zh">人民卫生出版社</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177903803765 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177903803765">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177887573141"/>
+        <rdfs:label xml:lang="zh">双鱼尾</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177904148432 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177904148432">
+        <rdf:type rdf:resource="&www;LinguisticSystem"/>
+        <rdfs:label xml:lang="zh">中文</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177904499454 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177904499454">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177911218744"/>
+        <rdfs:label xml:lang="zh">重订</rdfs:label>
+        <contributorResponsibility rdf:resource="&www;OWLNamedIndividualImpl_00000003177904499454"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177905159943 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177905159943">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">仓公</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177905806743 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177905806743">
+        <rdf:type rdf:resource="&www;Person"/>
+        <rdfs:label xml:lang="zh">寇约</rdfs:label>
+        <OWLObjectPropertyImpl_00000003177908976210 rdf:resource="&www;OWLNamedIndividualImpl_00000003177945345637"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177906116699 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177906116699">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">本草纲目拾遗</rdfs:label>
+        <OWLDataPropertyImpl_00000003177916837544>1236页</OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177916837544>921种</OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177916837544>图片2323</OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177928445724>半叶8行，18字/行，全书多有朱笔改误之处</OWLDataPropertyImpl_00000003177928445724>
+        <updateDate>1963年</updateDate>
+        <creationDate xml:lang="zh">清同治</creationDate>
+        <inheritFrom rdf:resource="&www;OWLNamedIndividualImpl_00000003177880042295"/>
+        <physicalDegradation rdf:resource="&www;OWLNamedIndividualImpl_00000003177894820431"/>
+        <bindingAndLayout rdf:resource="&www;OWLNamedIndividualImpl_00000003177897926342"/>
+        <OWLObjectPropertyImpl_00000003177899310387 rdf:resource="&www;OWLNamedIndividualImpl_00000003177903463009"/>
+        <OWLObjectPropertyImpl_00000003177918928523 rdf:resource="&www;OWLNamedIndividualImpl_00000003177933270569"/>
+        <medium rdf:resource="&www;OWLNamedIndividualImpl_00000003177941048303"/>
+        <editionOfAncientBooks rdf:resource="&www;OWLNamedIndividualImpl_00000003177943415015"/>
+        <institutionInformation rdf:resource="&www;OWLNamedIndividualImpl_00000003177945644348"/>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177949056304"/>
+        <creator rdf:resource="&www;赵学敏"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177906423721 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177906423721">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177940090570"/>
+        <rdfs:label xml:lang="zh">夏良心</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177906757632 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177906757632">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177945022481"/>
+        <rdfs:label xml:lang="zh">毛装</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177907067588 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177907067588">
+        <rdf:type rdf:resource="&www;PhysicalMedium"/>
+        <rdfs:label xml:lang="zh">日本皮纸</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177907386832 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177907386832">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177911218744"/>
+        <rdfs:label xml:lang="zh">译</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177907713899 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177907713899">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">活字本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177908652566 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177908652566">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label>朱丹溪</rdfs:label>
+        <rdfs:label xml:lang="zh">朱丹溪</rdfs:label>
+        <rdfs:label>朱震亨</rdfs:label>
+        <rdfs:label>彦修</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177909283232 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177909283232">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">日本东京宫内厅书陵部</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177909910966 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177909910966">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177923654123"/>
+        <rdfs:label xml:lang="zh">黄州府儒学生</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177910569010 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177910569010">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">伤寒来苏集</rdfs:label>
+        <OWLDataPropertyImpl_00000003177925566168>高19.4cm，宽13.2cm，半叶10行，21字/行</OWLDataPropertyImpl_00000003177925566168>
+        <creationDate>清乾隆二十年乙亥（1755）</creationDate>
+        <OWLDataPropertyImpl_00000003177916837544>419页</OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177939159236>2</OWLDataPropertyImpl_00000003177939159236>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177876037806"/>
+        <OWLObjectPropertyImpl_00000003177899650653 rdf:resource="&www;OWLNamedIndividualImpl_00000003177885727096"/>
+        <medium rdf:resource="&www;OWLNamedIndividualImpl_00000003177892705008"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177894461586"/>
+        <bindingAndLayout rdf:resource="&www;OWLNamedIndividualImpl_00000003177897926342"/>
+        <editionOfAncientBooks rdf:resource="&www;OWLNamedIndividualImpl_00000003177912184788"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177917935100"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177931526702"/>
+        <placeOfPublication rdf:resource="&www;OWLNamedIndividualImpl_00000003177943719103"/>
+        <storageLocation rdf:resource="&www;OWLNamedIndividualImpl_00000003177945644348"/>
+        <creator rdf:resource="&www;柯韵伯"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177910906833 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177910906833">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">黄帝内经</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177911844033 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177911844033">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">味古斋张本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177912184788 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177912184788">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">刻本</rdfs:label>
+        <editionOfAncientBooks rdf:resource="&www;OWLNamedIndividualImpl_00000003177912184788"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177912490833 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177912490833">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177881435629"/>
+        <rdfs:label xml:lang="zh">炮制</rdfs:label>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177912490833"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177912825722 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177912825722">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177887573141"/>
+        <rdfs:label xml:lang="zh">左右双栏</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177913129811 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177913129811">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177881435629"/>
+        <rdfs:label xml:lang="zh">中医内科疾病</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177914072877 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177914072877">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">张仲景</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177914373055 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177914373055">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177924321457"/>
+        <rdfs:label xml:lang="zh">善本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177914766611 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177914766611">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">石渠阁本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177915189989 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177915189989">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">写本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177915493100 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177915493100">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177945022481"/>
+        <rdfs:label xml:lang="zh">片叶式</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177915817233 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177915817233">
+        <rdf:type rdf:resource="&www;PhysicalMedium"/>
+        <rdfs:label xml:lang="zh">胶卷</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177916118389 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177916118389">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177923654123"/>
+        <rdfs:label xml:lang="zh">永昌府通判</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177916442033 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177916442033">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177904829454"/>
+        <rdfs:label xml:lang="zh">残本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177917179767 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177917179767">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177945022481"/>
+        <rdfs:label xml:lang="zh">包背装</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177917585545 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177917585545">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">五芝堂刊本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177917935100 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177917935100">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177887573141"/>
+        <rdfs:label xml:lang="zh">仿宋</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177918292478 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177918292478">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">大业堂</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177919275634 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177919275634">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">晒印本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177919581189 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177919581189">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177881435629"/>
+        <rdfs:label xml:lang="zh">中医外科疾病</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177920250967 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177920250967">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label>丹波元简</rdfs:label>
+        <rdfs:label>丹波元坚</rdfs:label>
+        <rdfs:label xml:lang="zh">丹波元坚</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177920561901 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177920561901">
+        <rdf:type rdf:resource="&www;Person"/>
+        <rdfs:label xml:lang="zh">高第</rdfs:label>
+        <OWLObjectPropertyImpl_00000003177859902026 rdf:resource="&www;OWLNamedIndividualImpl_00000003177876788739"/>
+        <OWLObjectPropertyImpl_00000003177908341632 rdf:resource="&www;OWLNamedIndividualImpl_00000003177880042295"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177921192567 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177921192567">
+        <rdf:type rdf:resource="&www;PeriodOfTime"/>
+        <rdfs:label xml:lang="zh">清</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177921808567 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177921808567">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">钤印本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177922122434 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177922122434">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">稿本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177922425056 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177922425056">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">湖北本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177922735990 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177922735990">
+        <rdf:type rdf:resource="&www;PeriodOfTime"/>
+        <rdfs:label xml:lang="zh">明末清初</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177923036168 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177923036168">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">国家图书馆</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177923336345 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177923336345">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177924321457"/>
+        <rdfs:label xml:lang="zh">孤本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177923981679 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177923981679">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177945022481"/>
+        <rdfs:label xml:lang="zh">卷轴装</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177924649012 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177924649012">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">湖北</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177924955546 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177924955546">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">素问</rdfs:label>
+        <OWLDataPropertyImpl_00000003177916837544>135页</OWLDataPropertyImpl_00000003177916837544>
+        <creationDate>明嘉靖八年己丑（1529）</creationDate>
+        <OWLDataPropertyImpl_00000003177925566168>高18cm，宽12.9cm，半叶10行，22字/行</OWLDataPropertyImpl_00000003177925566168>
+        <OWLDataPropertyImpl_00000003177939159236>3</OWLDataPropertyImpl_00000003177939159236>
+        <inscriptiveWritingsAndSignet rdf:resource="&www;OWLNamedIndividualImpl_00000003177874137006"/>
+        <inscriptiveWritingsAndSignet rdf:resource="&www;OWLNamedIndividualImpl_00000003177875261939"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177876037806"/>
+        <storageLocation rdf:resource="&www;OWLNamedIndividualImpl_00000003177879315806"/>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177884678918"/>
+        <contributor rdf:resource="&www;OWLNamedIndividualImpl_00000003177885018207"/>
+        <contributor rdf:resource="&www;OWLNamedIndividualImpl_00000003177893393853"/>
+        <OWLObjectPropertyImpl_00000003177910227766 rdf:resource="&www;OWLNamedIndividualImpl_00000003177893393853"/>
+        <bindingAndLayout rdf:resource="&www;OWLNamedIndividualImpl_00000003177897926342"/>
+        <creator rdf:resource="&www;OWLNamedIndividualImpl_00000003177900346342"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177903803765"/>
+        <rareDegree rdf:resource="&www;OWLNamedIndividualImpl_00000003177914373055"/>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177934185280"/>
+        <editionOfAncientBooks rdf:resource="&www;OWLNamedIndividualImpl_00000003177937654436"/>
+        <physicalDegradation rdf:resource="&www;OWLNamedIndividualImpl_00000003177940408347"/>
+        <medium rdf:resource="&www;OWLNamedIndividualImpl_00000003177941048303"/>
+        <physicalDegradation rdf:resource="&www;OWLNamedIndividualImpl_00000003177945952348"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177946678837"/>
+        <inscriptiveWritingsAndSignet rdf:resource="&www;OWLNamedIndividualImpl_00000003177948463282"/>
+        <OWLObjectPropertyImpl_00000003177910227766 rdf:resource="&www;滑寿"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177925261590 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177925261590">
+        <rdf:type rdf:resource="&www;Person"/>
+        <rdfs:label xml:lang="zh">李建木</rdfs:label>
+        <OWLObjectPropertyImpl_00000003177947568615 rdf:resource="&www;OWLNamedIndividualImpl_00000003177880042295"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177925880523 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177925880523">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177888951319"/>
+        <rdfs:label xml:lang="zh">跻寿殿书籍记</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177926181679 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177926181679">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">石渠阁</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177926479901 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177926479901">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">扁鹊仓公传</rdfs:label>
+        <OWLDataPropertyImpl_00000003177929689946 rdf:datatype="&xsd;boolean">true</OWLDataPropertyImpl_00000003177929689946>
+        <OWLDataPropertyImpl_00000003177916837544>  116叶 </OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177939159236>5</OWLDataPropertyImpl_00000003177939159236>
+        <OWLDataPropertyImpl_00000003177916837544>4册</OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177925566168>高20.2cm，宽13 cm，半叶10行，18字/行</OWLDataPropertyImpl_00000003177925566168>
+        <editionOfAncientBooks rdf:resource="&www;OWLNamedIndividualImpl_00000003177883955363"/>
+        <physiciansOfPastGenerations rdf:resource="&www;OWLNamedIndividualImpl_00000003177891000741"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177894461586"/>
+        <placeOfPrinting rdf:resource="&www;OWLNamedIndividualImpl_00000003177902725276"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177903803765"/>
+        <physiciansOfPastGenerations rdf:resource="&www;OWLNamedIndividualImpl_00000003177905159943"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177912825722"/>
+        <creator rdf:resource="&www;OWLNamedIndividualImpl_00000003177920250967"/>
+        <editionOfAncientBooks rdf:resource="&www;OWLNamedIndividualImpl_00000003177932928347"/>
+        <storageLocation rdf:resource="&www;OWLNamedIndividualImpl_00000003177945644348"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177927132079 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177927132079">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177911218744"/>
+        <rdfs:label xml:lang="zh">整理</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177927488968 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177927488968">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">江西</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177927810168 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177927810168">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">十竹斋本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177928136746 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177928136746">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177887573141"/>
+        <rdfs:label xml:lang="zh">四周双边</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177928755190 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177928755190">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">杨用道</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177929077368 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177929077368">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">唐慎微</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177929379013 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177929379013">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177945022481"/>
+        <rdfs:label xml:lang="zh">散装</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177929997946 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177929997946">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177888951319"/>
+        <rdfs:label xml:lang="zh">聘贤王域士之印</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177930310835 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177930310835">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">戴元礼</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177930609546 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177930609546">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177923654123"/>
+        <rdfs:label xml:lang="zh">太医院医士</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177931224080 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177931224080">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177947269415"/>
+        <rdfs:label xml:lang="zh">江西本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177931526702 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177931526702">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177887573141"/>
+        <rdfs:label xml:lang="zh">单鱼尾</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177931891413 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177931891413">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177911218744"/>
+        <rdfs:label xml:lang="zh">雕刻</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177932212124 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177932212124">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177924321457"/>
+        <rdfs:label xml:lang="zh">劣本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177932514746 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177932514746">
+        <rdf:type rdf:resource="&www;EncodingScheme"/>
+        <rdfs:label xml:lang="zh">DOI</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177932928347 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177932928347">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">影印本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177933270569 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177933270569">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177908031188"/>
+        <rdfs:label xml:lang="zh">排印</rdfs:label>
+        <OWLObjectPropertyImpl_00000003177918928523 rdf:resource="&www;OWLNamedIndividualImpl_00000003177933270569"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177933578569 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177933578569">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177881435629"/>
+        <rdfs:label xml:lang="zh">中医儿科疾病</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177933890969 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177933890969">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177905485054"/>
+        <rdfs:label xml:lang="zh">蓝印</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177934185280 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177934185280">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177881435629"/>
+        <rdfs:label xml:lang="zh">医经</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177934810080 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177934810080">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">蒋奎</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177935127369 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177935127369">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177940090570"/>
+        <rdfs:label xml:lang="zh">胡承龙</rdfs:label>
+        <OWLObjectPropertyImpl_00000003177913769766 rdf:resource="&www;OWLNamedIndividualImpl_00000003177876408873"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177935472036 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177935472036">
+        <rdf:type rdf:resource="&www;LinguisticSystem"/>
+        <rdfs:label xml:lang="zh">日文</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177935784436 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177935784436">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177887573141"/>
+        <rdfs:label xml:lang="zh">单栏</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177936108080 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177936108080">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">证类本草</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177936419503 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177936419503">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177945022481"/>
+        <rdfs:label xml:lang="zh">金镶玉</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177936750480 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177936750480">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177924321457"/>
+        <rdfs:label xml:lang="zh">足本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177937048703 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177937048703">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">寇宗奭</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177937349369 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177937349369">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177887573141"/>
+        <rdfs:label xml:lang="zh">正楷</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177937654436 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177937654436">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">温州京口丁氏刻本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177937951681 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177937951681">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177945022481"/>
+        <rdfs:label xml:lang="zh">摺装</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177938254303 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177938254303">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">朱思贞</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177938551547 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177938551547">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">本草品汇精要</rdfs:label>
+        <OWLDataPropertyImpl_00000003177916837544 xml:lang="zh">24叶</OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177916837544>42卷</OWLDataPropertyImpl_00000003177916837544>
+        <creationDate xml:lang="zh">明弘治十八年乙丑（1505）</creationDate>
+        <OWLDataPropertyImpl_00000003177925566168 xml:lang="zh">载药1800余种</OWLDataPropertyImpl_00000003177925566168>
+        <OWLDataPropertyImpl_00000003177916837544 xml:lang="zh">高24cm，宽17.5cm，半叶8行，16字/行</OWLDataPropertyImpl_00000003177916837544>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177872306606"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177876037806"/>
+        <medium rdf:resource="&www;OWLNamedIndividualImpl_00000003177892705008"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177900719365"/>
+        <creator rdf:resource="&www;OWLNamedIndividualImpl_00000003177901725987"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177903803765"/>
+        <inheritFrom rdf:resource="&www;OWLNamedIndividualImpl_00000003177936108080"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177937349369"/>
+        <institutionInformation rdf:resource="&www;OWLNamedIndividualImpl_00000003177945644348"/>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177949056304"/>
+        <editionOfAncientBooks rdf:resource="&www;影抄本"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177938857592 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177938857592">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">补遗雷公炮制</rdfs:label>
+        <OWLDataPropertyImpl_00000003177925566168>  高31.8cm，宽21cm，半叶8行，16字/行</OWLDataPropertyImpl_00000003177925566168>
+        <OWLDataPropertyImpl_00000003177916837544>图片1699</OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177916837544>载药913种</OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177939159236>8枚</OWLDataPropertyImpl_00000003177939159236>
+        <publicationDate>明万历十九年辛卯（1591）</publicationDate>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177876037806"/>
+        <physicalDegradation rdf:resource="&www;OWLNamedIndividualImpl_00000003177898273453"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177900719365"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177903803765"/>
+        <rareDegree rdf:resource="&www;OWLNamedIndividualImpl_00000003177914373055"/>
+        <editionOfAncientBooks rdf:resource="&www;OWLNamedIndividualImpl_00000003177922122434"/>
+        <inscriptiveWritingsAndSignet rdf:resource="&www;OWLNamedIndividualImpl_00000003177929997946"/>
+        <inheritFrom rdf:resource="&www;OWLNamedIndividualImpl_00000003177936108080"/>
+        <inheritFrom rdf:resource="&www;OWLNamedIndividualImpl_00000003177938551547"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177941048303"/>
+        <storageLocation rdf:resource="&www;OWLNamedIndividualImpl_00000003177945644348"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177939459903 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177939459903">
+        <rdf:type rdf:resource="&www;Person"/>
+        <rdfs:label xml:lang="zh">顾从德</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177940408347 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177940408347">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177904829454"/>
+        <rdfs:label xml:lang="zh">轻度虫蛀</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177940731014 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177940731014">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177945022481"/>
+        <rdfs:label xml:lang="zh">蝴蝶装</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177941048303 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177941048303">
+        <rdf:type rdf:resource="&www;PhysicalMedium"/>
+        <rdfs:label xml:lang="zh">绵纸</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177941357281 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177941357281">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177947269415"/>
+        <rdfs:label xml:lang="zh">武林本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177941658437 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177941658437">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177905485054"/>
+        <rdfs:label xml:lang="zh">彩色套印</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177941949325 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177941949325">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177911218744"/>
+        <rdfs:label xml:lang="zh">校正</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177942240703 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177942240703">
+        <rdf:type rdf:resource="&www;EncodingScheme"/>
+        <rdfs:label xml:lang="zh">URI</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177942530126 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177942530126">
+        <rdf:type rdf:resource="&www;Person"/>
+        <rdfs:label xml:lang="zh">李建中</rdfs:label>
+        <OWLObjectPropertyImpl_00000003177859902026 rdf:resource="&www;OWLNamedIndividualImpl_00000003177916118389"/>
+        <OWLObjectPropertyImpl_00000003177913769766 rdf:resource="&www;OWLNamedIndividualImpl_00000003177924649012"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177942834214 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177942834214">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">石印本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177943125103 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177943125103">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">濒湖脉学</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177943415015 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177943415015">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label xml:lang="zh">抄本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177943719103 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177943719103">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">昆山绥福堂</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177944304304 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177944304304">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">江苏</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177945345637 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177945345637">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">本草衍义</rdfs:label>
+        <OWLDataPropertyImpl_00000003177939159236 xml:lang="zh">10</OWLDataPropertyImpl_00000003177939159236>
+        <OWLDataPropertyImpl_00000003177916837544 xml:lang="zh">117页</OWLDataPropertyImpl_00000003177916837544>
+        <printingDate xml:lang="zh">宣和元年1119年</printingDate>
+        <creationDate xml:lang="zh">政和六年1116年</creationDate>
+        <OWLDataPropertyImpl_00000003177925566168 xml:lang="zh">高20.5cm，宽14.5cm，半叶12行，21字/行</OWLDataPropertyImpl_00000003177925566168>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177876037806"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177894461586"/>
+        <bindingAndLayout rdf:resource="&www;OWLNamedIndividualImpl_00000003177897926342"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177902369854"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177903803765"/>
+        <OWLObjectPropertyImpl_00000003177908976210 rdf:resource="&www;OWLNamedIndividualImpl_00000003177905806743"/>
+        <contributor rdf:resource="&www;OWLNamedIndividualImpl_00000003177905806743"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177912184788"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177914373055"/>
+        <creator rdf:resource="&www;OWLNamedIndividualImpl_00000003177937048703"/>
+        <medium rdf:resource="&www;OWLNamedIndividualImpl_00000003177941048303"/>
+        <storageLocation rdf:resource="&www;OWLNamedIndividualImpl_00000003177945644348"/>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177949056304"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177945644348 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177945644348">
+        <rdf:type rdf:resource="&www;Location"/>
+        <rdfs:label xml:lang="zh">中国中医科学院中医药信息研究所图书馆</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177945952348 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177945952348">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177904829454"/>
+        <rdfs:label xml:lang="zh">轻度霉烂</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177946678837 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177946678837">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177887573141"/>
+        <rdfs:label xml:lang="zh">黑口</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177947870748 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177947870748">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177940090570"/>
+        <rdfs:label xml:lang="zh">李潮</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177948172882 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177948172882">
+        <rdf:type rdf:resource="&www;Person"/>
+        <rdfs:label xml:lang="zh">李建方</rdfs:label>
+        <OWLObjectPropertyImpl_00000003177947568615 rdf:resource="&www;OWLNamedIndividualImpl_00000003177880042295"/>
+        <OWLObjectPropertyImpl_00000003177859902026 rdf:resource="&www;OWLNamedIndividualImpl_00000003177930609546"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177948463282 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177948463282">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177888951319"/>
+        <rdfs:label xml:lang="zh">武林叶氏藏书印</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177949056304 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177949056304">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177881435629"/>
+        <rdfs:label xml:lang="zh">本草</rdfs:label>
+        <subjectHeadings rdf:resource="&www;OWLNamedIndividualImpl_00000003177949056304"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177949372126 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177949372126">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">丹溪秘传方诀十卷</rdfs:label>
+        <OWLDataPropertyImpl_00000003177939159236 rdf:datatype="&xsd;boolean">5</OWLDataPropertyImpl_00000003177939159236>
+        <OWLDataPropertyImpl_00000003177925566168 rdf:datatype="&xsd;boolean">高24.2cm，宽17.2cm，半叶12行，21~24字/行不等</OWLDataPropertyImpl_00000003177925566168>
+        <OWLDataPropertyImpl_00000003177916837544>10卷</OWLDataPropertyImpl_00000003177916837544>
+        <creationDate>日本庆长八年（1603）据明成化十一年（1475）刻本抄</creationDate>
+        <contains rdf:resource="&www;OWLNamedIndividualImpl_00000003177877883362"/>
+        <inscriptiveWritingsAndSignet rdf:resource="&www;OWLNamedIndividualImpl_00000003177878626473"/>
+        <inscriptiveWritingsAndSignet rdf:resource="&www;OWLNamedIndividualImpl_00000003177892020564"/>
+        <physicalDegradation rdf:resource="&www;OWLNamedIndividualImpl_00000003177894820431"/>
+        <inscriptiveWritingsAndSignet rdf:resource="&www;OWLNamedIndividualImpl_00000003177897133853"/>
+        <creator rdf:resource="&www;OWLNamedIndividualImpl_00000003177908652566"/>
+        <storageLocation rdf:resource="&www;OWLNamedIndividualImpl_00000003177909283232"/>
+        <inscriptiveWritingsAndSignet rdf:resource="&www;OWLNamedIndividualImpl_00000003177925880523"/>
+        <OWLObjectPropertyImpl_00000003177920870389 rdf:resource="&www;OWLNamedIndividualImpl_00000003177938254303"/>
+        <contributor rdf:resource="&www;OWLNamedIndividualImpl_00000003177938254303"/>
+        <editionOfAncientBooks rdf:resource="&www;OWLNamedIndividualImpl_00000003177943415015"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/OWLNamedIndividualImpl_00000003177949848793 -->
+
+    <owl:NamedIndividual rdf:about="&www;OWLNamedIndividualImpl_00000003177949848793">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177947269415"/>
+        <rdfs:label xml:lang="zh">金陵本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/StandardsOfAncientBooksWornOutGrading -->
+
+    <owl:NamedIndividual rdf:about="&www;StandardsOfAncientBooksWornOutGrading">
+        <rdf:type rdf:resource="&www;Standard"/>
+        <rdfs:label xml:lang="en">Standards of Ancient Books Worn-out Grading</rdfs:label>
+        <rdfs:label xml:lang="zh">古籍特藏破损定级标准</rdfs:label>
+        <rdfs:comment xml:lang="en">WH/T 22-2006Standards of Ancient Books Worn-out Grading</rdfs:comment>
+        <rdfs:comment xml:lang="zh">WH/T 22-2006古籍特藏破损定级标准。</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/TCMThesaurus -->
+
+    <owl:NamedIndividual rdf:about="&www;TCMThesaurus">
+        <rdf:type rdf:resource="&www;Standard"/>
+        <rdfs:label xml:lang="en">TCM Thesaurus</rdfs:label>
+        <rdfs:label xml:lang="zh">中国中医药学主题词表</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/mesh -->
+
+    <owl:NamedIndividual rdf:about="&www;mesh">
+        <rdf:type rdf:resource="&www;Standard"/>
+        <rdfs:label xml:lang="en">MeSH Subject Headings</rdfs:label>
+        <rdfs:label xml:lang="zh">MeSH主题词表</rdfs:label>
+        <rdfs:comment xml:lang="en">Medical subject headings developed by NIH.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">美国国家医学图书馆开发的医学主题词表。</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/theMinistryOfEducationEisciplinesClassification -->
+
+    <owl:NamedIndividual rdf:about="&www;theMinistryOfEducationEisciplinesClassification">
+        <rdf:type rdf:resource="&www;Standard"/>
+        <rdfs:label xml:lang="en">The Ministry of Education disciplines classification</rdfs:label>
+        <rdfs:label xml:lang="zh">教育部学科分类</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/影抄本 -->
+
+    <owl:NamedIndividual rdf:about="&www;影抄本">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177918605367"/>
+        <rdfs:label>影写本</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/李时珍 -->
+
+    <owl:NamedIndividual rdf:about="&www;李时珍">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">李时珍</rdfs:label>
+        <rdfs:label xml:lang="zh">濒湖山人</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/柯韵伯 -->
+
+    <owl:NamedIndividual rdf:about="&www;柯韵伯">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">柯琴</rdfs:label>
+        <rdfs:label xml:lang="zh">柯韵伯</rdfs:label>
+        <OWLObjectPropertyImpl_00000003177913769766 rdf:resource="&www;OWLNamedIndividualImpl_00000003177882893985"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/滑寿 -->
+
+    <owl:NamedIndividual rdf:about="&www;滑寿">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">樱宁生</rdfs:label>
+        <rdfs:label xml:lang="zh">滑伯仁</rdfs:label>
+        <rdfs:label xml:lang="zh">滑寿</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/肘后备急方 -->
+
+    <owl:NamedIndividual rdf:about="&www;肘后备急方">
+        <rdf:type rdf:resource="&www;BibliographicResource"/>
+        <rdfs:label xml:lang="zh">广肘后备急方</rdfs:label>
+        <rdfs:label xml:lang="zh">肘后备急方</rdfs:label>
+        <rdfs:label xml:lang="zh">肘后急要方</rdfs:label>
+        <rdfs:label xml:lang="zh">肘后救卒方</rdfs:label>
+        <rdfs:label xml:lang="zh">肘后救急方</rdfs:label>
+        <rdfs:label xml:lang="zh">肘后方</rdfs:label>
+        <rdfs:label xml:lang="zh">肘后要急方</rdfs:label>
+        <rdfs:label xml:lang="zh">补缺肘后百一方</rdfs:label>
+        <OWLDataPropertyImpl_00000003177925566168>高19cm，宽13.5cm，半叶10行，20字/行</OWLDataPropertyImpl_00000003177925566168>
+        <OWLDataPropertyImpl_00000003177939159236>28枚</OWLDataPropertyImpl_00000003177939159236>
+        <OWLDataPropertyImpl_00000003177916837544>304页</OWLDataPropertyImpl_00000003177916837544>
+        <OWLDataPropertyImpl_00000003177916837544>图片612张</OWLDataPropertyImpl_00000003177916837544>
+        <publicationDate>明万历2年甲戌1574年</publicationDate>
+        <OWLDataPropertyImpl_00000003177916837544>八卷</OWLDataPropertyImpl_00000003177916837544>
+        <creationDate>晋朝</creationDate>
+        <OWLObjectPropertyImpl_00000003177946977059 rdf:resource="&www;OWLNamedIndividualImpl_00000003177891672964"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177894461586"/>
+        <bindingAndLayout rdf:resource="&www;OWLNamedIndividualImpl_00000003177897926342"/>
+        <OWLObjectPropertyImpl_00000003177939771325 rdf:resource="&www;OWLNamedIndividualImpl_00000003177901056698"/>
+        <OWLObjectPropertyImpl_00000003177882184607 rdf:resource="&www;OWLNamedIndividualImpl_00000003177901056698"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177902369854"/>
+        <editionOfAncientBooks rdf:resource="&www;OWLNamedIndividualImpl_00000003177912184788"/>
+        <OWLObjectPropertyImpl_00000003177946977059 rdf:resource="&www;OWLNamedIndividualImpl_00000003177928755190"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177931526702"/>
+        <paragraphStyle rdf:resource="&www;OWLNamedIndividualImpl_00000003177935784436"/>
+        <inheritFrom rdf:resource="&www;OWLNamedIndividualImpl_00000003177936108080"/>
+        <medium rdf:resource="&www;OWLNamedIndividualImpl_00000003177941048303"/>
+        <storageLocation rdf:resource="&www;OWLNamedIndividualImpl_00000003177945644348"/>
+        <creator rdf:resource="&www;葛洪"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/胡澍 -->
+
+    <owl:NamedIndividual rdf:about="&www;胡澍">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">甘伯</rdfs:label>
+        <rdfs:label xml:lang="zh">石生</rdfs:label>
+        <rdfs:label xml:lang="zh">胡澍</rdfs:label>
+        <rdfs:label xml:lang="zh">荄甫</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/葛洪 -->
+
+    <owl:NamedIndividual rdf:about="&www;葛洪">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">抱朴子</rdfs:label>
+        <rdfs:label xml:lang="zh">稚川</rdfs:label>
+        <rdfs:label xml:lang="zh">葛洪
+</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com/赵学敏 -->
+
+    <owl:NamedIndividual rdf:about="&www;赵学敏">
+        <rdf:type rdf:resource="&www;OWLClassImpl_00000003177883601896"/>
+        <rdfs:label xml:lang="zh">赵依吉</rdfs:label>
+        <rdfs:label xml:lang="zh">赵恕轩</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&rdfs;OWLAnnotationPropertyImpl_00000003177921494212">
+        <rdfs:label xml:lang="zh">isDefinedBy</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&rdfs;OWLAnnotationPropertyImpl_00000003177909587321">
+        <rdfs:label xml:lang="zh">label</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&rdfs;OWLAnnotationPropertyImpl_00000003177899988965">
+        <rdfs:label xml:lang="zh">comment</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&rdfs;OWLDatatypeImpl_00000003177894108608">
+        <rdfs:label xml:lang="zh">Literal</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&rdfs;OWLAnnotationPropertyImpl_00000003177930924391">
+        <rdfs:label xml:lang="zh">seeAlso</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&xsd;OWLDatatypeImpl_00000003177911527233">
+        <rdfs:label xml:lang="zh">boolean</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&rdf;OWLDatatypeImpl_00000003177926802079">
+        <rdfs:label xml:lang="zh">PlainLiteral</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+
