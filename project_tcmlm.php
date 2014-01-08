@@ -36,7 +36,10 @@ include_once ("./header.php");
             <div class="col-lg-offset-1 col-sm-6 col-md-5">  
                 <div class="well-lg"></div>
                 <div class="well-lg"> <p class="lead"><strong>2. 实现基于Web的文献检索系统</strong></p> 
-                    <p>该系统实现了基于关键词的文献检索功能。在界面左侧给出相关文献列表，在右侧则提供相关实体的结构性信息（来源包括TCMLS和中医药科学数据库）。</p>
+                    <p>该系统实现了基于关键词的文献检索功能。在界面左侧给出相关文献列表，在右侧则提供相关实体的结构性信息（来源包括TCMLS和中医药科学数据库）。下面举一些“文献检索界面”的例子：
+                    <a href="search.php?db_name=tcmls&keywords=柴胡">柴胡</a> <a href="search.php?db_name=tcmls&keywords=丹参">丹参</a> <a href="search.php?db_name=tcmls&keywords=白花蛇舌草">白花蛇舌草</a> 
+                   <a href="search.php?db_name=tcmls&keywords=板蓝根">板蓝根</a> <a href="search.php?db_name=tcmls&keywords=四君子汤">四君子汤</a>
+                    </p>
                 </div>
 
             </div>
@@ -55,12 +58,16 @@ include_once ("./header.php");
             <div class="col-lg-offset-1 col-sm-6 col-md-5">  
                 <div class="well-lg"></div>
                 <div class="well-lg"> <p class="lead"><strong>3. 展示文献题录信息</strong></p> 
-                    <p>该系统可展示文献的题名、作者、摘要、主题、来源等元信息。</p>
+                    <p>该系统可展示文献的题名、作者、摘要、主题、来源等元信息。下面举一些“文献题录信息界面”的例子：</p>
+                    <ul align="left">
+                        <li><a href="resource_viewer.php?db_name=tcmls&id=49023">《伤寒论》的人参应用规律研究</a></li>
+                        <li><a href="resource_viewer.php?db_name=tcmls&id=30991">论实证胃痛之四治法</a></li>
+                        <li><a href="resource_viewer.php?db_name=tcmls&id=64990">"脾虚生五邪"证治</a></li>                       
+                    </ul>
                 </div>
-
             </div>
             <div class=" col-sm-6 col-md-5"> 
-                <a href="entity.php?name=党参&db_name=tcmls">
+                <a href="resource_viewer.php?db_name=tcmls&id=49023">
                     <img width ="100%" src ="img/tcmlm-文献题录.jpg"></img>
                 </a>    
 
@@ -76,15 +83,15 @@ include_once ("./header.php");
                 <div class="well-lg"> <p class="lead"><strong>4. 综合呈现实体的信息</strong></p> 
                     <p>该系统将TCMLS和中医药科学数据库中关于某个实体的知识综合呈现出来，在下方则列出了实体相关文献的列表。
                         下面举一些“实体信息界面”的例子：
-                    <ul class="nav nav-pills">
+
                         <?php
                         $examples = array('行气活血汤', '决明子粥', '清热导滞汤', '清热平肝汤', '十三味榜嘎散', '五味子蜜丸', '乙癸丸', '滋阴养血汤');
                         foreach ($examples as $ex) {
-                            echo "<li><a href='entity.php?name=$ex&db_name=tcmls'>$ex</a></li>";
+                            echo "<a href='entity.php?name=$ex&db_name=tcmls'>$ex</a> ";
                         }
                         ?>
 
-                    </ul>
+
                     </p>
                 </div>
 
@@ -108,8 +115,8 @@ include_once ("./header.php");
 
             </div>
             <div class=" col-sm-6 col-md-5"> 
-                <a href="entity.php?name=党参&db_name=tcmls">
-                    <img width ="100%" src ="img/tcmlm-input.jpg"></img>
+                <a href="resource_manager.php?db_name=tcmls">
+                    <img width ="100%" src ="img/tcmlm-manager1.jpg"></img>
                 </a>    
 
             </div>
