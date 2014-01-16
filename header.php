@@ -113,7 +113,7 @@ and open the template in the editor.
                          <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">知识发现<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="relation_manager.php">语义关系</a></li>
+                                <li><a href="relation_manager.php">语义关系发现</a></li>
                             </ul>
                         </li>      
 

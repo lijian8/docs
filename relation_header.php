@@ -25,7 +25,7 @@ if ($row = mysqli_fetch_array($data)) {
     $object_ids = get_ids($dbc, $row['OBJECT']);
 }
 ?>
-
+ <img width ="100%" src ="img/sad_workspace_logo.jpg"></img>
 <nav class="navbar navbar-default" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -35,7 +35,7 @@ if ($row = mysqli_fetch_array($data)) {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="relation.php?id=<?php echo $id; ?>">语义关系:&nbsp;
+        <a class="navbar-brand" href="relation.php?db_name=<?php echo $db_name; ?>&id=<?php echo $id; ?>">语义关系:&nbsp;
             <?php
             echo $subject . '&nbsp;-&nbsp;' . $object;
             ?>
@@ -52,15 +52,15 @@ if ($row = mysqli_fetch_array($data)) {
         </ul>
         -->
         <ul class="nav navbar-nav">
-            <li <?php echo $relation_tab_id == 'add' ? 'class="active"' : ''; ?>><a href="relation_add.php?id=<?php echo $id; ?>"><span class="glyphicon glyphicon-pencil"></span>&nbsp;加入语言系统</a></li>  
-            <li <?php echo $relation_tab_id == 'docs' ? 'class="active"' : ''; ?>><a href="relation_in_docs.php?id=<?php echo $id; ?>"><span class="glyphicon glyphicon-book"></span>&nbsp;文献来源</a></li>          
-            <li <?php echo $relation_tab_id == 'baidu' ? 'class="active"' : ''; ?>><a href="relation_baidu.php?id=<?php echo $id; ?>" ><span class="glyphicon glyphicon-search"></span>&nbsp;百度搜索</a></li>    
-            <li <?php echo $relation_tab_id == 'similar' ? 'class="active"' : ''; ?>><a href="relation_similar.php?id=<?php echo $id; ?>" ><span class="glyphicon glyphicon-list"></span>&nbsp;相关陈述</a></li>    
+            <li <?php echo $relation_tab_id == 'add' ? 'class="active"' : ''; ?>><a href="relation_add.php?db_name=<?php echo $db_name; ?>&id=<?php echo $id; ?>"><span class="glyphicon glyphicon-pencil"></span>&nbsp;加入语言系统</a></li>  
+            <li <?php echo $relation_tab_id == 'docs' ? 'class="active"' : ''; ?>><a href="relation_in_docs.php?db_name=<?php echo $db_name; ?>&id=<?php echo $id; ?>"><span class="glyphicon glyphicon-book"></span>&nbsp;文献来源</a></li>          
+            <li <?php echo $relation_tab_id == 'baidu' ? 'class="active"' : ''; ?>><a href="relation_baidu.php?db_name=<?php echo $db_name; ?>&id=<?php echo $id; ?>" ><span class="glyphicon glyphicon-search"></span>&nbsp;百度搜索</a></li>    
+            <li <?php echo $relation_tab_id == 'similar' ? 'class="active"' : ''; ?>><a href="relation_similar.php?db_name=<?php echo $db_name; ?>&id=<?php echo $id; ?>" ><span class="glyphicon glyphicon-list"></span>&nbsp;相关陈述</a></li>    
      
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="relation_manager.php?keywords=<?php echo $subject . '+' . $object; ?>" ><span class="glyphicon glyphicon-home"></span>&nbsp;返回首页</a></li>
+            <li><a href="relation_manager.php?db_name=<?php echo $db_name; ?>&keywords=<?php echo $subject . '+' . $object; ?>" ><span class="glyphicon glyphicon-home"></span>&nbsp;返回首页</a></li>
         </ul>
     </div><!-- /.navbar-collapse -->
 </nav>

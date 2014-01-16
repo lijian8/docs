@@ -12,5 +12,8 @@ if (isset($_POST['db_name'])) {
 $db = $dbs["$db_name"];
 $dbc = mysqli_connect($db[0], $db[1], $db[2], $db[3]) or die('Error connecting to MySQL server:' . implode(',', $db));
 define('PREFIX', $db_name .':o');
+//$db_prefix = $db_prefixes[$db_name];
+//define('PREFIX', $db_prefix[$db_name] .':o');
+
 $db_label = $db_labels["$db_name"];
 ?>

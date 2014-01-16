@@ -10,7 +10,7 @@ function get_candidate_properties($dbc, $subject_id, $object_id) {
 }
 
 function get_class_links($dbc, $c1, $c2) {
-    $query = "select property from sn1 where subject='$c1' and object = '$c2' order by count desc";
+    $query = "select property from semantic_network where subject='$c1' and object = '$c2' order by count desc";
     //echo $query;
     $result = mysqli_query($dbc, $query) or die('Error querying database:' . $query);
     $values = array();
@@ -39,6 +39,7 @@ function get_types($dbc, $name) {
 function get_property_values($dbc, $subject, $property) {
 
     $query = "select * from graph where subject='$subject' and property = '$property'";
+    
     $result = mysqli_query($dbc, $query) or die('Error querying database:' . $query);
     $values = array();
     while ($row = mysqli_fetch_array($result)) {
@@ -94,7 +95,7 @@ function render_value($dbc, $db_name, $name, $with_def = false) {
 }
 
 function get_entity_link($id, $name, $db_name) {
-    return "<a target=\"_blank\" href=\"/lod/entity.php?id=$id&db_name=$db_name\">$name</a>";
+    return "<a target=\"_blank\" href=\"entity.php?id=$id&db_name=$db_name\">$name</a>";
 }
 
 /*
