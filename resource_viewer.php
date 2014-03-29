@@ -26,8 +26,9 @@ $name = $_GET['id'];
 
     $query = "SELECT * FROM resource where id ='$name'";
     $data = mysqli_query($dbc, $query);
-
+    $identifier = $name;
     if ($row = mysqli_fetch_array($data)) {
+        if (isset($row['identifier'])) $identifier = $row['identifier'];
         echo '<div class="container">';
         echo '<h1>' . $row['title'] . '</h1>';
 
@@ -52,10 +53,10 @@ $name = $_GET['id'];
         echo '</div>';
         echo '<p></p>';
     }
-
+    echo $identifier;
 //render_entity($dbc, $name, false);
 
-    $query = "select * from metadata where subject ='$name'";
+    $query = "select * from metadata where subject ='$identifier'";
     //if (!$edit) $query .= " limit 10";
     $result = mysqli_query($dbc, $query) or die('Error querying database:' . $query);
     while ($row = mysqli_fetch_array($result)) {
