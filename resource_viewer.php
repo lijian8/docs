@@ -53,8 +53,23 @@ function get_labels($dbc, $db_name, $identifier, $title) {
     return $labels;
 }
 
+function render_basic_info($dbc, $db_name, $identifier) {
+    $query = "SELECT * FROM resource where id ='$identifier'";
+    $result = mysqli_query($dbc, $query) or die('Error querying database:' . $query);
+
+    $arr = array("title" => "题目", "creator" => "创建者", "source" => "来源", "publisher" => "出版者", "type" => "类型", "subject" => "主题");
+    $pv = array();
+    while ($row = mysqli_fetch_array($result)) {
+        foreach ($arr as $row_name => $property) {
+            if (isset($row[$row_name]) && ($row[$row_name] != ""))
+                $pv[$property] = $row[$row_name];
+        }
+    }
+    render_pv_table($pv);
+}
+
 function get_metadata($dbc, $db_name, $identifier) {
-    $identifier = $db_name . ':o' . $identifier;
+
     $query = "select * from metadata where subject ='$identifier'";
     $result = mysqli_query($dbc, $query) or die('Error querying database:' . $query);
     $metadata = array();
@@ -75,10 +90,9 @@ function get_metadata($dbc, $db_name, $identifier) {
     return $metadata;
 }
 
-function render_metadata($dbc, $db_name, $identifier) {
-    $metadata = get_metadata($dbc, $db_name, $identifier);
+function render_pv_table($pv) {
     echo '<table class="table table-bordered">';
-    foreach ($metadata as $property => $value) {
+    foreach ($pv as $property => $value) {
 
         echo '<tr>';
         echo '<td><strong>' . $property . '</strong></td>';
@@ -88,23 +102,29 @@ function render_metadata($dbc, $db_name, $identifier) {
     echo '</table>';
 }
 
+function render_metadata($dbc, $db_name, $identifier) {
+    $metadata = get_metadata($dbc, $db_name, $identifier);
+    render_pv_table($metadata);
+}
+
 $tab = 'abstract';
-$name = $_GET['id'];
+$file_id = $_GET['id'];
 ?>
 <div class="container">
     <form class="form-search" action="search.php" method="post" class="form-horizontal"
           enctype="multipart/form-data">
-    <?php include_once ("./search_form.php"); ?>
+              <?php include_once ("./search_form.php"); ?>
     </form>
     <?php
-    $query = "SELECT * FROM resource where id ='$name'";
+    $query = "SELECT * FROM resource where id ='$file_id'";
     $data = mysqli_query($dbc, $query);
 
     if ($row = mysqli_fetch_array($data)) {
         ?>
         <div class="container">
-    <?php echo '<p class="lead"><font color="silver">' . $row['type'] . '</font></p> '; ?>
+            <?php echo '<p class="lead"><font color="silver">' . $row['type'] . '</font></p> '; ?>
             <h1><font face = "微软雅黑"><strong><?php echo $row['title']; ?></strong></font></h1>
+
         </div>
 
         <div class="row">
@@ -122,23 +142,45 @@ $name = $_GET['id'];
                 <div class="container">
 
                     <?php
-                    $labels = get_labels($dbc, $db_name, $name, $row['title']);
+                    $labels = get_labels($dbc, $db_name, $file_id, $row['title']);
                     if (count($labels) != 0) {
                         echo '<p><font color="silver">别名： ' . implode(', ', $labels) . '</font></p>';
                     }
                     echo '<br>';
-
-
-
-                    //echo '<font color="silver">作者: ' . $row['creator'] . '</font> ';
-                    //if (isset($row['source'])) echo '<p><strong>来源:</strong> ' . $row['source'] . '</p>';
-                    echo '<p><strong>简介：</strong></p>';
+                    echo '<div class="well">';
+                    echo '<p class="lead">简介</p>';
                     echo '<p>' . $row['description'] . '</p>';
-
+                    echo '</div>';
                     echo '<br> ';
-                    echo '<p><strong>文献元数据：</strong></p>';
-                    render_metadata($dbc, $db_name, $name);
                     ?>
+
+                    <ul class = "nav nav-tabs">
+                        <li class="active"><a href = "#basic" data-toggle = "tab">文献基本信息</a></li>
+                        <li><a href = "#metadata" data-toggle = "tab">文献详细元数据</a></li>                   
+                    </ul>
+                    <br>
+
+                    <!--Tab panes-->
+                    <div class = "tab-content">
+                        <div class = "tab-pane active" id = "basic">
+                            <?php
+                            render_basic_info($dbc, $db_name, $file_id);
+                            ?>
+                        </div>
+                        <div class = "tab-pane" id = "metadata">
+                            <?php
+                            render_metadata($dbc, $db_name, $file_id);
+                            ?>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
                 </div>
             </div>
             <div class="col-lg-3">
@@ -148,8 +190,8 @@ $name = $_GET['id'];
                 <ul class="nav nav-pills nav-stacked">
                     <?php
                     echo '<li><strong>相关操作:</strong></li>';
-                    echo '<li><a  href="resource_editor.php?db_name=' . $db_name . '&id=' . $name . '"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑文献元数据</a></li>';
-                    echo '<li><a  href="index.php"><span class="glyphicon glyphicon-home"></span>&nbsp;返回检索结果页</a></li>';
+                    echo '<li><a  href="resource_editor.php?db_name=' . $db_name . '&id=' . $file_id . '"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑文献元数据</a></li>';
+                    
                     if ($row['file'] != '') {
                         $file_name = iconv('utf-8', 'gb2312', $row['file']);
                         if (is_file(GW_UPLOADPATH . $db_name . '/' . $file_name)) {

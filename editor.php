@@ -7,28 +7,28 @@ if (isset($_GET['id'])) {
     $query = "select name from def where id ='$id'";
     $result = mysqli_query($dbc, $query) or die('Error querying database1.');
     if ($row = mysqli_fetch_array($result)) {
-        $name = $row[name];
+        $file_id = $row[name];
     }
 } else if (isset($_GET['name'])) {
-    $name = $_GET['name'];
+    $file_id = $_GET['name'];
 } else if (isset($_POST['name'])) {
 
-    $name = $_POST['name'];
+    $file_id = $_POST['name'];
     $property = $_POST['property'];
     $value = $_POST['value'];
     $description = $_POST['description'];
 
-    if (($name != '') && ($property != '') && ($value != '')) {
+    if (($file_id != '') && ($property != '') && ($value != '')) {
         $user_id = $_SESSION[id];
         $property_escape = mysql_escape_string($property);
         $value_escape = mysql_escape_string($value);
         $description_escape = mysql_escape_string($description);
 
-        $query = "insert into graph (subject, property, value, description, user_id, date) values ('$name','$property_escape','$value_escape', '$description_escape', '$user_id', NOW()) ";
+        $query = "insert into graph (subject, property, value, description, user_id, date) values ('$file_id','$property_escape','$value_escape', '$description_escape', '$user_id', NOW()) ";
 
         mysqli_query($dbc, $query) or die('Error querying database:' . $query);
 
-        render_warning('实体信息('. $name .','.$property.','.$value.')添加成功！');
+        render_warning('实体信息('. $file_id .','.$property.','.$value.')添加成功！');
     } else {
         render_warning('请补全实体信息！');
     }
@@ -36,12 +36,12 @@ if (isset($_GET['id'])) {
     render_warning('无相关实体信息！');
 }
 
-if (isset($name) && $name != '') {
+if (isset($file_id) && $file_id != '') {
     ?>
 
 
     <div class="container">  
-        <h1><?php echo $name; ?></h1>
+        <h1><?php echo $file_id; ?></h1>
         <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title">请添加实体信息:</h3>
@@ -50,7 +50,7 @@ if (isset($name) && $name != '') {
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form-horizontal"
                       enctype="multipart/form-data">
 
-                    <input  type="hidden" id="name" name="name" value = "<?php echo $name; ?>" >
+                    <input  type="hidden" id="name" name="name" value = "<?php echo $file_id; ?>" >
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="property">实体属性:</label>
@@ -76,7 +76,7 @@ if (isset($name) && $name != '') {
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <input class="btn btn-large btn-primary" type="submit" name="submit" value="提交" />    
-                            <a class="btn btn-large btn-success" href="entity.php?name=<?php echo $name; ?>">返回</a>
+                            <a class="btn btn-large btn-success" href="entity.php?name=<?php echo $file_id; ?>">返回</a>
                         </div>
                     </div>
                 </form>

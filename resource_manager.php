@@ -181,7 +181,7 @@ if (isset($_GET['deleted_file'])) {
                 echo '<td width = "3%">' . $row_num++ . '</td>';
                 echo '<td width = "15%">' . $row['creator'] . '</td>';
 
-                echo '<td width = "32%">';
+                echo '<td width = "30%">';
                 //echo '<a class="btn-link" href="basic.php?action=update&file_id=' . $row[id] . '">' . $row['title'] . '</a>';
                 echo '<a class="btn-link" href="resource_editor.php?db_name=' . $db_name . '&id=' . $row[id] . '">' . $row['title'] . '</a>';
 
@@ -193,7 +193,7 @@ if (isset($_GET['deleted_file'])) {
                 }
                 echo '</td>';
 
-                echo '<td width = "5%">' . $row['type'] . '</td>';
+                echo '<td width = "7%">' . $row['type'] . '</td>';
 
                 echo '<td width = "20%">' . $row['source'] . '</td>';
                 echo '<td width = "10%">' . $row['subject'] . '</td>';
@@ -212,7 +212,7 @@ if (isset($_GET['deleted_file'])) {
         generate_page_links($db_name, $keywords, $cur_page, $num_pages);
     }
     ?>
-    <p><font color="gray">获得约 <?php echo $total; ?> 条结果。</font></p>
+    <p><font color="gray">找到 <?php echo $total; ?> 条结果。</font></p>
     <hr>
 
 

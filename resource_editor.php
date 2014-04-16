@@ -1,257 +1,214 @@
 <?php
-
 require_once('appvars.php');
 
 include_once ("./header.php");
+include_once ("./resource_helper.php");
+include_once ("./functions.php");
+require_once('appvars.php');
+include_once ("./header.php");
 include_once ("./messages.php");
 include_once ("./entity_helper.php");
-include_once ("./functions.php");
 include_once ("./db_helper.php");
 include_once ("./metadata_helper.php");
 
+echo '<p></p>';
+
 if (isset($_GET['delete_triple_id'])) {
-    delete_triple($dbc, $_GET['delete_triple_id']);
+    $model->delete_triple($_GET['delete_triple_id']);
 }
 
-if (isset($_GET['id'])) {
 
-    $name = $_GET['id'];
-} else if (isset($_POST['update'])) {
-    $id = $_POST['id'];
-    $name = $_POST['name'];
-    $property = $_POST['property'];
-    $value = $_POST['value'];
-    $description = $_POST['description'];
+if (isset($_POST['submit'])) {
+    $file_id = $_POST['id'];
 
-    //$property_escape = mysql_escape_string($property);
-    //$value_escape = mysql_escape_string($value);
-
-    $query = "update metadata set ";
-
-    $query .= "subject = '" . mysql_escape_string($name) . "',";
-    $query .= "property='" . mysql_escape_string($property) . "',";
-    $query .= "value='" . mysql_escape_string($value) . "',";
-    $query .= "description='" . mysql_escape_string($description) . "'";
-    $query .= " where id = '$id'";
-
-    mysqli_query($dbc, $query) or die('Error querying database.');
-    render_warning('实体信息添加成功！');
-
-
-    $id = '';
-    //$name = '';
-    $property = '';
-    $value = '';
-} else if (isset($_POST['name'])) {
-    //$id = $_POST['id'];
-    $name = $_POST['name'];
-
-    if (isset($_POST['property'])) {
-        $property = $_POST['property'];
-    } else {
-        $property = $_POST['extraproperty'];
+    if (is_uploaded_file($_FILES['file']['tmp_name'])) {
+        $file_name = upload_file($db_name, $file_id);
     }
 
-    $value = $_POST['value'];
+    $title = $_POST['title'];
+    $creator = $_POST['creator'];
+    $publisher = $_POST['publisher'];
     $description = $_POST['description'];
+    $identifier = $_POST['identifier'];
 
+    $source = $_POST['source'];
 
+    $type = $_POST['type'];
+    $subject = $_POST['subject'];
 
-    //$query = "select * from def where id ='$id'";
-    //$result = mysqli_query($dbc, $query) or die('Error querying database3.');
+    $query = "update resource set ";
 
+    $query .= "title = '" . mysql_escape_string($title) . "',";
 
-
-    if (($name != '') && ($property != '') && ($value != '')) {
-        $user_id = $_SESSION[id];
-        $property_escape = mysql_escape_string($property);
-        $value_escape = mysql_escape_string($value);
-        $description_escape = mysql_escape_string($description);
-
-        $query = "insert into metadata (subject, property, value, description, user_id, date) values ('$name','$property_escape','$value_escape', '$description_escape', '$user_id', NOW()) ";
-        mysqli_query($dbc, $query) or die('Error querying database.');
-        render_warning('实体信息添加成功！');
-        //$name = '';
-        $property = '';
-        $value = '';
-        $description = '';
-    } else {
-        render_warning('请补全实体信息！');
+    if ('' != $file_name) {
+        $query .= "file = '$file_name',";
     }
+
+    $query .= "source='" . mysql_escape_string($source) . "',";
+    $query .= "creator='" . mysql_escape_string($creator) . "',";
+    //$query .= "description = '".tcmks_substr(mysql_escape_string($description),1000)."',";
+    $query .= "description = '" . mysql_escape_string($description) . "',";
+    $query .= "publisher = '" . mysql_escape_string($publisher) . "', ";
+    $query .= "identifier = '" . mysql_escape_string($identifier) . "', ";
+    $query .= "subject = '" . mysql_escape_string($subject) . "' ";
+
+    $query .= " where id = '$file_id'";
+
+    //echo $query;
+    //$query = "INSERT INTO resource VALUES ('$file_id', '$title', '$file_name', '$creator', '$journal', '$pages', '$year', '$publisher',NULL)";
+    mysqli_query($dbc, $query);
+
+    echo '<div class="alert alert-success">';
+    echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+    echo '<h4>文献录入成功!</h4>';
+    echo '文献信息如下：';
+    echo '<dl class="dl-horizontal">';
+    echo "<dt>文献题目:</dt><dd>" . $title . '</dd>';
+    echo "<dt>文献类型:</dt><dd>" . $type . '</dd>';
+    if ('' != $file_name) {
+        echo "<dt>文件名称:</dt><dd>" . $file_name . "</dd>";
+        echo "<dt>文件类型:</dt><dd>" . $_FILES["file"]["type"] . "</dd>";
+        echo "<dt>文件尺寸:<dt><dd>" . ($_FILES["file"]["size"] / 1024) . "Kb</dd>";
+    } else {
+        echo '您没有上传原文！';
+    }
+    echo '</dl></div>';
 } else {
-    render_warning('无相关实体信息！');
-}
+    /*
+      if ($_GET['action'] == 'create') {
+      //echo 'create new resource!';
 
-if (isset($name) && $name != '') {
-    ?>
-    <div class="container">
-         <?php   
-        include_once ('resource_header.php'); 
-        $user_id = 2;
-        $query = "SELECT * FROM resource where id ='$name'";
-        $data = mysqli_query($dbc, $query);
+      $type = isset($_GET['type']) ? $_GET['type'] : '其他资源';
 
-        if ($row = mysqli_fetch_array($data)) {
-            echo '<div class="well">';
-            echo '<h1>' . $row['title'] . '</h1>';
-
-            if ($row['file'] != '') {
-                $file_name = iconv('utf-8', 'gb2312', $row['file']);
-                if (is_file(GW_UPLOADPATH . $db_name . '/' . $file_name))
-                    echo '&nbsp;<a class="btn btn-primary btn-xs" href="' . GW_UPLOADPATH  . $db_name . '/'. $row['file'] . '"><span class="glyphicon glyphicon-cloud-download"></span>下载</a>';
-            }
-            $link_for_delete = $_SERVER['PHP_SELF'] . '?db_name=' . $db_name . '&deleted_file=' . $row['id'];
-            echo '&nbsp;';
-            echo '<a class="btn btn-primary btn-xs" href="resource_basic.php?db_name=' . $db_name . '&file_id=' . $row[id] . '"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑基本信息</a>';
-            echo '&nbsp;';
-            echo '<a class="btn btn-danger  btn-xs" href="' . $link_for_delete . '"><span class="glyphicon glyphicon-trash"></span>&nbsp;删除本文</a>';
-
-            echo '&nbsp;';
-            echo '<a class="btn btn-success  btn-xs" href="resource_manager.php?db_name=' . $db_name . '"><span class="glyphicon glyphicon-home"></span>&nbsp;返回</a>';
-            echo '<p></p><strong>录入时间:&nbsp;</strong>' . $row['create_time'];
-            echo '<p>';
-            echo '<strong>摘要:&nbsp;</strong>' . $row['description'];
-            echo '</p>';
-            echo '<p><strong>作者:</strong>' . $row['creator'] . '</p>';
-            echo '<p><strong>类型:</strong>' . $row['type'] . '</p>';
-            echo '<p><strong>来源:</strong>' . $row['source'] . '</p>';
-            echo '<p><strong>主题:</strong>' . $row['subject'] . '</p>';
-            echo '</div>';
-            echo '<p></p>';
+      $file_id = init_resource($dbc, $type);
+      } elseif ($_GET['action'] == 'update') {
+     * 
+     */
+    $file_id = $_GET['id'];
+    $query = "SELECT * FROM resource WHERE id = '$file_id'";
+    $result = mysqli_query($dbc, $query) or die('Error querying database.');
+    if ($row = mysqli_fetch_array($result)) {
+        $title = $row['title'];
+        $creator = $row['creator'];
+        $publisher = $row['publisher'];
+        $source = $row['source'];
+        $description = $row['description'];
+        $type = $row['type'];
+        $subject = $row['subject'];
+        $identifier = $row['identifier'];
+        //$file_name = $row['file'];
+        if ($row['file'] != '') {
+            $file_name = iconv('utf-8', 'gb2312', $row['file']);
         }
-        
-        render_entity($dbc, $db_name, $name, true);
-       
-        ?>
+    }
+}
+?>
+
+<div class="container">
+
+    <?php
+    include_once ('resource_header.php');
+    $tab = 'editor';
+    include_once ('resource_title.php');
+    echo '<br>';
+    ?>
+    <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form-horizontal"
+          enctype="multipart/form-data">
 
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <strong>添加文献元信息</strong>
+        <input  type="hidden" id="id" name="id" value = "<?php if (isset($file_id)) echo $file_id; ?>" >
+        <input  type="hidden" id="type" name="type" value = "<?php if (isset($type)) echo $type; ?>" >
+        <input  type="hidden" id="db_name" name="db_name" value = "<?php if (isset($db_name)) echo $db_name; ?>" >
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="title">题名:</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" id="title" name="title" value = "<?php if (isset($title)) echo $title; ?>" placeholder="请输入文献的题目">
             </div>
-            <div class="panel-body">
-                <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form-horizontal"
-                      enctype="multipart/form-data">
+        </div>
 
-                    <input  type="hidden" id="name" name="name" value = "<?php echo $name; ?>" >
-                    <input  type="hidden" id="db_name" name="db_name" value = "<?php echo $db_name; ?>" >
-
-                    <div class="form-group">
-                        <label class="col-sm-1 control-label" for="property">属性:</label>
-                        <div class="col-sm-10">
-                            <label>
-                                <input type="radio" id="property" name="property" value="贡献者" >
-                                贡献者
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input type="radio" id="property" name="property" value="格式" >
-                                格式
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input type="radio" id="property" name="property" value="出版地点" >
-                                出版地点
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input type="radio" id="property" name="property" value="印刷地点" >
-                                印刷地点
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input type="radio" id="property" name="property" value="印刷地点" >
-                                日期
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input type="radio" id="property" name="property" value="历代医家" >
-                                历代医家
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input type="radio" id="property" name="property" value="各家学说" >
-                                各家学说
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input type="radio" id="property" name="property" value="数据来源" >
-                                数据来源
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input type="radio" id="property" name="property" value="覆盖范围" >
-                                覆盖范围
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input type="radio" id="property" name="property" value="语言" >
-                                语言
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input type="radio" id="property" name="property" value="存储地点" >
-                                存储地点
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input type="radio" id="property" name="property" value="收藏历史" >
-                                收藏历史
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input type="radio" id="property" name="property" value="文献破损级别" >
-                                破损级别
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input type="radio" id="property" name="property" value="文献资源珍稀程度" >
-                                珍稀程度
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input type="radio" id="property" name="property" value="权限" >
-                                权限
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input type="radio" id="property" name="property" value="保存方式" >
-                                保存方式
-                            </label>
-                            &nbsp;
-
-                            <input class="form-control" id="extraproperty" name="extraproperty" type="text"  value = "<?php if (isset($property)) echo $property; ?>" placeholder="其他属性...">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-1 control-label" for="value">取值:</label>
-                        <div class="col-sm-11">
-
-                            <textarea class="form-control"  id="value" name="value" row="2" placeholder="请输入取值..."><?php if (isset($value)) echo $value; ?></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-1 control-label" for="description">注释:</label>
-                        <div class="col-sm-11">
-                            <textarea class="form-control" id="description" name="description"  placeholder="请输入注释" rows="2"><?php if (isset($description)) echo $description; ?></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-1 col-sm-11">
-                            <input class="btn btn-large btn-primary" type="submit" name="submit" value="提交" />    
-                        </div>
-                    </div>
-
-                </form>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="identifier">标识:</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" id="identifier" name="identifier" value = "<?php if (isset($identifier)) echo $identifier; ?>" placeholder="请输入文献的标识">
             </div>
         </div>
 
 
-    </div>
-    <?php
-}
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="creator">创建者:</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" id="creator" name="creator" value = "<?php if (isset($creator)) echo $creator; ?>" placeholder="请输入作者">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="source">出处:</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" id="source" name="source" value = "<?php if (isset($source)) echo $source; ?>" placeholder="请输入出处">
+
+            </div>
+        </div>               
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="publisher">出版者:</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" id="publisher" name="publisher" value = "<?php if (isset($publisher)) echo $publisher; ?>" placeholder="请输入出版者">
+
+            </div>
+        </div>               
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="subject">主题:</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" id="subject" name="subject" value = "<?php if (isset($subject)) echo $subject; ?>" placeholder="请输入主题">
+
+            </div>
+        </div>               
+
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="description">描述:</label>
+            <div class="col-sm-8">
+                <textarea class="form-control" id="description" name="description"  placeholder="请输入描述" rows="6"><?php if (isset($description)) echo $description; ?></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="file">上传原文:</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="file" name="file" id="file" /> 
+
+            </div>
+            
+                <?php
+                //if ($row['file'] != '') {
+                //$file_name = iconv('utf-8', 'gb2312', $row['file']);
+                if ((isset($file_name)) && ($file_name != '') && (is_file(GW_UPLOADPATH . $db_name . '/' . $file_name))) {
+                    echo '<a class="btn btn-primary" href="' . GW_UPLOADPATH . $db_name . '/' . $file_name . '">下载原文</a>';
+                }
+                //}
+                ?>
+           
+
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input class="btn btn-primary" type="submit" name="submit" value="确认修改" />    
+                <?php
+                echo '&nbsp;&nbsp;<a class="btn btn-danger" href="' . $_SERVER['PHP_SELF'] . '?db_name=' . $db_name . '&deleted_file=' . $row['id'] . '">删除本文</a>';
+                ?>
+
+            </div>
+        </div>
+
+    </form>
+
+
+</div>
+
+<?php
 include_once ("./foot.php");
 ?>

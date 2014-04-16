@@ -364,6 +364,35 @@ function render_links($dbc, $db_name, $name, $ratio = '10%') {
     }
 }
 
+
+function render_rlinks($dbc, $db_name, $name, $ratio = '10%') {
+    $query = "select * from graph where value ='$name' and subject like '" . PREFIX . "%'  limit 100";
+    
+    $result = mysqli_query($dbc, $query) or die('Error querying database2.');
+
+    $values = array();
+
+    if (mysqli_num_rows($result) != 0) {
+        while ($row = mysqli_fetch_array($result)) {
+            $property = $row[property];
+            $value = $row[subject];
+            if (array_key_exists($property, $values)) {
+                $values[$property] = $values[$property] . ',&nbsp;' . render_value($dbc, $db_name, $value, false);
+            } else {
+                $values[$property] = render_value($dbc, $db_name, $value, false);
+            }
+
+            //echo "<p><strong>$property</strong>:&nbsp;$value";
+        }
+    }
+
+    foreach ($values as $property => $value) {
+        echo "<tr><td width='$ratio'>" . $property . " (逆属性):</td><td>";
+        echo $value;
+        echo "</td></tr>";
+    }
+}
+
 function get_types($dbc, $id) {
     return get_values($dbc, PREFIX . $id, '类型');
 }
@@ -409,6 +438,7 @@ function get_ids($dbc, $name) {
 }
 
 function get_id($dbc, $name) {
+    
     $query = "select id, def from def where name = '$name'";
     $result = mysqli_query($dbc, $query) or die('Error querying database:' . $query);
     $ids = array();

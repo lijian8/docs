@@ -36,7 +36,7 @@ if (isset($_GET['id'])) {
             <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form-horizontal"
                   enctype="multipart/form-data">
 
-                <input  type="hidden" id="name" name="name" value = "<?php echo $name; ?>" >
+                <input  type="hidden" id="name" name="name" value = "<?php echo $file_id; ?>" >
 
                 <div class="form-group">
                     <label class="col-sm-1 control-label" for="subject">主体:</label>

@@ -73,6 +73,8 @@ if (isset($_POST['submit'])) {
 
 <div class="container">
 
+    <?php include_once ('resource_header.php'); ?>
+
 
     <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form-horizontal"
           enctype="multipart/form-data">
@@ -148,8 +150,8 @@ if (isset($_POST['submit'])) {
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <input class="btn btn-primary" type="submit" name="submit" value="提交" />    
-                <a class="btn btn-success" href="resource_manager.php?db_name=<?php echo $db_name; ?>">返回首页</a>
+                <input class="btn btn-primary" type="submit" name="submit" value="&nbsp;&nbsp;提&nbsp;交&nbsp;&nbsp;" />   
+               
             </div>
         </div>
 

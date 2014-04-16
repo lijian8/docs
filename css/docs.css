@@ -832,6 +832,13 @@ h1[id] {
   overflow: auto;
 }
 
+.scrollspy-example-long {
+  position: relative;
+  height: 600px;
+  margin-top: 10px;
+  overflow: auto;
+}
+
 
 /*
  * Code snippets

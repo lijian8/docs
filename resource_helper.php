@@ -93,7 +93,6 @@ function upload_file($db_name, $file_id) {
         }
 
         $name = iconv('utf-8', 'gb2312', $file_name);
-//move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $_FILES["file"]["name"]);
         if (move_uploaded_file($_FILES["file"]["tmp_name"], GW_UPLOADPATH . $db_name . '/' . $name)) {
             return $file_name;
         }

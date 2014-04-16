@@ -59,7 +59,7 @@ function render_item($dbc, $row, $db_name) {
     $name = $row[name];
     $def = $row[def];
 
-    echo '<p>' . get_entity_link($id, $name, $db_name) . '</p>';
+    echo '<p class="lead">' . get_entity_link($id, $name, $db_name) . '</p>';
 
     if ($def != '') {
         echo $def;
@@ -182,102 +182,54 @@ $total = get_total($keywords, $dbc);
 $num_pages = ceil($total / $results_per_page);
 $url = $_SERVER['PHP_SELF'] . '?keywords=' . $keywords . '&db_name=' . $db_name;
 ?>
-<div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-        <form class="form-search" action="<?php echo $_SERVER['PHP_SELF'];?>" method="get" class="form-horizontal"
-              enctype="multipart/form-data">
-            <input type="hidden" id ="db_name" name ="db_name" value ="<?php if (isset($db_name)) echo $db_name; ?>">
-            <div class="container" >
-                <div class="row">
-                    <div class="col-md-3">
-                        <img width="100%" class="media-object" src="img/logo.jpg" >                    
-                    </div>   
-                    <div class="col-md-9">
-                        <br>
-                        <ul class="nav nav-pills" align="center">
-                            <?php
-                            foreach ($db_labels as $db => $db_label) {
-                                echo '<li ' . (($db == $db_name) ? 'class="disabled"' : '') . '><a href="' . $_SERVER['PHP_SELF'] . "?keywords=$keywords&db_name=" . $db . '">' . $db_label . '</a></li>';
-                            }
-                            ?>  
-                            <li><a href="#">更多>></a></li>
-                        </ul>
+<div class="container">
+    <?php
+    include_once ('entity_search_form.php');
+    echo '<hr>';
+    if (($db_name == "tcmls") && (!isset($keywords) || ($keywords == ''))) {
+        include_once($db_name . '_recommended_entities.php');
+    } else {
+        ?>
+        <div class="row">
+            <div class="col-md-10">
 
 
-                        <!--
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox1" value="option1"> 单味药
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox2" value="option2"> 化学成分
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox3" value="option3"> 实验方法
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox3" value="option3"> 药理作用
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox3" value="option3"> 方剂
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox3" value="option3"> 学者 
-                        </label>
-                        !-->
-                    </div>
-                </div>
-                <p></p>
-                <div class="input-group">
-                    <input type="text" id ="keywords" name ="keywords" class="form-control input-lg" placeholder="搜索......"  value ="<?php if (isset($keywords)) echo $keywords; ?>">
-                    <span class="input-group-btn">
-                        <button name ="submit" type="submit" class="btn btn-primary  btn-lg"><span class="glyphicon glyphicon-search"></span></button>
-                    </span> 
-                </div> 
-                <p></p>
+                <?php
+                $query = "SELECT * FROM def where name = '$keywords'";
+                $result = mysqli_query($dbc, $query) or die('Error querying database.');
+                if ($row = mysqli_fetch_array($result)) {
+                    render_item($dbc, $row, $db_name);
+                }
+
+                //$query = "SELECT * FROM def where name like '%$keywords%' or def like '%$keywords%' ORDER BY name ASC LIMIT 0,10";
+                $query = build_query($keywords) . " LIMIT $skip, $results_per_page";
 
 
+                $result = mysqli_query($dbc, $query) or die('Error querying database.');
+                while ($row = mysqli_fetch_array($result)) {
+                    render_item($dbc, $row, $db_name);
+                }
 
-                <hr> 
-                <div class="row">
-                    <div class="col-md-10">
-
-
-                        <?php
-                        $query = "SELECT * FROM def where name = '$keywords'";
-                        $result = mysqli_query($dbc, $query) or die('Error querying database.');
-                        if ($row = mysqli_fetch_array($result)) {
-                            render_item($dbc, $row, $db_name);
-                        }
-
-                        //$query = "SELECT * FROM def where name like '%$keywords%' or def like '%$keywords%' ORDER BY name ASC LIMIT 0,10";
-                        $query = build_query($keywords) . " LIMIT $skip, $results_per_page";
-
-
-                        $result = mysqli_query($dbc, $query) or die('Error querying database.');
-                        while ($row = mysqli_fetch_array($result)) {
-                            render_item($dbc, $row, $db_name);
-                        }
-
-                        if ($num_pages > 1) {
-                            generate_page_links($url, $cur_page, $num_pages);
-                        }
-                        ?>
-                        <p><font color="gray">获得约<?php echo $total; ?>条结果。</font></p>
-                        <hr>
-                    </div>
-                    <div class="col-md-2">
-                        <?php
-                        render_related($dbc, $db_name, $keywords);
-                        ?>
-                    </div>
-
-                </div>
+                if ($num_pages > 1) {
+                    generate_page_links($url, $cur_page, $num_pages);
+                }
+                ?>
+                <p><font color="gray">获得约<?php echo $total; ?>条结果。</font></p>
+                <hr>
             </div>
-        </form>   
-    </div>
+            <div class="col-md-2">
+                <?php
+                render_related($dbc, $db_name, $keywords);
+                ?>
+            </div>
 
+        </div>
+        <?php
+    }
+    ?>
 </div>
+
+
 
 
 <!-- Example row of columns -->

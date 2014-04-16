@@ -15,12 +15,11 @@
             foreach ($db_labels as $db => $db_label) {
                 //echo $db . $active_db . ($db === $active_db);
                 echo '<li ';
-               // if ($db == $active_db)
+                // if ($db == $active_db)
                 if ($db == $db_name)
                     echo 'class="disabled"';
                 // echo 'class="disabled"';
                 echo "><a href=\"search.php?keywords=$keywords&db_name=" . $db . '">' . $db_label . '</a></li>';
-                      
             }
             ?>  
             <li><a href="#">更多>></a></li>
@@ -32,7 +31,15 @@
                 <button name ="submit" type="submit" class="btn btn-primary  btn-lg"><span class="glyphicon glyphicon-search"></span></button>
             </span> 
 
+
         </div> 
+        <p>为您推荐： 
+            <?php
+            foreach ($db_search_words[$db_name] as $recommended_search_words) {
+                echo "<a href='search.php?db_name=$db_name&keywords=$recommended_search_words'>$recommended_search_words</a>&nbsp;&nbsp;";
+            }
+            ?>
+        </p>
         <!--
         &nbsp;&nbsp;
         <label class="checkbox-inline input-sm">

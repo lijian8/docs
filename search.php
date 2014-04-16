@@ -63,8 +63,8 @@ function generate_page_links($db_name, $user_search, $cur_page, $num_pages) {
     echo '</ul>';
 }
 
-function get_total($keywords, $dbc) {
-    $query = build_query($keywords, true);
+function get_total($keywords, $filtered, $dbc) {
+    $query = build_query($keywords, $filtered, true);
     $result = mysqli_query($dbc, $query);
     $row = mysqli_fetch_array($result);
     $total = $row['count'];
@@ -79,11 +79,44 @@ if (isset($_GET['keywords'])) {
     $keywords = $_GET['keywords'];
 }
 
-// Calculate pagination information
+$recommended = array();
+if (isset($keywords) && ($keywords != "")) {
+    $title_query = build_title_query($keywords);
+
+    $title_result = mysqli_query($dbc, $title_query) or die('Error querying database:' . $title_query);
+    while ($row = mysqli_fetch_array($title_result)) {
+
+        $id = $row[id];
+
+        if (!array_key_exists($id, $recommended)) {
+            $recommended[$id] = array();
+        }
+    }
+
+
+    $metadata_query = build_metadata_query($keywords);
+    $metadata_result = mysqli_query($dbc, $metadata_query) or die('Error querying database:' . $metadata_query);
+    while ($row = mysqli_fetch_array($metadata_result)) {
+
+        $id = $row[subject];
+        $property = $row[property];
+        $value = $row[value];
+        if (array_key_exists($id, $recommended)) {
+            $recommended[$id][] = array($property, $value);
+        } else {
+            $recommended[$id] = array(array($property, $value));
+        }
+    }
+}
+
+if (count($recommended) > 5) {
+    $recommended = array_slice($recommended, 0, 5, true);
+}
+
 $cur_page = isset($_GET['page']) ? $_GET['page'] : 1;
 $results_per_page = 10;  // number of results per page
 $skip = (($cur_page - 1) * $results_per_page);
-$total = get_total($keywords, $dbc);
+$total = get_total($keywords, array_keys($recommended), $dbc);
 $num_pages = ceil($total / $results_per_page);
 ?>
 <div class="container">
@@ -95,26 +128,57 @@ $num_pages = ceil($total / $results_per_page);
             <?php include_once ("./search_form.php"); ?>
 
             <div class="row">
-                <div class="col-md-8">
-
-
-
+                <div class="container">
                     <?php
+                    echo '<p><font color="gray">找到 ' . ($total + count($recommended)) . ' 条结果。</font></p>';
+                    ?>
+                </div>
+
+                <div class="col-md-8">
+                    <?php
+                    if (count($recommended) != 0) {
+                        echo '<div class="panel panel-default">';
+                        echo '<div class="panel-body">';
+                        echo '<p class="lead">为您推荐</p>';
+                        echo '<hr>';
+                        foreach ($recommended as $id => $pv) {
+                            $query = "SELECT * FROM resource where id = $id";
+                            $result = mysqli_query($dbc, $query) or die('Error querying database:' . $query);
+                            if ($inner_row = mysqli_fetch_array($result)) {
+                                $title = $inner_row[title];
+                                $def = $inner_row[description];
+                                echo "<a class = 'lead' href=\"resource_viewer.php?db_name=$db_name&id=$id\">$title</a><br>";
+                                echo '<font color="green">' . $inner_row[creator] . ' ' . $inner_row[source] . '</font><br>';
+                                echo tcmks_substr($def) . '<br>';
+                                foreach ($pv as $pair) {
+                                    echo '<strong>' . $pair[0] . ": " . $pair[1] . '</strong>&nbsp;&nbsp;';
+                                }
+
+                                echo "<br><br>";
+                            }
+                        }
+                        echo '</div>';
+                        echo '</div>';
+                    }
+
+
+// Calculate pagination information
 //$query = "SELECT * FROM resource where title like '%$keywords%' or description like '%$keywords%' ORDER BY title ASC LIMIT 0,10";
 
-                    $query = build_query($keywords) . " LIMIT $skip, $results_per_page";
+                    $query = build_query($keywords, array_keys($recommended)) . " LIMIT $skip, $results_per_page";
 
 
                     $result = mysqli_query($dbc, $query) or die('Error querying database.');
                     while ($row = mysqli_fetch_array($result)) {
-                        $title = $row[title];
                         $id = $row[id];
+                        //if (!array_key_exists($id, $recommended)) {
+                        $title = $row[title];
                         $def = $row[description];
-                        echo "<p><a href=\"resource_viewer.php?db_name=$db_name&id=$id\">$title</a></p>";
-
+                        echo "<a class = 'lead' href=\"resource_viewer.php?db_name=$db_name&id=$id\">$title</a><br>";
+                        echo '<font color="green">' . $row[creator] . ' ' . $row[source] . '</font><br>';
                         echo tcmks_substr($def);
-
-                        echo "<hr>";
+                        echo "<br><br>";
+                        //}
                     }
 
                     if ($num_pages > 1) {
@@ -128,36 +192,22 @@ $num_pages = ceil($total / $results_per_page);
 
 
 
-                    <p><font color="gray">获得约 <?php echo $total; ?> 条结果。</font></p>
 
 
-                    <!--
-                    <div class="col-md-1">
-        
-        echo '<p><font color="red">' . $keywords . '</font>的相关搜索:</p>';
-        echo '<p><a  href=\"#\">四君子汤</a></p>';
-        echo '<p><a  href=\"#\">人参</a></p>';
-        echo '<p><a  href=\"#\">补阳</a></p>';
-        echo '<p><a  href=\"#\">石杉碱甲</a></p>';
-        echo '<p><a  href=\"#\">大黄</a></p>';
-        echo '<p><a  href=\"#\">肾</a></p>';
-        echo '<p><a  href=\"#\">李时珍</a></p>';
-        echo '<p><a  href=\"#\">孙思邈</a></p>';
-        echo '<p><a  href=\"#\">汤剂</a></p>';
-        echo '<p><a  href=\"#\">牛黄</a></p>';
-        
-                    </div>
-                    -->
+
+
                 </div>
                 <div class="col-md-4">
                     <?php
+                    
                     $entity_id = get_id($dbc, $keywords);
 
                     if ($entity_id != '') {
                         ?>
-                        <div class="panel panel-info">
+
+                        <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><?php echo "<a href='entity.php?db_name=$db_name&id=$entity_id'>$keywords</a>"; ?>的知识图谱</h3>
+                                <h3 class="panel-title"><?php echo "<a href='entity.php?db_name=$db_name&id=$entity_id'>$keywords</a>"; ?></h3>
                             </div>
                             <div class="panel-body" align="center">
                                 <?php
@@ -192,7 +242,7 @@ $num_pages = ceil($total / $results_per_page);
 
                                     $s = array();
                                     foreach ($names as $name_property) {
-                                        $full_id= PREFIX . $entity_id;
+                                        $full_id = PREFIX . $entity_id;
                                         $query = "select * from graph where subject ='$full_id' and property = '$name_property'";
                                         $result = mysqli_query($dbc, $query) or die('Error querying database2.');
 
@@ -211,7 +261,7 @@ $num_pages = ceil($total / $results_per_page);
                                     $values = array_slice($values, 0, 4);
 
                                     foreach ($values as $property => $value) {
-                                        echo "<tr><td width='10%'>" . $property . ":</td><td>";
+                                        echo "<tr><td width='30%'>" . $property . ":</td><td>";
                                         echo $value;
                                         echo "</td></tr>";
                                     }
@@ -228,7 +278,7 @@ $num_pages = ceil($total / $results_per_page);
 
                                     foreach ($values as $property => $value) {
                                         //echo "<p><strong>$property</strong>$value</p>";
-                                        echo "<tr><td width='10%'>" . $property . ":</td><td>";
+                                        echo "<tr><td width='30%'>" . $property . ":</td><td>";
                                         echo $value;
                                         echo "</td></tr>";
                                     }

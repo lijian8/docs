@@ -1,4 +1,4 @@
-<img width ="100%" src ="img/tcmlm_logo1.jpg"></img> 
+<br>
 
 <nav class="navbar navbar-default" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -15,16 +15,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
-
             <li><a href="resource_add.php?db_name=<?php echo $db_name; ?>"><span class="glyphicon glyphicon-list"></span>&nbsp;录入文献</a></li>               
-             <!--<li><a href="upload.php?db_name=<?php //echo $db_name;      ?>"><span class="glyphicon glyphicon-cloud-upload"></span>&nbsp;上传</a></li>   -->            
-
         </ul>
 
         <form class="navbar-form navbar-left" role="search" action="resource_manager.php" method="get" 
               enctype="multipart/form-data">
             <div class="form-group">
-                <input type="text" class="form-control" id ="keywords" name ="keywords" value="<?php echo $keywords;?>" placeholder="请输入关键词...">
+                <input type="text" class="form-control" id ="keywords" name ="keywords" value="<?php echo $keywords; ?>" placeholder="请输入关键词...">
             </div>
             <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>&nbsp;搜索</button>
             <input type="hidden" id ="db_name" name ="db_name" value=" <?php echo $db_name; ?>">
@@ -44,8 +41,8 @@
 
                 </ul>
             </li>      
-            <li><a href="#" >返回首页</a></li>
+            <li><a href="resource_manager.php?db_name=<?php echo $db_name;?>" >返回首页</a></li>
 
         </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
 </nav>
