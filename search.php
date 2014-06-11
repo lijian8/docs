@@ -199,7 +199,6 @@ $num_pages = ceil($total / $results_per_page);
                 </div>
                 <div class="col-md-4">
                     <?php
-                    
                     $entity_id = get_id($dbc, $keywords);
 
                     if ($entity_id != '') {
