@@ -3,52 +3,16 @@ $db_name = "clan";
 include_once ("./header.php");
 include_once ("./functions.php");
 
-/*
-  function get_chapters($dbc) {
-  $query = "select title from resource";
-  $result = mysqli_query($dbc, $query) or die('Error querying database:' . $query);
-  $ids = array();
 
-  $chapters = array();
-  while ($row = mysqli_fetch_array($result)) {
-  $title = $row[title];
-  $title = str_replace(array("\JJ", "\PP"), " ", $title);
-  $title_parts = explode(" ", $title);
-  if (($title_parts[1] != '') &&(!in_array($title_parts[1], $chapters)) )
-  $chapters[] = $title_parts[1] ;
-  }
-
-  return $chapters;
-
-  }
-
-  $chapters = get_chapters($dbc) ; */
-
-function startsWith($haystack, $needle) {
-    return $needle === "" || strpos($haystack, $needle) === 0;
-}
 
 function render_relations($dbc, $id) {
     $query = "SELECT * FROM relation WHERE docs=$id";
     $result = mysqli_query($dbc, $query) or die('Error querying database:' . $query);
 
     if (mysqli_num_rows($result) != 0) {
-        /*
-          echo '<a data-toggle = "collapse" data-toggle = "collapse"  href = "#relation' . $id . '">语义关系<span class="caret"></a>';
-          echo '<div id="relation' . $id . '" class="panel-collapse collapse">';
-          echo '<div class = "panel-body">';
-          while ($row = mysqli_fetch_array($result)) {
-          echo "<a class='btn btn-xs btn-default' href = '#'>" . $row["SUBJECT"] . " " . $row["PREDICATE"] . " " . $row["OBJECT"] . "</a>&nbsp;&nbsp;";
-          }
-          echo '</div>';
-          echo '</div>'; */
-
-
+        
         echo '<div class = "dropdown">';
-
         echo '<a class = "dropdown-toggle" id = "dLabel"  data-toggle = "dropdown" data-target = "#" href = "/page.html">语义关系<span class = "caret"></span></a>';
-        //    echo '<a class = "dropdown-toggle" data-toggle = "dropdown" href="' . $_SERVER["PHP_SELF"] . '?db_name=' . $db_name . '&type=' . $object_type . '&name=' . $value . '">' . $value . '</a>';
-
         echo '<ul class = "dropdown-menu" role = "menu" aria-labelledby = "dLabel">';
         echo '<div class="container">';
 
@@ -67,17 +31,14 @@ function render_relations($dbc, $id) {
         }
         echo '</table>';
         echo '</div>';
-        /*
-          echo '<li><a href="#">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-search"></span> 查看更多&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>'; */
-
-        echo '<li><a href="#">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-search"></span> 查看更多</a></li>';
+        echo '<li><a href="annotation.php?text_id=' . $id . '">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-search"></span> 查看更多</a></li>';
         echo '</ul>';
-
         echo '</div>';
     }
+}
+
+function startsWith($haystack, $needle) {
+    return $needle === "" || strpos($haystack, $needle) === 0;
 }
 
 function get_keywords($dbc, $id) {
@@ -141,6 +102,7 @@ function render_paragraphs($dbc, $db_name, $title) {
         $predicates = get_predicates($dbc, $id);
 
         $description = preprocess_description($db_name, $description, $keywords, $predicates);
+           
         echo $description;
 
 
@@ -148,25 +110,23 @@ function render_paragraphs($dbc, $db_name, $title) {
         echo "</div>";
         echo "<div class='col-sm-4'>";
 
-        if (count($keywords) != 0) {           
-         
+        if (count($keywords) != 0) {
+
             echo '<small>相关概念：</small>';
-            
+
             foreach ($keywords as $keyword) {
                 //echo '<p>' . $keyword . ": " . $def . '</p>';
                 echo '<button type="button" class="btn btn-xs btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="' . get_def($dbc, $keyword) . '">';
                 echo $keyword;
                 echo '</button>&nbsp;&nbsp;';
             }
-           
+
             echo '<small> ';
             render_relations($dbc, $id);
-            echo '</small>';         
-           
+            echo '</small>';
         }
         echo "</div>";
         echo "</div>";
-        
     }
 }
 
@@ -223,8 +183,12 @@ $section = isset($_GET["section"]) ? $_GET["section"] : "\JJ曹序";
 $chapters = array("曹序", "自序", "序例", "卷之一·阴阳脏腑部", "卷之二·阴阳脏腑部", "卷之三·阴阳脏腑部", "卷之四·阴阳脏腑部", "卷之五·阴阳脏腑部", "卷之六·阴阳脏腑部", "卷之七·阴阳脏腑部", "卷之八·阴阳脏腑部", "卷之九·阴阳脏腑部", "卷之十·肝胆部", "卷之十一·肝胆部", "卷之十二·肝胆部", "卷之十三·肝胆部", "卷之十四·肝胆部", "卷之十五·肝胆部", "卷之十六·心小肠部", "卷之十七·心小肠部", "卷之十八·心小肠部", "卷之十九·心小肠部", "卷之二十·心小肠部", "卷之二十一·脾胃门", "卷之二十二·脾胃部", "卷之二十三·脾胃部", "卷之二十四·脾胃部", "卷之二十五·脾胃部", "卷之二十六·肺大肠部", "卷之二十七·肺大肠部", "卷之二十八·肾膀胱部", "卷之二十九·肾膀胱部", "卷之三十·伤寒部", "卷之三十一·伤寒部", "卷之三十二·伤寒部", "卷之三十三·伤寒部", "卷之三十四·妇人部", "卷之三十五·妇人部", "卷之三十六·小儿部", "卷之三十七·小儿部", "卷之三十八·小儿部", "卷之三十九·小儿部", "卷之四十·《内经》运气类注", "运气占候");
 //print_r($chapters);
 ?>
-<br>
+
 <div class="container">
+    <?php
+    $page_name = 'book_annotation';
+    include_once ("./classics_header.php");
+    ?>
     <h1><font face="微软雅黑">医学纲目</font></h1>
     <p class="lead">作者：楼英（明） 年份：公元1565年</p>
     <hr>

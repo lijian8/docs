@@ -118,7 +118,7 @@ and open the template in the editor.
                             <ul class="dropdown-menu">
                                 <li><a href="project_relation.php">基于文本的中医药语义关系发现研究</a></li>
                                 <li><a href="project_tcmlm.php">中医药文献元数据标准的示范应用与评价研究</a></li>
-                                <li><a href="project_classics.php">基于文本信息抽取的中医古籍语义类型及语义关系研究</a></li>
+                                <li><a href="project_classics.php">基于文本信息抽取的中医古籍语义关系研究</a></li>
                             </ul>
                         </li>      
 
